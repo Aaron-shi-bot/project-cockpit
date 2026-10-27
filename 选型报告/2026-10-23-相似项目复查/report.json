@@ -1,0 +1,867 @@
+{
+  "query": "项目驾驶舱：高度相似的开源项目与现成产品",
+  "date": "2026-10-23",
+  "type": "混合",
+  "mode": "normal",
+  "rounds": 1,
+  "constraints": "按现行PRD比较：明亮简洁的多项目进度/阶段/下一里程碑/风险总览，项目任务和资料版本、跨项目任务、多人分层权限、移动端。此次只查相似方案与复用可能，不执行替换、购买或部署。",
+  "channels": [
+    "Exa连接器",
+    "内置网页搜索",
+    "GitHub源码/发布/安全公告",
+    "官方文档/版本/截图",
+    "当前项目与历史报告"
+  ],
+  "history_reused": [
+    "历史库：选型报告/report.json（2026-10-22）；原始范围偏同事工作共享，本次按已实现驾驶舱重新评估。",
+    "历史库：选型报告/2026-10-22-易用性与成本复核/report.json；保留易用性、Windows客户端与服务器分开核对的教训。",
+    "历史库：research/dashboard-2026-10-23/shortlist.json；VibeFocus/Tududi/Logbook重新查当前源码。",
+    "清理记录.md：OpenProject安装已按用户要求取消；本轮只读比较，不恢复安装。"
+  ],
+  "verdict_line": "Verdict: 待验证 — ProjectStatusApp（优先核对的相似项目）／Tududi（协作改造候选） — 2026-10-23核对官方源码、AGPL-3.0/MIT和发布信息；未完成真实运行及多人业务试跑",
+  "confidence": "MEDIUM",
+  "door": "two-way",
+  "re_evaluation_trigger": "复制/合并外部代码、购买商业版本、迁移数据或正式部署前；完成两账号隔离试跑后；ProjectStatusApp安全依赖修复、Tududi版本变动或所需权限/资料规则改变时。",
+  "lineage": "现成生态可分为跨项目交付健康（ProjectStatusApp）、任务协作发展出的总览（Tududi/Leantime/Plane）、个人经理工作台（ManagerOS/VibeFocus/Logbook）和商业Portfolios（Asana/monday）。当前驾驶舱把轻量总览、执行任务、资料版本和严格团队权限组合在一起，属于已有产品类型，但现成项目覆盖的边界不同。历史调查偏信息共享，本轮从现行PRD和实现重新定位，未沿用旧空工作区结论。",
+  "business_value": "可靠性：成熟平台有版本与商业支持，但小型相似仓库需要更多运行证据；战略：继续拥有当前领域规则与权限，比因界面相似整体换底座更有价值；适配：ProjectStatusApp适合业务结构参考、Tududi适合协作底座、ManagerOS适合局部代码参考；总成本：需计许可证/商业插件、服务器、升级、迁移与权限补建；速度：先对照现成页面与源码选取少量改进，整体替代须先用虚构数据试跑。",
+  "candidates": [
+    {
+      "name": "ProjectStatusApp",
+      "url": "https://github.com/fvisic/ProjectStatusApp",
+      "links": {
+        "官方总览截图": "https://raw.githubusercontent.com/fvisic/ProjectStatusApp/main/docs/screenshots/dashboard.png",
+        "权限源码": "https://github.com/fvisic/ProjectStatusApp/blob/main/app/Policies/ProjectPolicy.php",
+        "发布": "https://github.com/fvisic/ProjectStatusApp/releases",
+        "依赖安全修复PR": "https://github.com/fvisic/ProjectStatusApp/pull/13"
+      },
+      "one_liner": "业务形态最接近：多项目健康、风险、阶段、下一步、时间线和快照；权限是角色/创建者规则，资料文件版本未证实。",
+      "type": "自部署开源应用",
+      "maturity": "L2",
+      "license_cost": "AGPL-3.0；自部署需PHP/Laravel/MySQL与运维",
+      "last_update": "默认分支2026-07-28（UTC）；稳定v1.1.0发布2026-05-21",
+      "effort": "与现有React/Node栈不同；当前本机无Docker/PHP，未安装",
+      "known_issues": "admin/manager/user不能等同项目成员共享；快照版本不等于资料版本；lockfile中postcss-selector-parser 6.1.2命中CVE-2026-9358范围，安全更新PR未合并，未验证应用实际可利用性。",
+      "license_check": "若修改后供用户通过网络交互，应向这些用户提供对应源码获取机会；分发也须保留AGPL条件。商业使用本身并非禁止。",
+      "verdict": "待验证",
+      "recommended": true,
+      "reason": "优先查看和验证的相似项目，不代表建议迁移。已核对官方文档、部分源码与许可证，未进行本机或多人试跑。",
+      "lineage": "围绕跨项目交付健康，补足Jira等任务系统之外的管理者全局视图；因此风险、期限接近，执行任务和资料协作不完全相同。",
+      "six_dimensions": {
+        "function": "驾驶舱高度相似；任务、项目成员权限、资料版本不全",
+        "maintenance": "2026年有稳定发布及依赖更新；仍有安全PR待合并",
+        "community": "早期小项目；缺足够独立运行反馈",
+        "docs": "README、安装/快速开始、源码与截图可读",
+        "license": "AGPL-3.0，修改后网络提供源码义务",
+        "dependencies": "PHP8.4/Laravel13/Livewire3/MySQL8.4；Docker路径"
+      },
+      "confidence": "MEDIUM",
+      "door": "two-way",
+      "re_evaluation_trigger": "复制代码、购买服务或迁移前；首轮隔离业务试跑后；许可、付费版本、项目权限或安全依赖改变时。",
+      "match": {
+        "input": "✅",
+        "output": "✅",
+        "scenario": "⚠️",
+        "constraint": "⚠️"
+      },
+      "verdict_line": "Verdict: 待验证 — ProjectStatusApp — 2026-10-23核对官方资料与许可；未完成多人业务试跑"
+    },
+    {
+      "name": "Tududi",
+      "url": "https://github.com/chrisvel/tududi",
+      "links": {
+        "项目与分享文档": "https://github.com/chrisvel/tududi/blob/main/docs/06-projects.md",
+        "权限实现": "https://github.com/chrisvel/tududi/blob/main/backend/services/permissionsService.js",
+        "官网": "https://tududi.com/",
+        "发布": "https://github.com/chrisvel/tududi/releases"
+      },
+      "one_liner": "协作改造候选：项目进度、任务/笔记、只读/可写分享、群组与PWA；要补风险、里程碑和资料版本等驾驶舱业务。",
+      "type": "自部署开源应用/托管服务",
+      "maturity": "L3",
+      "license_cost": "MIT；自部署许可免费，托管服务另计，不把个人价当团队总价",
+      "last_update": "v1.9.7：2026-10-23 05:16（北京时间）",
+      "effort": "React+Node/Express+SQLite较接近现有栈；仍需适配和数据迁移验证",
+      "known_issues": "GTD/个人及小团队任务定位；权限体系与当前项目不同；文档首页和SECURITY支持版本有滞后，升级及问题修复需要跟踪。",
+      "license_check": "MIT允许商业使用与修改；分发保留版权和许可文本，依赖仍分别核对。",
+      "verdict": "待验证",
+      "reason": "在轻量候选里有可追溯的真实分享权限代码。不能把README和源码审核替代双账号撤权、历史文件下载和恢复实测。",
+      "lineage": "从任务/领域/项目组织发展到家庭和小团队协作；适合作任务协作底座，需要驾驶舱专门功能。",
+      "six_dimensions": {
+        "function": "进度与真实分享接近，风险/里程碑/文件版本缺专门证据",
+        "maintenance": "2026-10-23新稳定版本；有持续issue/PR",
+        "community": "有独立使用者issue，升级fixture及项目名问题仍需核验",
+        "docs": "项目/角色/PWA及部署文档存在；版本页面有漂移",
+        "license": "MIT",
+        "dependencies": "React、Node/Express、SQLite，可配置PostgreSQL"
+      },
+      "confidence": "MEDIUM",
+      "door": "two-way",
+      "re_evaluation_trigger": "复制代码、购买服务或迁移前；首轮隔离业务试跑后；许可、付费版本、项目权限或安全依赖改变时。",
+      "match": {
+        "input": "✅",
+        "output": "✅",
+        "scenario": "⚠️",
+        "constraint": "⚠️"
+      },
+      "verdict_line": "Verdict: 待验证 — Tududi — 2026-10-23核对官方资料与许可；未完成多人业务试跑"
+    },
+    {
+      "name": "ManagerOS（elmadah/manager-os）",
+      "url": "https://github.com/elmadah/manager-os",
+      "links": {
+        "安全说明": "https://github.com/elmadah/manager-os/blob/main/SECURITY.md",
+        "服务入口": "https://github.com/elmadah/manager-os/blob/main/server/index.js",
+        "存储实现": "https://github.com/elmadah/manager-os/blob/main/server/db/init.js"
+      },
+      "one_liner": "功能与技术栈接近：项目健康、风险阻塞、时间线、团队、笔记、周报；明确没有认证和权限，只宜参考或选取MIT代码。",
+      "type": "个人/工程经理开源工具",
+      "maturity": "L2",
+      "license_cost": "MIT；补认证、项目权限和可靠存储仍需开发",
+      "last_update": "默认分支2026-08-18（UTC）",
+      "effort": "React/Vite/Express接近；sql.js内存库每次全量写盘，替换底座前需实测",
+      "known_issues": "团队成员档案不等于多人登录。无认证中间件；多进程写入、崩溃恢复、项目隔离未验证。未找到该仓库公开demo。",
+      "license_check": "MIT，保留版权与许可；不能忽略依赖条款。",
+      "verdict": "只借鉴",
+      "reason": "可以作为页面结构和模块代码参考，不能直接成为需要外网多人协作的平台。现有项目已具备权限基础，整体替换未必节省工作。",
+      "lineage": "面向工程经理掌握项目和人员信息；单用户管理视角解释了它有团队档案但没有登录权限。",
+      "six_dimensions": {
+        "function": "核心驾驶舱模块接近；无认证为多人采用硬缺口",
+        "maintenance": "近期有提交；无成熟发布支持证据",
+        "community": "小型仓库，独立部署证据不足",
+        "docs": "README/SECURITY明确限制，可定位源码",
+        "license": "MIT",
+        "dependencies": "React/Vite/Express/sql.js，内存导出全量写盘"
+      },
+      "confidence": "MEDIUM",
+      "door": "two-way",
+      "re_evaluation_trigger": "复制代码、购买服务或迁移前；首轮隔离业务试跑后；许可、付费版本、项目权限或安全依赖改变时。",
+      "match": {
+        "input": "✅",
+        "output": "✅",
+        "scenario": "❌",
+        "constraint": "⚠️"
+      },
+      "verdict_line": "Verdict: 只借鉴 — ManagerOS（elmadah/manager-os） — 2026-10-23核对官方资料与许可；未完成多人业务试跑"
+    },
+    {
+      "name": "Leantime",
+      "url": "https://github.com/Leantime/leantime",
+      "links": {
+        "跨项目Program Plans": "https://marketplace.leantime.io/product/leantime-program-plans/",
+        "许可说明": "https://support.leantime.io/en/article/how-is-leantime-the-open-source-system-licensed-29l3j/",
+        "发布": "https://github.com/Leantime/leantime/releases/tag/v3.12.0"
+      },
+      "one_liner": "项目任务、状态、里程碑、风险、Wiki/文件与协作接近；集中跨项目进度/目标/里程碑/风险总览是另售Program Plans插件。",
+      "type": "开源核心与商业插件",
+      "maturity": "L4",
+      "license_cost": "AGPLv3核心；Program Plans另售；插件目录可用独立许可",
+      "last_update": "v3.12.0：2026-10-16（北京时间）；10月21日仍有仓库推送",
+      "effort": "PHP/MySQL部署与维护；需另核对插件兼容、费用和版本",
+      "known_issues": "免费Project/My Work不等于全部跨项目管理能力。GHSA-54mm-6729-r5wp公告影响<=3.9.5但补丁字段未填，该公告不足以判定v3.12.0受影响；本轮未做全量安全审计，采用前需复核实际版本。",
+      "license_check": "AGPLv3核心修改后供网络交互须提供相应源码获取机会；分发须遵守许可。app/Plugins下插件可用其他许可，不能把购买插件当作AGPL免费代码复制。",
+      "verdict": "待验证",
+      "reason": "成熟项目协作参考，采用前必须确认Program Plans的商业门槛和当前权限/文件规则；当前已有本地实现，不默认重装替换。",
+      "lineage": "围绕非专业项目经理的任务、目标和战略规划发展；跨项目规划由独立插件扩展，因此开源核心与驾驶舱总览需分开判断。",
+      "six_dimensions": {
+        "function": "项目执行协作较完整，跨项目驾驶舱需Program Plans",
+        "maintenance": "新版本2026-10，安全公告需按版本核对",
+        "community": "有第三方评价与实际issue，不等同所有路径成熟",
+        "docs": "支持站、GitHub、插件市场齐备",
+        "license": "AGPLv3及插件例外",
+        "dependencies": "PHP/MySQL及插件兼容性，需服务器维护"
+      },
+      "confidence": "MEDIUM",
+      "door": "two-way",
+      "re_evaluation_trigger": "购买Program Plans或引入源码前；当前版本安全复核、两账号权限与文件试跑后。",
+      "match": {
+        "input": "✅",
+        "output": "✅",
+        "scenario": "⚠️",
+        "constraint": "⚠️"
+      },
+      "verdict_line": "Verdict: 待验证 — Leantime — v3.12.0、AGPLv3；跨项目Program Plans另售，未实跑"
+    },
+    {
+      "name": "Plane",
+      "url": "https://github.com/makeplane/plane",
+      "links": {
+        "跨项目Initiatives": "https://docs.plane.so/core-concepts/projects/initiatives",
+        "里程碑": "https://docs.plane.so/projects/milestones",
+        "仪表盘": "https://docs.plane.so/dashboards"
+      },
+      "one_liner": "团队项目、任务、文档和跨项目结构接近；Initiatives、Milestones、Dashboards标为Pro，不能当作CE默认免费能力。",
+      "type": "开源CE与商业版本",
+      "maturity": "L4",
+      "license_cost": "CE AGPL-3.0；相关跨项目功能需核对商业计划",
+      "last_update": "CE v1.4.2：2026-08-23",
+      "effort": "较完整的服务栈，需容器与数据库/缓存等运维；不是现有Node/SQLite直接替换",
+      "known_issues": "里程碑进度把Completed或Cancelled计为完成，与当前排除取消任务的分母口径有差异；商业自托管文档与CE安装路径不能混用。",
+      "license_check": "CE修改后网络使用与分发须遵循AGPL相应源码条件；商业版本按独立许可，不能假设全部源码都可免费复制。",
+      "verdict": "待验证",
+      "reason": "适合团队研发工作流候选和界面参考，但目标功能的版本和统计语义需付费/试跑核实。",
+      "lineage": "以研发事项、迭代和模块为中心扩展项目组合和仪表盘，与轻量通用项目驾驶舱重心不同。",
+      "six_dimensions": {
+        "function": "任务协作完整，组合/里程碑/仪表盘有Pro门槛",
+        "maintenance": "稳定版及活跃维护证据",
+        "community": "社区规模与issue足以交叉核查，非可用性保证",
+        "docs": "CE与Commercial Edition路径需区分",
+        "license": "AGPL-3.0 CE与商业版并存",
+        "dependencies": "前端+API+worker+数据库缓存等，运维高于当前应用"
+      },
+      "confidence": "MEDIUM",
+      "door": "two-way",
+      "re_evaluation_trigger": "复制代码、购买服务或迁移前；首轮隔离业务试跑后；许可、付费版本、项目权限或安全依赖改变时。",
+      "match": {
+        "input": "✅",
+        "output": "✅",
+        "scenario": "⚠️",
+        "constraint": "⚠️"
+      },
+      "verdict_line": "Verdict: 待验证 — Plane — 2026-10-23核对官方资料与许可；未完成多人业务试跑"
+    },
+    {
+      "name": "Asana Portfolios",
+      "url": "https://help.asana.com/s/article/portfolio-management",
+      "links": {
+        "版本门槛": "https://help.asana.com/s/article/portfolios-faq",
+        "报告与权限": "https://help.asana.com/s/article/portfolio-progress-and-reporting?language=en_US"
+      },
+      "one_liner": "成熟成品业务同类：同屏项目状态、任务/里程碑进度、负责人、日期和更新；需Advanced及以上，资料版本规则未证实等价。",
+      "type": "商业SaaS",
+      "maturity": "L4",
+      "license_cost": "商业服务；Portfolios属于Advanced/Enterprise/Enterprise+，价格需采购时核对",
+      "last_update": "2026-10-23核对当前官方功能手册",
+      "effort": "无需自建服务；需要配置字段、权限和导出方案",
+      "known_issues": "下一里程碑自动选取、取消任务分母和不可覆盖文件版本未证实；外部文件权限独立，公开状态报告分享边界须另验。",
+      "license_check": "闭源商业服务；可理解其交互，未取得复制代码或自行部署许可。",
+      "verdict": "待验证",
+      "reason": "作为现成产品对照十分直接；采用仍需用实际团队权限和文件路径验证，不能以存在同类推导直接迁移。",
+      "lineage": "在项目任务系统之上增加Portfolios，直接解决多项目健康和进度汇总。",
+      "six_dimensions": {
+        "function": "组合状态/进度/日期/负责人非常相近",
+        "maintenance": "持续运营商业产品；本次核对官方手册",
+        "community": "独立厂商生态，与多家产品交叉核对",
+        "docs": "功能、进度、报告、移动端与版本FAQ",
+        "license": "闭源商业SaaS",
+        "dependencies": "供应商服务/网络/外部附件权限"
+      },
+      "confidence": "MEDIUM",
+      "door": "two-way",
+      "re_evaluation_trigger": "复制代码、购买服务或迁移前；首轮隔离业务试跑后；许可、付费版本、项目权限或安全依赖改变时。",
+      "match": {
+        "input": "✅",
+        "output": "✅",
+        "scenario": "⚠️",
+        "constraint": "⚠️"
+      },
+      "verdict_line": "Verdict: 待验证 — Asana Portfolios — 2026-10-23核对官方资料与许可；未完成多人业务试跑"
+    },
+    {
+      "name": "monday.com Portfolio",
+      "url": "https://support.monday.com/hc/en-us/articles/13337066797202-The-portfolio-solution",
+      "links": {
+        "跨项目仪表盘": "https://support.monday.com/hc/en-us/articles/23921675672466-Portfolio-management-All-Projects-Dashboard",
+        "文件版本": "https://support.monday.com/hc/en-us/articles/360021698980-File-versioning"
+      },
+      "one_liner": "卡片式健康总览很相似：健康、完成任务、计划/实际和经理；另有跨项目里程碑仪表盘。仅Enterprise项目板可接入，组合访问者会看到相连项目名。",
+      "type": "商业SaaS",
+      "maturity": "L4",
+      "license_cost": "商业服务；Portfolio连接Enterprise项目板，具体采购包装待报价",
+      "last_update": "2026-10-23核对当前官方功能手册",
+      "effort": "先配置Portfolio和Project board；不能部署到现有Sites源码",
+      "known_issues": "项目名可见规则与当前严格范围不同；AI每日风险不能等同手工可追溯风险闭环。文件版本可删除；at-scale beta不能与普通Portfolio能力混写。",
+      "license_check": "商业闭源；只借鉴交互不意味着取得源码复用许可。",
+      "verdict": "待验证",
+      "reason": "适合作视觉结构对照；版本门槛和项目名称可见性使它不能未经试用直接替代。",
+      "lineage": "通过组合板聚合多个项目板；统一卡片适合管理者全局查看，但继承供应商自己的权限与统计规则。",
+      "six_dimensions": {
+        "function": "卡片形态高度相似；权限/文件语义不同",
+        "maintenance": "持续运营产品",
+        "community": "独立厂商与支持社区；未实测团队学习成本",
+        "docs": "Portfolio/Health Snapshot/Risk Insights/版本说明",
+        "license": "商业闭源",
+        "dependencies": "SaaS、Enterprise项目板与供应商权限模型"
+      },
+      "confidence": "MEDIUM",
+      "door": "two-way",
+      "re_evaluation_trigger": "复制代码、购买服务或迁移前；首轮隔离业务试跑后；许可、付费版本、项目权限或安全依赖改变时。",
+      "match": {
+        "input": "✅",
+        "output": "✅",
+        "scenario": "⚠️",
+        "constraint": "⚠️"
+      },
+      "verdict_line": "Verdict: 待验证 — monday.com Portfolio — 2026-10-23核对官方资料与许可；未完成多人业务试跑"
+    }
+  ],
+  "next_steps": [
+    "先看ProjectStatusApp官方总览、项目详情、风险与阶段截图，确认哪些信息组织值得吸收；截图是作者示例，不是本次运行结果。",
+    "如果目标是采用外部成品，优先隔离试跑ProjectStatusApp与Tududi。至少建立3个虚构项目、2个权限不同账号，核对阶段/下个里程碑/进度分母、风险汇总、撤权、历史文件下载；不能只检查首页。",
+    "ProjectStatusApp试跑前处理锁文件安全依赖，明确AGPL与PHP运行成本；当前本机未发现Docker/PHP，本轮没有新装环境，采用结论保持待验证。",
+    "若继续现有项目，优先借鉴ProjectStatusApp的健康/风险总览、Asana/monday的组合详情和ManagerOS的相关模块；选用任何源码前按具体文件及依赖核对许可。",
+    "完整细项、原始查询与淘汰理由见research/similar-projects-2026-10-23内三份子报告；当前开发代码、数据库及部署状态未因本轮检索改变。"
+  ],
+  "sources": [
+    "https://github.com/fvisic/ProjectStatusApp",
+    "https://raw.githubusercontent.com/fvisic/ProjectStatusApp/main/docs/screenshots/dashboard.png",
+    "https://github.com/fvisic/ProjectStatusApp/blob/main/app/Policies/ProjectPolicy.php",
+    "https://github.com/fvisic/ProjectStatusApp/releases",
+    "https://github.com/fvisic/ProjectStatusApp/pull/13",
+    "https://github.com/chrisvel/tududi",
+    "https://github.com/chrisvel/tududi/blob/main/docs/06-projects.md",
+    "https://github.com/chrisvel/tududi/blob/main/backend/services/permissionsService.js",
+    "https://tududi.com/",
+    "https://github.com/chrisvel/tududi/releases",
+    "https://github.com/elmadah/manager-os",
+    "https://github.com/elmadah/manager-os/blob/main/SECURITY.md",
+    "https://github.com/elmadah/manager-os/blob/main/server/index.js",
+    "https://github.com/elmadah/manager-os/blob/main/server/db/init.js",
+    "https://github.com/Leantime/leantime",
+    "https://marketplace.leantime.io/product/leantime-program-plans/",
+    "https://support.leantime.io/en/article/how-is-leantime-the-open-source-system-licensed-29l3j/",
+    "https://github.com/Leantime/leantime/releases/tag/v3.12.0",
+    "https://github.com/makeplane/plane",
+    "https://docs.plane.so/core-concepts/projects/initiatives",
+    "https://docs.plane.so/projects/milestones",
+    "https://docs.plane.so/dashboards",
+    "https://help.asana.com/s/article/portfolio-management",
+    "https://help.asana.com/s/article/portfolios-faq",
+    "https://help.asana.com/s/article/portfolio-progress-and-reporting?language=en_US",
+    "https://support.monday.com/hc/en-us/articles/13337066797202-The-portfolio-solution",
+    "https://support.monday.com/hc/en-us/articles/23921675672466-Portfolio-management-All-Projects-Dashboard",
+    "https://support.monday.com/hc/en-us/articles/360021698980-File-versioning",
+    "https://www.gnu.org/licenses/gpl-faq.en.html",
+    "https://choosealicense.com/no-permission/",
+    "https://github.com/advisories/GHSA-w9m9-85wc-3x92",
+    "https://www.openproject.org/docs/user-guide/portfolios/",
+    "https://project.feishu.cn/b/helpcenter/1ykiuvvj/2itxzzn2",
+    "https://worktile.com/product/drive",
+    "https://github.com/aceymagallanes/atlas-pmo-command-center"
+  ],
+  "retrieval_log": [
+    {
+      "variant": "Open source project portfolio status dashboard with project health risk register milestones team roles ProjectStatusApp alternatives",
+      "engines": [
+        "Exa"
+      ],
+      "source_file": "root-findings.json",
+      "status": "完成",
+      "hits": 8,
+      "useful": 4
+    },
+    {
+      "variant": "GitHub exact repository/readme: ProjectStatusApp, Atlas PMO, Solvro",
+      "engines": [
+        "内置网页",
+        "GitHub API"
+      ],
+      "source_file": "root-findings.json",
+      "status": "完成",
+      "hits": 2,
+      "useful": 2
+    },
+    {
+      "variant": "GNU AGPL network modified source; Choose a License no permission",
+      "engines": [
+        "内置搜索"
+      ],
+      "source_file": "root-findings.json",
+      "status": "完成",
+      "hits": 3,
+      "useful": 2
+    },
+    {
+      "variant": "research/opensource-evidence.md",
+      "engines": [
+        "历史库"
+      ],
+      "source_file": "github-products.json",
+      "status": "复用2026-10-22 Leantime/Vikunja/PLANKA记录，动态事实本轮再查；未把旧结论当当前验证。"
+    },
+    {
+      "variant": "site.github.com Leantime leantime portfolio dashboard license; OpenProject portfolio; makeplane plane roadmap; Huly project management",
+      "engines": [
+        "内置web"
+      ],
+      "source_file": "github-products.json",
+      "status": "定位官方仓库、功能与许可证。"
+    },
+    {
+      "variant": "site.openproject.org docs project portfolio life cycle status dashboard community enterprise; site.plane.so docs portfolio initiatives dashboard self hosted community license; site.docs.huly.io roles permissions",
+      "engines": [
+        "内置web"
+      ],
+      "source_file": "github-products.json",
+      "status": "OpenProject Portfolios为Enterprise；Plane Initiatives为Pro；Huly分层角色及私有空间。"
+    },
+    {
+      "variant": "Open source project portfolio management dashboard project status milestones risks files permissions self hosted alternatives Leantime OpenProject Plane Huly",
+      "engines": [
+        "Exa connector"
+      ],
+      "source_file": "github-products.json",
+      "status": "获得官方交叉结果，并新发现fvisic/ProjectStatusApp；交给lightweight_dashboards代理深核。"
+    },
+    {
+      "variant": "7 repos metadata and releases/latest",
+      "engines": [
+        "GitHub connector GET"
+      ],
+      "source_file": "github-products.json",
+      "status": "逐项核对是否归档、推送时间、许可、正式发布。主要6项数据见repository_metadata。"
+    },
+    {
+      "variant": "hcengineering/huly-selfhost README.md and compose.yml; makeplane/plane LICENSE.txt; hcengineering/platform LICENSE",
+      "engines": [
+        "GitHub connector GET"
+      ],
+      "source_file": "github-products.json",
+      "status": "确认Huly最低2vCPU/8GB、推荐4vCPU/16GB，基本compose含14服务；Plane AGPL3、Huly EPL2。"
+    },
+    {
+      "variant": "Plane Initiatives / Milestones / Dashboards / Editions / Docker Compose",
+      "engines": [
+        "官方文档"
+      ],
+      "source_file": "github-products.json",
+      "status": "三项核心组合/里程碑/仪表盘功能均Pro；私有仪表盘Business；当前默认Docker指南安装商业版，Free12席。"
+    },
+    {
+      "variant": "OpenProject Portfolios / project-lists / system-requirements / progress-tracking / file-management",
+      "engines": [
+        "官方文档"
+      ],
+      "source_file": "github-products.json",
+      "status": "社区版可跨项目列表/工作包，正式Portfolios为Enterprise；4核/4096MB/20GB官方最低；进度口径不同。"
+    },
+    {
+      "variant": "Huly roles / milestones / creating-projects / Drive",
+      "engines": [
+        "官方文档"
+      ],
+      "source_file": "github-products.json",
+      "status": "任务里程碑、文档/Drive文件版本、私有空间有实证；统一portfolio风险驾驶舱未找到。"
+    },
+    {
+      "variant": "Leantime GHSA-54mm-6729-r5wp; OpenProject GHSA-998q-c58p-qf78; Plane GHSA-r5p8-cj3q-38cc; Huly advisories",
+      "engines": [
+        "官方安全公告"
+      ],
+      "source_file": "github-products.json",
+      "status": "记录具体受影响/修复范围；Huly页无已发布公告不代表无漏洞。"
+    },
+    {
+      "variant": "ProjectStatusApp recent commits and open dependency PRs",
+      "engines": [
+        "GitHub issue/PR核对"
+      ],
+      "source_file": "github-products.json",
+      "status": "发现默认分支最新提交2026-07-28，与repo pushed_at不同；两个安全依赖PR待合并，交给轻量代理。"
+    },
+    {
+      "variant": "Leantime/OpenProject/Huly/Plane demo without registration",
+      "engines": [
+        "公开Demo查找"
+      ],
+      "source_file": "github-products.json",
+      "status": "未确认无需注册可编辑Web demo；OpenProject公开社区可只读。Leantime无账户demo是手机app模式。"
+    },
+    {
+      "variant": "research/dashboard-2026-10-23/shortlist.json",
+      "engines": [
+        "历史库"
+      ],
+      "source_file": "lightweight.json",
+      "status": "三条线索全部重新核查"
+    },
+    {
+      "variant": "Open source project portfolio dashboard lightweight all projects progress health milestones next action GitHub self hosted",
+      "engines": [
+        "Exa"
+      ],
+      "source_file": "lightweight.json",
+      "status": "新增ProjectStatusApp/Projects Dashboard等"
+    },
+    {
+      "variant": "open source project portfolio dashboard self hosted risks milestones team permissions lightweight github",
+      "engines": [
+        "Exa"
+      ],
+      "source_file": "lightweight.json",
+      "status": "新增ManagerOS/DeliveryPulse等"
+    },
+    {
+      "variant": "VibeFocus Tududi Logbook security vulnerability CVE github; fvisic ProjectStatusApp; avikahana project-dashboard",
+      "engines": [
+        "web"
+      ],
+      "source_file": "lightweight.json",
+      "status": "cross-check, noise filtered"
+    },
+    {
+      "variant": "site:tududi.com demo; ManagerOS demo; ProjectStatusApp demo",
+      "engines": [
+        "web"
+      ],
+      "source_file": "lightweight.json",
+      "status": "no verified exact public demo; same names excluded"
+    },
+    {
+      "variant": "Tududi live demo try without account demo.tududi.com",
+      "engines": [
+        "Exa"
+      ],
+      "source_file": "lightweight.json",
+      "status": "historical third-party demo lead"
+    },
+    {
+      "variant": "metadata, default-branch commits, README/LICENSE/source/releases/issues/lockfiles",
+      "engines": [
+        "GitHub connector"
+      ],
+      "source_file": "lightweight.json",
+      "status": "success; guessed sharing doc404 resolved by directory listing"
+    },
+    {
+      "variant": "GHSA-v5mv-p594-2x33 and GHSA-w9m9-85wc-3x92",
+      "engines": [
+        "web advisory"
+      ],
+      "source_file": "lightweight.json",
+      "status": "Guzzle fetch failed; official dependency PR used; selector advisory verified"
+    },
+    {
+      "variant": "",
+      "engines": [
+        "Tavily"
+      ],
+      "source_file": "lightweight.json",
+      "status": "not used by this subtask; parent handles preflight"
+    },
+    {
+      "variant": "research/saas-options-2026-10-22.md",
+      "engines": [
+        "历史库"
+      ],
+      "source_file": "products.json",
+      "status": "读取，逐项标明历史来源"
+    },
+    {
+      "variant": "Official documentation for project portfolio management dashboards showing multiple projects status progress milestones risks and dependencies in Asana and monday work management",
+      "engines": [
+        "Exa connector"
+      ],
+      "source_file": "products.json",
+      "status": "成功"
+    },
+    {
+      "variant": "飞书项目 项目集 跨空间全景 项目进度 里程碑 风险 官方 功能 页面",
+      "engines": [
+        "Exa connector"
+      ],
+      "source_file": "products.json",
+      "status": "成功"
+    },
+    {
+      "variant": "Worktile 项目集 仪表盘 多项目 总览 风险 文件版本 官方",
+      "engines": [
+        "Exa connector"
+      ],
+      "source_file": "products.json",
+      "status": "成功"
+    },
+    {
+      "variant": "site.asana.com/pricing portfolios Advanced; site.support.monday.com portfolio management Enterprise plan risks files; site.project.feishu.cn 全景 项目 里程碑 风险",
+      "engines": [
+        "内置web"
+      ],
+      "source_file": "products.json",
+      "status": "成功交叉检查"
+    },
+    {
+      "variant": "Official documentation Smartsheet project portfolio dashboard project status summary rollup milestones risks portfolio WorkApps",
+      "engines": [
+        "Exa connector"
+      ],
+      "source_file": "products.json",
+      "status": "成功"
+    },
+    {
+      "variant": "Asana portfolio mobile; monday portfolio solution; Worktile product/drive; task attachments; file versioning",
+      "engines": [
+        "内置web/Exa fetch"
+      ],
+      "source_file": "products.json",
+      "status": "成功"
+    },
+    {
+      "variant": "2026 飞书项目版本说明 企业版 全景视图",
+      "engines": [
+        "Exa connector"
+      ],
+      "source_file": "products.json",
+      "status": "成功，发现旧版门槛漂移；2026总版本页只取到标题"
+    },
+    {
+      "variant": "https://worktile.com/pricing HTML图标勾叉",
+      "engines": [
+        "shell静态HTTP"
+      ],
+      "source_file": "products.json",
+      "status": "受当前网络sandbox套接字访问限制，未读取，未尝试绕过。用已成功的官方文本及明确标为历史的昨日图标证据。"
+    },
+    {
+      "variant": "未由本子任务调用",
+      "engines": [
+        "Tavily"
+      ],
+      "source_file": "products.json",
+      "status": "由主任务preflight统一记录"
+    }
+  ],
+  "unsearched": [
+    "Tavily（环境变量及两个兼容配置路径均未配置）",
+    "登录后SaaS租户业务操作",
+    "产品实装、生产并发、完整依赖漏洞扫描",
+    "中国大陆实际网络可用性与付费报价"
+  ],
+  "assumptions": [
+    "相似度按现行需求与可定位源码分析，没有使用伪精确百分比分数。",
+    "保留现有多人协作范围；个人工具仅作参考，不把用户需求降为单用户。",
+    "未来Sites是当前项目计划，不据此硬性排除其他技术栈的相似参考；未验证任何外部项目能原样部署到Sites。",
+    "没有新增功能获批或替换产品决定；REQ-014—019继续为候选。",
+    "L2表示本轮保守按可审阅代码候选处理，不断言作者项目不能运行。L3/L4只表达公开产品成熟度，不代表本轮已安装验收。",
+    "match中的✅仅表示基于文档/源码的静态功能匹配，不表示运行验收通过。"
+  ],
+  "selection_layers": [
+    {
+      "layer": "REUSE",
+      "result": "当前已有React/Vite+Node/SQLite与需求/规格/验收材料，先保留这些已完成工作。",
+      "evidence": [
+        "需求/PRD.md",
+        "开发/package.json",
+        "开始阅读.md"
+      ]
+    },
+    {
+      "layer": "USE",
+      "result": "ProjectStatusApp、Tududi及成熟平台可作为现成候选；由于缺业务运行验收，不给直接用。",
+      "evidence": [
+        "https://github.com/fvisic/ProjectStatusApp",
+        "https://github.com/chrisvel/tududi"
+      ]
+    },
+    {
+      "layer": "FORK",
+      "result": "Tududi协作底座待验证；ManagerOS仅局部代码/界面参考；ProjectStatusApp须接受不同技术栈及AGPL。",
+      "evidence": [
+        "https://github.com/chrisvel/tududi/blob/main/backend/services/permissionsService.js",
+        "https://github.com/elmadah/manager-os/blob/main/SECURITY.md"
+      ]
+    },
+    {
+      "layer": "BUY",
+      "result": "Asana/monday/飞书项目/Worktile有成品；跨项目能力多有版本门槛，未购买。",
+      "evidence": [
+        "https://help.asana.com/s/article/portfolios-faq",
+        "https://support.monday.com/hc/en-us/articles/13337066797202-The-portfolio-solution",
+        "https://project.feishu.cn/b/helpcenter/1ykiuvvj/2itxzzn2"
+      ]
+    },
+    {
+      "layer": "INTEGRATE",
+      "result": "可考虑后续连接已有数据源或API，但本轮未验证API适配；OmniProject仅索引线索，不给可用结论。",
+      "evidence": [
+        "https://github.com/walshd1/Omniproject"
+      ]
+    },
+    {
+      "layer": "BUILD",
+      "result": "不是没有同类才自建；若保留当前精确权限、文件历史和界面规则，继续定制仍有理由，需与迁移成本比较。",
+      "evidence": [
+        "需求/PRD.md",
+        "https://github.com/fvisic/ProjectStatusApp/blob/main/app/Policies/ProjectPolicy.php"
+      ]
+    }
+  ],
+  "validation": {
+    "docs": "完成官方文档/许可证/发布与重点权限和存储源码核查；详细版本/CVE证据在子报告。",
+    "preferred_runtime": "ProjectStatusApp未实跑：无Docker/PHP/Composer，未找到可用公开托管demo；不为调研重装系统环境。",
+    "browser": "Atlas公开演示创建和读取均30秒超时；inventory仅显示标题/URL，未看到可交互页面，不能计为成功试跑。",
+    "security": "核对公开安全公告与部分lockfile，非全量安全审计；未发现公告不等于没有漏洞。",
+    "anti_bias": "跨独立开源作者、Asana、monday、飞书、Worktile官方证据核对，同时考虑实际issue、未合并修复和文档漂移。对小型候选缺第三方独立运行证据明确保留不确定性。"
+  },
+  "archive": "报告归档在当前项目选型报告；使用技能原始build_report_pro.py生成HTML，不手改生成页。全局历史目录本轮只读。",
+  "term_map": [
+    {
+      "concept": "多项目总览",
+      "variants": [
+        "项目驾驶舱",
+        "多项目状态总览",
+        "project portfolio dashboard",
+        "portfolio health dashboard",
+        "PMO command center"
+      ]
+    },
+    {
+      "concept": "进度与阶段",
+      "variants": [
+        "项目阶段与进度",
+        "project progress tracking",
+        "stage and next milestone",
+        "planned versus actual"
+      ]
+    },
+    {
+      "concept": "风险与阻塞",
+      "variants": [
+        "项目风险台账",
+        "risk register",
+        "blockers across projects",
+        "RAG project status",
+        "RAID log"
+      ]
+    },
+    {
+      "concept": "团队和资料",
+      "variants": [
+        "项目权限资料版本",
+        "project sharing permissions",
+        "team workspace roles",
+        "private file versioning"
+      ]
+    },
+    {
+      "concept": "复用方案",
+      "variants": [
+        "开源项目管理驾驶舱",
+        "self-hosted portfolio management",
+        "GitHub project dashboard",
+        "Asana portfolios alternative",
+        "Leantime Program Plans alternative"
+      ]
+    }
+  ],
+  "evidence_files": {
+    "root-findings.json": "research/similar-projects-2026-10-23/root-findings.json",
+    "github-products.json": "research/similar-projects-2026-10-23/github-products.json",
+    "lightweight.json": "research/similar-projects-2026-10-23/lightweight.json",
+    "products.json": "research/similar-projects-2026-10-23/products.json"
+  },
+  "preflight": {
+    "exa": "connector used; standalone key absent",
+    "tavily": "environment and both configured-path files absent; not called",
+    "github": "connector API metadata and source available; specific Solvro returned 404",
+    "runtime": "node and python found; Docker, PHP, Composer and opencli not found by Get-Command",
+    "browser": "Atlas public demo createBrowserTab timed out at 30s; inventory later showed Atlas title and URL; getTab reading timed out at 30s. No functioning UI flow was observed."
+  },
+  "secondary_candidates": [
+    {
+      "name": "OpenProject",
+      "verdict": "只借鉴",
+      "reason": "项目组合/工作包参考完整，但Portfolios是企业扩展；用户此前取消安装，保留比较，不恢复安装。",
+      "url": "https://github.com/opf/openproject"
+    },
+    {
+      "name": "Huly",
+      "verdict": "只借鉴",
+      "reason": "任务、文档和Drive版本相近；未找到同样一屏驾驶舱，服务栈较重。",
+      "url": "https://github.com/hcengineering/platform"
+    },
+    {
+      "name": "飞书项目 全景视图",
+      "verdict": "待验证",
+      "reason": "跨空间状态/节点/排期聚合；当前2026功能手册列企业版/旗舰版/行业专版可用；不能搬用2024价格与下架结论。",
+      "url": "https://project.feishu.cn/b/helpcenter/1ykiuvvj/2itxzzn2"
+    },
+    {
+      "name": "Worktile",
+      "verdict": "待验证",
+      "reason": "项目集/仪表盘与网盘版本贴近；本轮价格页图标没有重新核对，只将昨日旗舰版门槛作历史证据。",
+      "url": "https://worktile.com/product/project"
+    },
+    {
+      "name": "VibeFocus",
+      "verdict": "只借鉴",
+      "reason": "个人项目卡片/百分比/下一步相近；团队协作仍在roadmap。",
+      "url": "https://github.com/ericblue/vibefocus"
+    },
+    {
+      "name": "Logbook",
+      "verdict": "只借鉴",
+      "reason": "全项目状态/现状/下一步接近；单用户token模式。",
+      "url": "https://github.com/mizumotter/logbook"
+    },
+    {
+      "name": "Projects Dashboard",
+      "verdict": "只借鉴",
+      "reason": "本地开发者代码项目与代理工作状态，缺多人业务权限。",
+      "url": "https://github.com/avikahana/project-dashboard"
+    },
+    {
+      "name": "DeliveryPulse",
+      "verdict": "淘汰",
+      "reason": "作为可复用代码底座淘汰：JSON只读演示、无真实认证/持久写入且无LICENSE；仅参考界面思路。",
+      "url": "https://github.com/JakesShell/DeliveryPulse-Project-Risk-And-Resource-Planner"
+    },
+    {
+      "name": "Taskcafe",
+      "verdict": "淘汰",
+      "reason": "维护长期停滞，不宜作为新团队系统底座；未归档不等于仍维护。",
+      "url": "https://github.com/JordanKnott/taskcafe"
+    },
+    {
+      "name": "Super Productivity",
+      "verdict": "只借鉴",
+      "reason": "个人任务、专注和工时工具，不符合多人项目权限和资料版本范围。",
+      "url": "https://github.com/super-productivity/super-productivity"
+    },
+    {
+      "name": "Atlas PMO Command Center",
+      "url": "https://github.com/aceymagallanes/atlas-pmo-command-center",
+      "demo": "https://aceymagallanes.github.io/atlas-pmo-command-center/",
+      "verdict": "只借鉴",
+      "maturity": "L2",
+      "reason": "README明确为展示MVP；Next14/React18/Zustand，虚构数据、localStorage、mock AI；认证与多租户在roadmap。未见LICENSE，不能因公开仓库就把其代码作为可再分发开源代码。演示页面工具读取超时，不能声称已试跑。"
+    },
+    {
+      "name": "Solvro",
+      "url": "https://github.com/alfi-rajasyah/solvro",
+      "verdict": "待验证",
+      "reason": "Exa索引描述高度贴近，但当前GitHub元数据与README均返回404，网页抓取cache miss；不能确认当前公开可用，更不推荐复用。"
+    },
+    {
+      "name": "OmniProject",
+      "url": "https://github.com/walshd1/Omniproject",
+      "verdict": "待验证",
+      "reason": "Exa线索为连接已有项目系统的聚合层，需broker/n8n；核心Apache2及premium条款混合；未精审，保留线索，非替换型主候选。"
+    },
+    {
+      "name": "Cosmos v2",
+      "url": "https://github.com/JongoDB-Labs/cosmos-v2",
+      "verdict": "待验证",
+      "reason": "Exa线索功能广但范围偏大；未完成源码、许可、权限和部署验证，不升为推荐。"
+    }
+  ],
+  "regressions": [
+    {
+      "failure": "搜索索引仍含当前读取404的Solvro",
+      "resolution": "用GitHub owning source二次核验；只列待验证线索，不当成可用开源成品"
+    },
+    {
+      "failure": "Atlas IAB创建和读取超时",
+      "resolution": "仅报告导航记录与未完成UI验证；不把仓库截图或网页可达当业务试跑成功"
+    },
+    {
+      "failure": "旧报告按空工作区/个人看板范围选型",
+      "resolution": "重读当前PRD和工程，保留当前团队权限与资料版本，不复活旧范围。"
+    },
+    {
+      "failure": "官方产品页可能混合商业与开源能力",
+      "resolution": "分别记录Leantime插件、Plane Pro、OpenProject Enterprise及Asana/monday套餐门槛。"
+    },
+    {
+      "failure": "官方页面版本说明随时间变化",
+      "resolution": "飞书按当前2026功能手册；Tududi以GitHub实际release为准，记录旧docs与SECURITY滞后。"
+    }
+  ]
+}

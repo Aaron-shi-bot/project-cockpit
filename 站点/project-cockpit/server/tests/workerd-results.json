@@ -1,0 +1,11 @@
+{
+  "runtime": "real-local-workerd-http",
+  "checks": 96,
+  "elapsedMs": 37541,
+  "scryptCreateAndVerify": true,
+  "fileV1V2AndRestore": true,
+  "permissionsAndLifecycle": true,
+  "realD1ConcurrentVersionConflict": true,
+  "tenMiBBoundary": true,
+  "note": "仅隔离本机夹具；未连接公开站点；未输出密码、会话或邀请原令牌"
+}

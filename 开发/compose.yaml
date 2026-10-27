@@ -1,0 +1,36 @@
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    environment:
+      HOST: 0.0.0.0
+      PORT: 4173
+      DATA_DIR: /app/data
+      SECURE_COOKIE: ${SECURE_COOKIE:-true}
+      PUBLIC_ORIGIN: https://${COCKPIT_DOMAIN:-projects.example.com}
+      MAX_FILE_BYTES: ${MAX_FILE_BYTES:-10485760}
+    ports:
+      - "127.0.0.1:4173:4173"
+    volumes:
+      - cockpit-data:/app/data
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+  proxy:
+    image: caddy:2-alpine
+    profiles: [public]
+    restart: unless-stopped
+    depends_on: [app]
+    environment:
+      COCKPIT_DOMAIN: ${COCKPIT_DOMAIN:-projects.example.com}
+    ports: ["80:80", "443:443", "443:443/udp"]
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+volumes:
+  cockpit-data:
+  caddy-data:
+  caddy-config:

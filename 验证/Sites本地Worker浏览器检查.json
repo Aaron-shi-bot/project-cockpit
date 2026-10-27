@@ -1,0 +1,215 @@
+{
+  "date": "2026-10-23T09:53:13.016Z",
+  "mode": "local-worker",
+  "baseURL": "http://127.0.0.1:4180",
+  "browser": "Playwright Chromium; Browser plugin not available",
+  "checks": [
+    {
+      "name": "Public bootstrap contains no secret or design-preview flag",
+      "passed": true
+    },
+    {
+      "name": "Anonymous uninitialized visitor cannot claim the first owner",
+      "passed": true
+    },
+    {
+      "name": "Cloud copy renders existing VI without page overflow",
+      "passed": true
+    },
+    {
+      "name": "Cloud copy retains the new vector navigation mark",
+      "passed": true
+    },
+    {
+      "name": "No framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "Wrong bootstrap token is rejected server-side without echoing secrets",
+      "passed": true
+    },
+    {
+      "name": "Rejected setup leaves the workspace uninitialized",
+      "passed": true
+    },
+    {
+      "name": "Private fragment link reveals the existing owner setup form",
+      "passed": true
+    },
+    {
+      "name": "Bootstrap token fragment is removed immediately while the form remains usable",
+      "passed": true
+    },
+    {
+      "name": "Successful initialization removes the private token route",
+      "passed": true
+    },
+    {
+      "name": "Only setup POST receives the token header; body excludes it",
+      "passed": true
+    },
+    {
+      "name": "Real owner session starts with no demo business data",
+      "passed": true
+    },
+    {
+      "name": "Initialized workspace rejects a second owner setup",
+      "passed": true
+    },
+    {
+      "name": "Project UI persists a real private project",
+      "passed": true
+    },
+    {
+      "name": "Blocked task atomically changes project health",
+      "passed": true
+    },
+    {
+      "name": "Task completion, reopening and complete object history are visible",
+      "passed": true
+    },
+    {
+      "name": "Version conflict preserves the entered draft",
+      "passed": true
+    },
+    {
+      "name": "Explicit reload uses the newer persisted version",
+      "passed": true
+    },
+    {
+      "name": "Uploaded file can be read back as real bytes",
+      "passed": true
+    },
+    {
+      "name": "New and old resource versions coexist",
+      "passed": true
+    },
+    {
+      "name": "Restoring history creates a third version with original bytes",
+      "passed": true
+    },
+    {
+      "name": "Invitation joins through the built-in account flow and clears token route",
+      "passed": true
+    },
+    {
+      "name": "Collaborator sees only the explicitly authorized project",
+      "passed": true
+    },
+    {
+      "name": "Collaborator cannot edit maintainer-only planning fields",
+      "passed": true
+    },
+    {
+      "name": "Collaborator updates own task using allowed fields",
+      "passed": true
+    },
+    {
+      "name": "Viewer sees task details without write controls",
+      "passed": true
+    },
+    {
+      "name": "Server rejects forged viewer writes",
+      "passed": true
+    },
+    {
+      "name": "Viewer can read object business history",
+      "passed": true
+    },
+    {
+      "name": "Viewer can download authorized historical file bytes",
+      "passed": true
+    },
+    {
+      "name": "Real authorization removal closes sensitive drafts and removes old task data",
+      "passed": true
+    },
+    {
+      "name": "Account suspension invalidates an already-open browser session",
+      "passed": true
+    },
+    {
+      "name": "Cloud copy renders existing VI without page overflow",
+      "passed": true
+    },
+    {
+      "name": "Cloud copy retains the new vector navigation mark",
+      "passed": true
+    },
+    {
+      "name": "No framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "Cloud copy renders existing VI without page overflow",
+      "passed": true
+    },
+    {
+      "name": "Cloud copy retains the new vector navigation mark",
+      "passed": true
+    },
+    {
+      "name": "No framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "Owner password reauthentication failure preserves the draft",
+      "passed": true
+    },
+    {
+      "name": "Resetting owner password invalidates its current session",
+      "passed": true
+    },
+    {
+      "name": "Updated built-in password can log back into the workspace",
+      "passed": true
+    },
+    {
+      "name": "No uncaught browser exceptions",
+      "passed": true
+    },
+    {
+      "name": "No unexpected framework or asset console errors",
+      "passed": false
+    }
+  ],
+  "screenshots": [
+    "25-Sites等待初始化.png",
+    "26-Sites本地Worker总览.png",
+    "27-Sites本地Worker手机.png",
+    "Sites-浏览器失败现场.png"
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    "Failed to load resource: the server responded with a status of 409 (Conflict)",
+    "Failed to load resource: the server responded with a status of 409 (Conflict)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+    "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+  ],
+  "setupHeaderChecks": [
+    {
+      "setupOnly": true,
+      "matchesRuntime": true,
+      "absentFromBody": true
+    },
+    {
+      "setupOnly": true,
+      "matchesRuntime": true,
+      "absentFromBody": true
+    }
+  ],
+  "blockedWrites": [],
+  "limits": [
+    "This script uses isolated local Worker fixtures only in local-worker mode. Production mode is strictly read-only.",
+    "Native Sites deployment and runtime binding status are verified by the publishing workflow separately."
+  ],
+  "status": "failed",
+  "failure": "Error: No unexpected framework or asset console errors\n    at ok (file:///D:/Work_File/Agent_workfiles/Agent_Project/codex/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%92%8C%E4%BF%A1%E6%81%AF%E5%85%B1%E4%BA%AB%E7%9C%8B%E6%9D%BF/%E9%AA%8C%E8%AF%81/sites-browser.mjs:21:95)\n    at file:///D:/Work_File/Agent_workfiles/Agent_Project/codex/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%92%8C%E4%BF%A1%E6%81%AF%E5%85%B1%E4%BA%AB%E7%9C%8B%E6%9D%BF/%E9%AA%8C%E8%AF%81/sites-browser.mjs:70:68",
+  "failureText": "项目驾驶舱\n总览\n项目\n任务\n资料\n设置\n云\n退出\n项目总览\n\n2 个项目，0 个需要你关注\n\n2026/10/23\n新建项目\n全部可访问项目\n我负责的\n我参与推进的\n三个摘要、关注事项和里程碑使用同一项目范围。\n进行中项目\n02\n\n另有 0 个待启动\n\n2/2\n需关注项目\n00\n\n0 个受阻 · 0 个有风险\n\n7天内里程碑\n00\n\n暂无即将到来的里程碑\n\n项目进度\n全部 2\n需关注 0\n云端回归项目\n正常\n\n开发\n\n0%\n0/2 任务\n\n目标日期 · 未设置\n\n仅所有者项目\n正常\n\n待启动\n\n—\n未拆任务\n\n目标日期 · 未设置\n\n需要你关注\n00\n\n当前没有开放风险\n\n项目卡点会集中显示在这里\n先处理阻塞，再推进计划。\n接下来 7 天\n\n未来 7 天暂无待完成的里程碑。\n\n项目驾驶舱 · 云端回归所有者\n数据更新于 10/23 17:53"
+}

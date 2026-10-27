@@ -1,0 +1,73 @@
+{
+  "executedAt": "2026-10-23T08:46:42.639Z",
+  "sourceDir": "C:\\Users\\59244\\AppData\\Local\\Temp\\cockpit-timezone-restore-source-Kbi3jl",
+  "mode": "live VACUUM INTO; isolated copy; real HTTP verification",
+  "checks": {
+    "accountRolesEntitiesAndFileHashesIdentical": true,
+    "originalPasswordAndOwnerHttpLogin": true,
+    "projectVisibilityAndOriginalGrantSources": true,
+    "originalAccountTimeZonesPreserved": true,
+    "realV1V2BytesAndHistoricalDownloads": true,
+    "anonymousHistoricalFileAccessDenied": true,
+    "sourceBusinessUnchanged": true
+  },
+  "files": [
+    {
+      "versionId": "d215a3c5083b23dbc6978869",
+      "resourceId": "1ce97abffb286bfea5d483b8",
+      "versionNumber": 1,
+      "fileName": "恢复验证.md",
+      "size": 49,
+      "sha256": "92070fe97e9e88e1b68640cec62e5e9a00583f7d38c297e70214171f8feec36a",
+      "authenticatedDownload": 200,
+      "anonymousDownload": 401
+    },
+    {
+      "versionId": "99a19b6934218bb367f51766",
+      "resourceId": "1ce97abffb286bfea5d483b8",
+      "versionNumber": 2,
+      "fileName": "恢复验证.md",
+      "size": 92,
+      "sha256": "5c896ce04a3d41af30df1ada03d64b0502e1a38b8b25ccb8ebc60ef4db3fa698",
+      "authenticatedDownload": 200,
+      "anonymousDownload": 401
+    }
+  ],
+  "snapshotAttempts": 1,
+  "businessFingerprint": "398c76ed1fc8b124aec8f6db652b2c1492d895a2af47cd214ab6e4200ad75f96",
+  "accounts": [
+    {
+      "email": "timezone-restore-member@example.test",
+      "workspaceRole": "member",
+      "status": "active",
+      "timeZone": "Asia/Shanghai"
+    },
+    {
+      "email": "timezone-restore-owner@example.test",
+      "workspaceRole": "owner",
+      "status": "active",
+      "timeZone": "America/New_York"
+    }
+  ],
+  "projects": 1,
+  "tasks": 0,
+  "grants": 3,
+  "passed": true,
+  "isolatedRestoreDirectoryRemoved": true,
+  "sourceFixture": {
+    "kind": "本次新建隔离夹具",
+    "loopbackPort": 65100,
+    "knownPasswordHeldOnlyInProcess": true,
+    "timeZone": "America/New_York",
+    "accountCount": 2,
+    "totalProjectCount": 2,
+    "ownerVisibleProjectCount": 1,
+    "effectiveMemberRoleBeforeBackup": "collaborator",
+    "sameResourceVersions": [
+      1,
+      2
+    ],
+    "formal4173AndPreview4174Untouched": true
+  },
+  "sourceFixtureRemoved": true
+}

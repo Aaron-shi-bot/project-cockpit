@@ -1,0 +1,2373 @@
+{
+  "date": "2026-10-23T08:54:57.000Z",
+  "url": "http://127.0.0.1:4174",
+  "browser": "Playwright Chromium; Browser plugin not available",
+  "flow": "Fresh anonymous design-preview entry → overview and read-only pages → local filter changes → login design",
+  "readOnly": true,
+  "checks": [
+    {
+      "name": "Fresh anonymous 4174 entry opens overview without login",
+      "passed": true
+    },
+    {
+      "name": "Design preview uses its own HttpOnly cookie",
+      "passed": true
+    },
+    {
+      "name": "Server explicitly marks the design preview",
+      "passed": true
+    },
+    {
+      "name": "overview: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "overview: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "1600px 项目总览: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 1600,
+        "scrollWidth": 1600,
+        "bodyWidth": 1600,
+        "sidebar": {
+          "left": 0,
+          "right": 160,
+          "width": 160,
+          "height": 1000
+        },
+        "paddingLeft": 12,
+        "paddingRight": 12,
+        "brand": {
+          "left": 56,
+          "right": 136,
+          "width": 80,
+          "height": 22.390625
+        },
+        "settingsIcon": {
+          "left": 31,
+          "right": 56,
+          "width": 25,
+          "height": 25
+        }
+      }
+    },
+    {
+      "name": "1600px 项目总览: complete brand remains inside sidebar padding",
+      "passed": true,
+      "details": {
+        "brand": {
+          "left": 56,
+          "right": 136,
+          "width": 80,
+          "height": 22.390625
+        },
+        "sidebar": {
+          "left": 0,
+          "right": 160,
+          "width": 160,
+          "height": 1000
+        }
+      }
+    },
+    {
+      "name": "1600px 项目总览: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 31,
+        "right": 56,
+        "width": 25,
+        "height": 25
+      }
+    },
+    {
+      "name": "projects: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "projects: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "1600px 项目中心: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 1600,
+        "scrollWidth": 1600,
+        "bodyWidth": 1600,
+        "sidebar": {
+          "left": 0,
+          "right": 160,
+          "width": 160,
+          "height": 1000
+        },
+        "paddingLeft": 12,
+        "paddingRight": 12,
+        "brand": {
+          "left": 56,
+          "right": 136,
+          "width": 80,
+          "height": 22.390625
+        },
+        "settingsIcon": {
+          "left": 31,
+          "right": 56,
+          "width": 25,
+          "height": 25
+        }
+      }
+    },
+    {
+      "name": "1600px 项目中心: complete brand remains inside sidebar padding",
+      "passed": true,
+      "details": {
+        "brand": {
+          "left": 56,
+          "right": 136,
+          "width": 80,
+          "height": 22.390625
+        },
+        "sidebar": {
+          "left": 0,
+          "right": 160,
+          "width": 160,
+          "height": 1000
+        }
+      }
+    },
+    {
+      "name": "1600px 项目中心: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 31,
+        "right": 56,
+        "width": 25,
+        "height": 25
+      }
+    },
+    {
+      "name": "tasks: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "tasks: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "1600px 团队任务: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 1600,
+        "scrollWidth": 1600,
+        "bodyWidth": 1600,
+        "sidebar": {
+          "left": 0,
+          "right": 160,
+          "width": 160,
+          "height": 1000
+        },
+        "paddingLeft": 12,
+        "paddingRight": 12,
+        "brand": {
+          "left": 56,
+          "right": 136,
+          "width": 80,
+          "height": 22.390625
+        },
+        "settingsIcon": {
+          "left": 31,
+          "right": 56,
+          "width": 25,
+          "height": 25
+        }
+      }
+    },
+    {
+      "name": "1600px 团队任务: complete brand remains inside sidebar padding",
+      "passed": true,
+      "details": {
+        "brand": {
+          "left": 56,
+          "right": 136,
+          "width": 80,
+          "height": 22.390625
+        },
+        "sidebar": {
+          "left": 0,
+          "right": 160,
+          "width": 160,
+          "height": 1000
+        }
+      }
+    },
+    {
+      "name": "1600px 团队任务: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 31,
+        "right": 56,
+        "width": 25,
+        "height": 25
+      }
+    },
+    {
+      "name": "resources: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "resources: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "1600px 项目资料: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 1600,
+        "scrollWidth": 1600,
+        "bodyWidth": 1600,
+        "sidebar": {
+          "left": 0,
+          "right": 160,
+          "width": 160,
+          "height": 1000
+        },
+        "paddingLeft": 12,
+        "paddingRight": 12,
+        "brand": {
+          "left": 56,
+          "right": 136,
+          "width": 80,
+          "height": 22.390625
+        },
+        "settingsIcon": {
+          "left": 31,
+          "right": 56,
+          "width": 25,
+          "height": 25
+        }
+      }
+    },
+    {
+      "name": "1600px 项目资料: complete brand remains inside sidebar padding",
+      "passed": true,
+      "details": {
+        "brand": {
+          "left": 56,
+          "right": 136,
+          "width": 80,
+          "height": 22.390625
+        },
+        "sidebar": {
+          "left": 0,
+          "right": 160,
+          "width": 160,
+          "height": 1000
+        }
+      }
+    },
+    {
+      "name": "1600px 项目资料: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 31,
+        "right": 56,
+        "width": 25,
+        "height": 25
+      }
+    },
+    {
+      "name": "settings: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "settings: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "1600px 成员与权限: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 1600,
+        "scrollWidth": 1600,
+        "bodyWidth": 1600,
+        "sidebar": {
+          "left": 0,
+          "right": 160,
+          "width": 160,
+          "height": 1000
+        },
+        "paddingLeft": 12,
+        "paddingRight": 12,
+        "brand": {
+          "left": 56,
+          "right": 136,
+          "width": 80,
+          "height": 22.390625
+        },
+        "settingsIcon": {
+          "left": 31,
+          "right": 56,
+          "width": 25,
+          "height": 25
+        }
+      }
+    },
+    {
+      "name": "1600px 成员与权限: complete brand remains inside sidebar padding",
+      "passed": true,
+      "details": {
+        "brand": {
+          "left": 56,
+          "right": 136,
+          "width": 80,
+          "height": 22.390625
+        },
+        "sidebar": {
+          "left": 0,
+          "right": 160,
+          "width": 160,
+          "height": 1000
+        }
+      }
+    },
+    {
+      "name": "1600px 成员与权限: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 31,
+        "right": 56,
+        "width": 25,
+        "height": 25
+      }
+    },
+    {
+      "name": "overview: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "overview: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "1440px 项目总览: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "bodyWidth": 1440,
+        "sidebar": {
+          "left": 0,
+          "right": 160,
+          "width": 160,
+          "height": 1000
+        },
+        "paddingLeft": 12,
+        "paddingRight": 12,
+        "brand": {
+          "left": 56,
+          "right": 136,
+          "width": 80,
+          "height": 22.390625
+        },
+        "settingsIcon": {
+          "left": 31,
+          "right": 56,
+          "width": 25,
+          "height": 25
+        }
+      }
+    },
+    {
+      "name": "1440px 项目总览: complete brand remains inside sidebar padding",
+      "passed": true,
+      "details": {
+        "brand": {
+          "left": 56,
+          "right": 136,
+          "width": 80,
+          "height": 22.390625
+        },
+        "sidebar": {
+          "left": 0,
+          "right": 160,
+          "width": 160,
+          "height": 1000
+        }
+      }
+    },
+    {
+      "name": "1440px 项目总览: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 31,
+        "right": 56,
+        "width": 25,
+        "height": 25
+      }
+    },
+    {
+      "name": "projects: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "projects: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "1440px 项目中心: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "bodyWidth": 1440,
+        "sidebar": {
+          "left": 0,
+          "right": 160,
+          "width": 160,
+          "height": 1000
+        },
+        "paddingLeft": 12,
+        "paddingRight": 12,
+        "brand": {
+          "left": 56,
+          "right": 136,
+          "width": 80,
+          "height": 22.390625
+        },
+        "settingsIcon": {
+          "left": 31,
+          "right": 56,
+          "width": 25,
+          "height": 25
+        }
+      }
+    },
+    {
+      "name": "1440px 项目中心: complete brand remains inside sidebar padding",
+      "passed": true,
+      "details": {
+        "brand": {
+          "left": 56,
+          "right": 136,
+          "width": 80,
+          "height": 22.390625
+        },
+        "sidebar": {
+          "left": 0,
+          "right": 160,
+          "width": 160,
+          "height": 1000
+        }
+      }
+    },
+    {
+      "name": "1440px 项目中心: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 31,
+        "right": 56,
+        "width": 25,
+        "height": 25
+      }
+    },
+    {
+      "name": "tasks: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "tasks: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "1440px 团队任务: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "bodyWidth": 1440,
+        "sidebar": {
+          "left": 0,
+          "right": 160,
+          "width": 160,
+          "height": 1000
+        },
+        "paddingLeft": 12,
+        "paddingRight": 12,
+        "brand": {
+          "left": 56,
+          "right": 136,
+          "width": 80,
+          "height": 22.390625
+        },
+        "settingsIcon": {
+          "left": 31,
+          "right": 56,
+          "width": 25,
+          "height": 25
+        }
+      }
+    },
+    {
+      "name": "1440px 团队任务: complete brand remains inside sidebar padding",
+      "passed": true,
+      "details": {
+        "brand": {
+          "left": 56,
+          "right": 136,
+          "width": 80,
+          "height": 22.390625
+        },
+        "sidebar": {
+          "left": 0,
+          "right": 160,
+          "width": 160,
+          "height": 1000
+        }
+      }
+    },
+    {
+      "name": "1440px 团队任务: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 31,
+        "right": 56,
+        "width": 25,
+        "height": 25
+      }
+    },
+    {
+      "name": "resources: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "resources: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "1440px 项目资料: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "bodyWidth": 1440,
+        "sidebar": {
+          "left": 0,
+          "right": 160,
+          "width": 160,
+          "height": 1000
+        },
+        "paddingLeft": 12,
+        "paddingRight": 12,
+        "brand": {
+          "left": 56,
+          "right": 136,
+          "width": 80,
+          "height": 22.390625
+        },
+        "settingsIcon": {
+          "left": 31,
+          "right": 56,
+          "width": 25,
+          "height": 25
+        }
+      }
+    },
+    {
+      "name": "1440px 项目资料: complete brand remains inside sidebar padding",
+      "passed": true,
+      "details": {
+        "brand": {
+          "left": 56,
+          "right": 136,
+          "width": 80,
+          "height": 22.390625
+        },
+        "sidebar": {
+          "left": 0,
+          "right": 160,
+          "width": 160,
+          "height": 1000
+        }
+      }
+    },
+    {
+      "name": "1440px 项目资料: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 31,
+        "right": 56,
+        "width": 25,
+        "height": 25
+      }
+    },
+    {
+      "name": "settings: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "settings: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "1440px 成员与权限: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "bodyWidth": 1440,
+        "sidebar": {
+          "left": 0,
+          "right": 160,
+          "width": 160,
+          "height": 1000
+        },
+        "paddingLeft": 12,
+        "paddingRight": 12,
+        "brand": {
+          "left": 56,
+          "right": 136,
+          "width": 80,
+          "height": 22.390625
+        },
+        "settingsIcon": {
+          "left": 31,
+          "right": 56,
+          "width": 25,
+          "height": 25
+        }
+      }
+    },
+    {
+      "name": "1440px 成员与权限: complete brand remains inside sidebar padding",
+      "passed": true,
+      "details": {
+        "brand": {
+          "left": 56,
+          "right": 136,
+          "width": 80,
+          "height": 22.390625
+        },
+        "sidebar": {
+          "left": 0,
+          "right": 160,
+          "width": 160,
+          "height": 1000
+        }
+      }
+    },
+    {
+      "name": "1440px 成员与权限: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 31,
+        "right": 56,
+        "width": 25,
+        "height": 25
+      }
+    },
+    {
+      "name": "overview: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "overview: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "1024px 项目总览: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 1024,
+        "scrollWidth": 1024,
+        "bodyWidth": 1024,
+        "sidebar": {
+          "left": 0,
+          "right": 110,
+          "width": 110,
+          "height": 1000
+        },
+        "paddingLeft": 9,
+        "paddingRight": 9,
+        "brand": {
+          "left": 19.5,
+          "right": 89.5,
+          "width": 70,
+          "height": 19.59375
+        },
+        "settingsIcon": {
+          "left": 23,
+          "right": 45,
+          "width": 22,
+          "height": 22
+        }
+      }
+    },
+    {
+      "name": "1024px 项目总览: complete brand remains inside sidebar padding",
+      "passed": true,
+      "details": {
+        "brand": {
+          "left": 19.5,
+          "right": 89.5,
+          "width": 70,
+          "height": 19.59375
+        },
+        "sidebar": {
+          "left": 0,
+          "right": 110,
+          "width": 110,
+          "height": 1000
+        }
+      }
+    },
+    {
+      "name": "1024px 项目总览: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 23,
+        "right": 45,
+        "width": 22,
+        "height": 22
+      }
+    },
+    {
+      "name": "projects: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "projects: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "1024px 项目中心: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 1024,
+        "scrollWidth": 1024,
+        "bodyWidth": 1024,
+        "sidebar": {
+          "left": 0,
+          "right": 110,
+          "width": 110,
+          "height": 1000
+        },
+        "paddingLeft": 9,
+        "paddingRight": 9,
+        "brand": {
+          "left": 19.5,
+          "right": 89.5,
+          "width": 70,
+          "height": 19.59375
+        },
+        "settingsIcon": {
+          "left": 23,
+          "right": 45,
+          "width": 22,
+          "height": 22
+        }
+      }
+    },
+    {
+      "name": "1024px 项目中心: complete brand remains inside sidebar padding",
+      "passed": true,
+      "details": {
+        "brand": {
+          "left": 19.5,
+          "right": 89.5,
+          "width": 70,
+          "height": 19.59375
+        },
+        "sidebar": {
+          "left": 0,
+          "right": 110,
+          "width": 110,
+          "height": 1000
+        }
+      }
+    },
+    {
+      "name": "1024px 项目中心: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 23,
+        "right": 45,
+        "width": 22,
+        "height": 22
+      }
+    },
+    {
+      "name": "tasks: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "tasks: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "1024px 团队任务: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 1024,
+        "scrollWidth": 1024,
+        "bodyWidth": 1024,
+        "sidebar": {
+          "left": 0,
+          "right": 110,
+          "width": 110,
+          "height": 1000
+        },
+        "paddingLeft": 9,
+        "paddingRight": 9,
+        "brand": {
+          "left": 19.5,
+          "right": 89.5,
+          "width": 70,
+          "height": 19.59375
+        },
+        "settingsIcon": {
+          "left": 23,
+          "right": 45,
+          "width": 22,
+          "height": 22
+        }
+      }
+    },
+    {
+      "name": "1024px 团队任务: complete brand remains inside sidebar padding",
+      "passed": true,
+      "details": {
+        "brand": {
+          "left": 19.5,
+          "right": 89.5,
+          "width": 70,
+          "height": 19.59375
+        },
+        "sidebar": {
+          "left": 0,
+          "right": 110,
+          "width": 110,
+          "height": 1000
+        }
+      }
+    },
+    {
+      "name": "1024px 团队任务: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 23,
+        "right": 45,
+        "width": 22,
+        "height": 22
+      }
+    },
+    {
+      "name": "resources: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "resources: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "1024px 项目资料: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 1024,
+        "scrollWidth": 1024,
+        "bodyWidth": 1024,
+        "sidebar": {
+          "left": 0,
+          "right": 110,
+          "width": 110,
+          "height": 1000
+        },
+        "paddingLeft": 9,
+        "paddingRight": 9,
+        "brand": {
+          "left": 19.5,
+          "right": 89.5,
+          "width": 70,
+          "height": 19.59375
+        },
+        "settingsIcon": {
+          "left": 23,
+          "right": 45,
+          "width": 22,
+          "height": 22
+        }
+      }
+    },
+    {
+      "name": "1024px 项目资料: complete brand remains inside sidebar padding",
+      "passed": true,
+      "details": {
+        "brand": {
+          "left": 19.5,
+          "right": 89.5,
+          "width": 70,
+          "height": 19.59375
+        },
+        "sidebar": {
+          "left": 0,
+          "right": 110,
+          "width": 110,
+          "height": 1000
+        }
+      }
+    },
+    {
+      "name": "1024px 项目资料: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 23,
+        "right": 45,
+        "width": 22,
+        "height": 22
+      }
+    },
+    {
+      "name": "settings: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "settings: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "1024px 成员与权限: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 1024,
+        "scrollWidth": 1024,
+        "bodyWidth": 1024,
+        "sidebar": {
+          "left": 0,
+          "right": 110,
+          "width": 110,
+          "height": 1000
+        },
+        "paddingLeft": 9,
+        "paddingRight": 9,
+        "brand": {
+          "left": 19.5,
+          "right": 89.5,
+          "width": 70,
+          "height": 19.59375
+        },
+        "settingsIcon": {
+          "left": 23,
+          "right": 45,
+          "width": 22,
+          "height": 22
+        }
+      }
+    },
+    {
+      "name": "1024px 成员与权限: complete brand remains inside sidebar padding",
+      "passed": true,
+      "details": {
+        "brand": {
+          "left": 19.5,
+          "right": 89.5,
+          "width": 70,
+          "height": 19.59375
+        },
+        "sidebar": {
+          "left": 0,
+          "right": 110,
+          "width": 110,
+          "height": 1000
+        }
+      }
+    },
+    {
+      "name": "1024px 成员与权限: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 23,
+        "right": 45,
+        "width": 22,
+        "height": 22
+      }
+    },
+    {
+      "name": "overview: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "overview: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "768px 项目总览: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "bodyWidth": 768,
+        "sidebar": {
+          "left": 0,
+          "right": 110,
+          "width": 110,
+          "height": 1000
+        },
+        "paddingLeft": 9,
+        "paddingRight": 9,
+        "brand": {
+          "left": 19.5,
+          "right": 89.5,
+          "width": 70,
+          "height": 19.59375
+        },
+        "settingsIcon": {
+          "left": 23,
+          "right": 45,
+          "width": 22,
+          "height": 22
+        }
+      }
+    },
+    {
+      "name": "768px 项目总览: complete brand remains inside sidebar padding",
+      "passed": true,
+      "details": {
+        "brand": {
+          "left": 19.5,
+          "right": 89.5,
+          "width": 70,
+          "height": 19.59375
+        },
+        "sidebar": {
+          "left": 0,
+          "right": 110,
+          "width": 110,
+          "height": 1000
+        }
+      }
+    },
+    {
+      "name": "768px 项目总览: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 23,
+        "right": 45,
+        "width": 22,
+        "height": 22
+      }
+    },
+    {
+      "name": "projects: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "projects: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "768px 项目中心: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "bodyWidth": 768,
+        "sidebar": {
+          "left": 0,
+          "right": 110,
+          "width": 110,
+          "height": 1000
+        },
+        "paddingLeft": 9,
+        "paddingRight": 9,
+        "brand": {
+          "left": 19.5,
+          "right": 89.5,
+          "width": 70,
+          "height": 19.59375
+        },
+        "settingsIcon": {
+          "left": 23,
+          "right": 45,
+          "width": 22,
+          "height": 22
+        }
+      }
+    },
+    {
+      "name": "768px 项目中心: complete brand remains inside sidebar padding",
+      "passed": true,
+      "details": {
+        "brand": {
+          "left": 19.5,
+          "right": 89.5,
+          "width": 70,
+          "height": 19.59375
+        },
+        "sidebar": {
+          "left": 0,
+          "right": 110,
+          "width": 110,
+          "height": 1000
+        }
+      }
+    },
+    {
+      "name": "768px 项目中心: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 23,
+        "right": 45,
+        "width": 22,
+        "height": 22
+      }
+    },
+    {
+      "name": "tasks: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "tasks: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "768px 团队任务: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "bodyWidth": 768,
+        "sidebar": {
+          "left": 0,
+          "right": 110,
+          "width": 110,
+          "height": 1000
+        },
+        "paddingLeft": 9,
+        "paddingRight": 9,
+        "brand": {
+          "left": 19.5,
+          "right": 89.5,
+          "width": 70,
+          "height": 19.59375
+        },
+        "settingsIcon": {
+          "left": 23,
+          "right": 45,
+          "width": 22,
+          "height": 22
+        }
+      }
+    },
+    {
+      "name": "768px 团队任务: complete brand remains inside sidebar padding",
+      "passed": true,
+      "details": {
+        "brand": {
+          "left": 19.5,
+          "right": 89.5,
+          "width": 70,
+          "height": 19.59375
+        },
+        "sidebar": {
+          "left": 0,
+          "right": 110,
+          "width": 110,
+          "height": 1000
+        }
+      }
+    },
+    {
+      "name": "768px 团队任务: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 23,
+        "right": 45,
+        "width": 22,
+        "height": 22
+      }
+    },
+    {
+      "name": "resources: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "resources: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "768px 项目资料: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "bodyWidth": 768,
+        "sidebar": {
+          "left": 0,
+          "right": 110,
+          "width": 110,
+          "height": 1000
+        },
+        "paddingLeft": 9,
+        "paddingRight": 9,
+        "brand": {
+          "left": 19.5,
+          "right": 89.5,
+          "width": 70,
+          "height": 19.59375
+        },
+        "settingsIcon": {
+          "left": 23,
+          "right": 45,
+          "width": 22,
+          "height": 22
+        }
+      }
+    },
+    {
+      "name": "768px 项目资料: complete brand remains inside sidebar padding",
+      "passed": true,
+      "details": {
+        "brand": {
+          "left": 19.5,
+          "right": 89.5,
+          "width": 70,
+          "height": 19.59375
+        },
+        "sidebar": {
+          "left": 0,
+          "right": 110,
+          "width": 110,
+          "height": 1000
+        }
+      }
+    },
+    {
+      "name": "768px 项目资料: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 23,
+        "right": 45,
+        "width": 22,
+        "height": 22
+      }
+    },
+    {
+      "name": "settings: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "settings: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "768px 成员与权限: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "bodyWidth": 768,
+        "sidebar": {
+          "left": 0,
+          "right": 110,
+          "width": 110,
+          "height": 1000
+        },
+        "paddingLeft": 9,
+        "paddingRight": 9,
+        "brand": {
+          "left": 19.5,
+          "right": 89.5,
+          "width": 70,
+          "height": 19.59375
+        },
+        "settingsIcon": {
+          "left": 23,
+          "right": 45,
+          "width": 22,
+          "height": 22
+        }
+      }
+    },
+    {
+      "name": "768px 成员与权限: complete brand remains inside sidebar padding",
+      "passed": true,
+      "details": {
+        "brand": {
+          "left": 19.5,
+          "right": 89.5,
+          "width": 70,
+          "height": 19.59375
+        },
+        "sidebar": {
+          "left": 0,
+          "right": 110,
+          "width": 110,
+          "height": 1000
+        }
+      }
+    },
+    {
+      "name": "768px 成员与权限: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 23,
+        "right": 45,
+        "width": 22,
+        "height": 22
+      }
+    },
+    {
+      "name": "overview: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "overview: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "390px 项目总览: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyWidth": 390,
+        "sidebar": null,
+        "paddingLeft": null,
+        "paddingRight": null,
+        "brand": {
+          "left": 61,
+          "right": 153.015625,
+          "width": 92.015625,
+          "height": 30.390625
+        },
+        "settingsIcon": {
+          "left": 342,
+          "right": 362,
+          "width": 20,
+          "height": 20
+        }
+      }
+    },
+    {
+      "name": "390px 项目总览: mobile brand remains within viewport",
+      "passed": true,
+      "details": {
+        "left": 61,
+        "right": 153.015625,
+        "width": 92.015625,
+        "height": 30.390625
+      }
+    },
+    {
+      "name": "390px 项目总览: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 342,
+        "right": 362,
+        "width": 20,
+        "height": 20
+      }
+    },
+    {
+      "name": "projects: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "projects: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "390px 项目中心: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyWidth": 390,
+        "sidebar": null,
+        "paddingLeft": null,
+        "paddingRight": null,
+        "brand": {
+          "left": 61,
+          "right": 153.015625,
+          "width": 92.015625,
+          "height": 30.390625
+        },
+        "settingsIcon": {
+          "left": 342,
+          "right": 362,
+          "width": 20,
+          "height": 20
+        }
+      }
+    },
+    {
+      "name": "390px 项目中心: mobile brand remains within viewport",
+      "passed": true,
+      "details": {
+        "left": 61,
+        "right": 153.015625,
+        "width": 92.015625,
+        "height": 30.390625
+      }
+    },
+    {
+      "name": "390px 项目中心: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 342,
+        "right": 362,
+        "width": 20,
+        "height": 20
+      }
+    },
+    {
+      "name": "tasks: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "tasks: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "390px 团队任务: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyWidth": 390,
+        "sidebar": null,
+        "paddingLeft": null,
+        "paddingRight": null,
+        "brand": {
+          "left": 61,
+          "right": 153.015625,
+          "width": 92.015625,
+          "height": 30.390625
+        },
+        "settingsIcon": {
+          "left": 342,
+          "right": 362,
+          "width": 20,
+          "height": 20
+        }
+      }
+    },
+    {
+      "name": "390px 团队任务: mobile brand remains within viewport",
+      "passed": true,
+      "details": {
+        "left": 61,
+        "right": 153.015625,
+        "width": 92.015625,
+        "height": 30.390625
+      }
+    },
+    {
+      "name": "390px 团队任务: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 342,
+        "right": 362,
+        "width": 20,
+        "height": 20
+      }
+    },
+    {
+      "name": "resources: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "resources: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "390px 项目资料: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyWidth": 390,
+        "sidebar": null,
+        "paddingLeft": null,
+        "paddingRight": null,
+        "brand": {
+          "left": 61,
+          "right": 153.015625,
+          "width": 92.015625,
+          "height": 30.390625
+        },
+        "settingsIcon": {
+          "left": 342,
+          "right": 362,
+          "width": 20,
+          "height": 20
+        }
+      }
+    },
+    {
+      "name": "390px 项目资料: mobile brand remains within viewport",
+      "passed": true,
+      "details": {
+        "left": 61,
+        "right": 153.015625,
+        "width": 92.015625,
+        "height": 30.390625
+      }
+    },
+    {
+      "name": "390px 项目资料: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 342,
+        "right": 362,
+        "width": 20,
+        "height": 20
+      }
+    },
+    {
+      "name": "settings: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "settings: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "390px 成员与权限: no full-page horizontal overflow",
+      "passed": true,
+      "details": {
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyWidth": 390,
+        "sidebar": null,
+        "paddingLeft": null,
+        "paddingRight": null,
+        "brand": {
+          "left": 61,
+          "right": 153.015625,
+          "width": 92.015625,
+          "height": 30.390625
+        },
+        "settingsIcon": {
+          "left": 342,
+          "right": 362,
+          "width": 20,
+          "height": 20
+        }
+      }
+    },
+    {
+      "name": "390px 成员与权限: mobile brand remains within viewport",
+      "passed": true,
+      "details": {
+        "left": 61,
+        "right": 153.015625,
+        "width": 92.015625,
+        "height": 30.390625
+      }
+    },
+    {
+      "name": "390px 成员与权限: settings SVG is square",
+      "passed": true,
+      "details": {
+        "left": 342,
+        "right": 362,
+        "width": 20,
+        "height": 20
+      }
+    },
+    {
+      "name": "projects: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "projects: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "Lifecycle planned local filter displays authorized matching projects",
+      "passed": true,
+      "details": {
+        "expected": 1,
+        "actual": 1
+      }
+    },
+    {
+      "name": "Lifecycle active local filter displays authorized matching projects",
+      "passed": true,
+      "details": {
+        "expected": 5,
+        "actual": 5
+      }
+    },
+    {
+      "name": "Lifecycle reset restores default current projects",
+      "passed": true
+    },
+    {
+      "name": "resources: page identity and meaningful content",
+      "passed": true
+    },
+    {
+      "name": "resources: no framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "Resources search displays a useful empty state",
+      "passed": true
+    },
+    {
+      "name": "Login design retains 70 percent visual and 30 percent form",
+      "passed": true,
+      "details": {
+        "visual": 1120,
+        "form": 480,
+        "width": 1600,
+        "background": "url(\"http://127.0.0.1:4174/assets/login-cockpit.png\")"
+      }
+    },
+    {
+      "name": "Login production image is applied continuously",
+      "passed": true
+    },
+    {
+      "name": "Login offers invite help without public registration",
+      "passed": true
+    },
+    {
+      "name": "1440px login: no full-page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1440px login: account fields remain readable",
+      "passed": true
+    },
+    {
+      "name": "1024px login: no full-page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1024px login: account fields remain readable",
+      "passed": true
+    },
+    {
+      "name": "768px login: no full-page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "768px login: account fields remain readable",
+      "passed": true
+    },
+    {
+      "name": "390px login: no full-page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "390px login: account fields remain readable",
+      "passed": true
+    },
+    {
+      "name": "Return from login design directly opens preview",
+      "passed": true
+    },
+    {
+      "name": "Anonymous formal 4173 remains uninitialized and not design preview",
+      "passed": true
+    },
+    {
+      "name": "No business write requests attempted",
+      "passed": true
+    },
+    {
+      "name": "No uncaught page errors",
+      "passed": true
+    },
+    {
+      "name": "No browser console errors",
+      "passed": true
+    }
+  ],
+  "layouts": [
+    {
+      "page": "项目总览",
+      "width": 1600,
+      "viewport": 1600,
+      "scrollWidth": 1600,
+      "bodyWidth": 1600,
+      "sidebar": {
+        "left": 0,
+        "right": 160,
+        "width": 160,
+        "height": 1000
+      },
+      "paddingLeft": 12,
+      "paddingRight": 12,
+      "brand": {
+        "left": 56,
+        "right": 136,
+        "width": 80,
+        "height": 22.390625
+      },
+      "settingsIcon": {
+        "left": 31,
+        "right": 56,
+        "width": 25,
+        "height": 25
+      }
+    },
+    {
+      "page": "项目中心",
+      "width": 1600,
+      "viewport": 1600,
+      "scrollWidth": 1600,
+      "bodyWidth": 1600,
+      "sidebar": {
+        "left": 0,
+        "right": 160,
+        "width": 160,
+        "height": 1000
+      },
+      "paddingLeft": 12,
+      "paddingRight": 12,
+      "brand": {
+        "left": 56,
+        "right": 136,
+        "width": 80,
+        "height": 22.390625
+      },
+      "settingsIcon": {
+        "left": 31,
+        "right": 56,
+        "width": 25,
+        "height": 25
+      }
+    },
+    {
+      "page": "团队任务",
+      "width": 1600,
+      "viewport": 1600,
+      "scrollWidth": 1600,
+      "bodyWidth": 1600,
+      "sidebar": {
+        "left": 0,
+        "right": 160,
+        "width": 160,
+        "height": 1000
+      },
+      "paddingLeft": 12,
+      "paddingRight": 12,
+      "brand": {
+        "left": 56,
+        "right": 136,
+        "width": 80,
+        "height": 22.390625
+      },
+      "settingsIcon": {
+        "left": 31,
+        "right": 56,
+        "width": 25,
+        "height": 25
+      }
+    },
+    {
+      "page": "项目资料",
+      "width": 1600,
+      "viewport": 1600,
+      "scrollWidth": 1600,
+      "bodyWidth": 1600,
+      "sidebar": {
+        "left": 0,
+        "right": 160,
+        "width": 160,
+        "height": 1000
+      },
+      "paddingLeft": 12,
+      "paddingRight": 12,
+      "brand": {
+        "left": 56,
+        "right": 136,
+        "width": 80,
+        "height": 22.390625
+      },
+      "settingsIcon": {
+        "left": 31,
+        "right": 56,
+        "width": 25,
+        "height": 25
+      }
+    },
+    {
+      "page": "成员与权限",
+      "width": 1600,
+      "viewport": 1600,
+      "scrollWidth": 1600,
+      "bodyWidth": 1600,
+      "sidebar": {
+        "left": 0,
+        "right": 160,
+        "width": 160,
+        "height": 1000
+      },
+      "paddingLeft": 12,
+      "paddingRight": 12,
+      "brand": {
+        "left": 56,
+        "right": 136,
+        "width": 80,
+        "height": 22.390625
+      },
+      "settingsIcon": {
+        "left": 31,
+        "right": 56,
+        "width": 25,
+        "height": 25
+      }
+    },
+    {
+      "page": "项目总览",
+      "width": 1440,
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "bodyWidth": 1440,
+      "sidebar": {
+        "left": 0,
+        "right": 160,
+        "width": 160,
+        "height": 1000
+      },
+      "paddingLeft": 12,
+      "paddingRight": 12,
+      "brand": {
+        "left": 56,
+        "right": 136,
+        "width": 80,
+        "height": 22.390625
+      },
+      "settingsIcon": {
+        "left": 31,
+        "right": 56,
+        "width": 25,
+        "height": 25
+      }
+    },
+    {
+      "page": "项目中心",
+      "width": 1440,
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "bodyWidth": 1440,
+      "sidebar": {
+        "left": 0,
+        "right": 160,
+        "width": 160,
+        "height": 1000
+      },
+      "paddingLeft": 12,
+      "paddingRight": 12,
+      "brand": {
+        "left": 56,
+        "right": 136,
+        "width": 80,
+        "height": 22.390625
+      },
+      "settingsIcon": {
+        "left": 31,
+        "right": 56,
+        "width": 25,
+        "height": 25
+      }
+    },
+    {
+      "page": "团队任务",
+      "width": 1440,
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "bodyWidth": 1440,
+      "sidebar": {
+        "left": 0,
+        "right": 160,
+        "width": 160,
+        "height": 1000
+      },
+      "paddingLeft": 12,
+      "paddingRight": 12,
+      "brand": {
+        "left": 56,
+        "right": 136,
+        "width": 80,
+        "height": 22.390625
+      },
+      "settingsIcon": {
+        "left": 31,
+        "right": 56,
+        "width": 25,
+        "height": 25
+      }
+    },
+    {
+      "page": "项目资料",
+      "width": 1440,
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "bodyWidth": 1440,
+      "sidebar": {
+        "left": 0,
+        "right": 160,
+        "width": 160,
+        "height": 1000
+      },
+      "paddingLeft": 12,
+      "paddingRight": 12,
+      "brand": {
+        "left": 56,
+        "right": 136,
+        "width": 80,
+        "height": 22.390625
+      },
+      "settingsIcon": {
+        "left": 31,
+        "right": 56,
+        "width": 25,
+        "height": 25
+      }
+    },
+    {
+      "page": "成员与权限",
+      "width": 1440,
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "bodyWidth": 1440,
+      "sidebar": {
+        "left": 0,
+        "right": 160,
+        "width": 160,
+        "height": 1000
+      },
+      "paddingLeft": 12,
+      "paddingRight": 12,
+      "brand": {
+        "left": 56,
+        "right": 136,
+        "width": 80,
+        "height": 22.390625
+      },
+      "settingsIcon": {
+        "left": 31,
+        "right": 56,
+        "width": 25,
+        "height": 25
+      }
+    },
+    {
+      "page": "项目总览",
+      "width": 1024,
+      "viewport": 1024,
+      "scrollWidth": 1024,
+      "bodyWidth": 1024,
+      "sidebar": {
+        "left": 0,
+        "right": 110,
+        "width": 110,
+        "height": 1000
+      },
+      "paddingLeft": 9,
+      "paddingRight": 9,
+      "brand": {
+        "left": 19.5,
+        "right": 89.5,
+        "width": 70,
+        "height": 19.59375
+      },
+      "settingsIcon": {
+        "left": 23,
+        "right": 45,
+        "width": 22,
+        "height": 22
+      }
+    },
+    {
+      "page": "项目中心",
+      "width": 1024,
+      "viewport": 1024,
+      "scrollWidth": 1024,
+      "bodyWidth": 1024,
+      "sidebar": {
+        "left": 0,
+        "right": 110,
+        "width": 110,
+        "height": 1000
+      },
+      "paddingLeft": 9,
+      "paddingRight": 9,
+      "brand": {
+        "left": 19.5,
+        "right": 89.5,
+        "width": 70,
+        "height": 19.59375
+      },
+      "settingsIcon": {
+        "left": 23,
+        "right": 45,
+        "width": 22,
+        "height": 22
+      }
+    },
+    {
+      "page": "团队任务",
+      "width": 1024,
+      "viewport": 1024,
+      "scrollWidth": 1024,
+      "bodyWidth": 1024,
+      "sidebar": {
+        "left": 0,
+        "right": 110,
+        "width": 110,
+        "height": 1000
+      },
+      "paddingLeft": 9,
+      "paddingRight": 9,
+      "brand": {
+        "left": 19.5,
+        "right": 89.5,
+        "width": 70,
+        "height": 19.59375
+      },
+      "settingsIcon": {
+        "left": 23,
+        "right": 45,
+        "width": 22,
+        "height": 22
+      }
+    },
+    {
+      "page": "项目资料",
+      "width": 1024,
+      "viewport": 1024,
+      "scrollWidth": 1024,
+      "bodyWidth": 1024,
+      "sidebar": {
+        "left": 0,
+        "right": 110,
+        "width": 110,
+        "height": 1000
+      },
+      "paddingLeft": 9,
+      "paddingRight": 9,
+      "brand": {
+        "left": 19.5,
+        "right": 89.5,
+        "width": 70,
+        "height": 19.59375
+      },
+      "settingsIcon": {
+        "left": 23,
+        "right": 45,
+        "width": 22,
+        "height": 22
+      }
+    },
+    {
+      "page": "成员与权限",
+      "width": 1024,
+      "viewport": 1024,
+      "scrollWidth": 1024,
+      "bodyWidth": 1024,
+      "sidebar": {
+        "left": 0,
+        "right": 110,
+        "width": 110,
+        "height": 1000
+      },
+      "paddingLeft": 9,
+      "paddingRight": 9,
+      "brand": {
+        "left": 19.5,
+        "right": 89.5,
+        "width": 70,
+        "height": 19.59375
+      },
+      "settingsIcon": {
+        "left": 23,
+        "right": 45,
+        "width": 22,
+        "height": 22
+      }
+    },
+    {
+      "page": "项目总览",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "bodyWidth": 768,
+      "sidebar": {
+        "left": 0,
+        "right": 110,
+        "width": 110,
+        "height": 1000
+      },
+      "paddingLeft": 9,
+      "paddingRight": 9,
+      "brand": {
+        "left": 19.5,
+        "right": 89.5,
+        "width": 70,
+        "height": 19.59375
+      },
+      "settingsIcon": {
+        "left": 23,
+        "right": 45,
+        "width": 22,
+        "height": 22
+      }
+    },
+    {
+      "page": "项目中心",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "bodyWidth": 768,
+      "sidebar": {
+        "left": 0,
+        "right": 110,
+        "width": 110,
+        "height": 1000
+      },
+      "paddingLeft": 9,
+      "paddingRight": 9,
+      "brand": {
+        "left": 19.5,
+        "right": 89.5,
+        "width": 70,
+        "height": 19.59375
+      },
+      "settingsIcon": {
+        "left": 23,
+        "right": 45,
+        "width": 22,
+        "height": 22
+      }
+    },
+    {
+      "page": "团队任务",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "bodyWidth": 768,
+      "sidebar": {
+        "left": 0,
+        "right": 110,
+        "width": 110,
+        "height": 1000
+      },
+      "paddingLeft": 9,
+      "paddingRight": 9,
+      "brand": {
+        "left": 19.5,
+        "right": 89.5,
+        "width": 70,
+        "height": 19.59375
+      },
+      "settingsIcon": {
+        "left": 23,
+        "right": 45,
+        "width": 22,
+        "height": 22
+      }
+    },
+    {
+      "page": "项目资料",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "bodyWidth": 768,
+      "sidebar": {
+        "left": 0,
+        "right": 110,
+        "width": 110,
+        "height": 1000
+      },
+      "paddingLeft": 9,
+      "paddingRight": 9,
+      "brand": {
+        "left": 19.5,
+        "right": 89.5,
+        "width": 70,
+        "height": 19.59375
+      },
+      "settingsIcon": {
+        "left": 23,
+        "right": 45,
+        "width": 22,
+        "height": 22
+      }
+    },
+    {
+      "page": "成员与权限",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "bodyWidth": 768,
+      "sidebar": {
+        "left": 0,
+        "right": 110,
+        "width": 110,
+        "height": 1000
+      },
+      "paddingLeft": 9,
+      "paddingRight": 9,
+      "brand": {
+        "left": 19.5,
+        "right": 89.5,
+        "width": 70,
+        "height": 19.59375
+      },
+      "settingsIcon": {
+        "left": 23,
+        "right": 45,
+        "width": 22,
+        "height": 22
+      }
+    },
+    {
+      "page": "项目总览",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 390,
+      "bodyWidth": 390,
+      "sidebar": null,
+      "paddingLeft": null,
+      "paddingRight": null,
+      "brand": {
+        "left": 61,
+        "right": 153.015625,
+        "width": 92.015625,
+        "height": 30.390625
+      },
+      "settingsIcon": {
+        "left": 342,
+        "right": 362,
+        "width": 20,
+        "height": 20
+      }
+    },
+    {
+      "page": "项目中心",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 390,
+      "bodyWidth": 390,
+      "sidebar": null,
+      "paddingLeft": null,
+      "paddingRight": null,
+      "brand": {
+        "left": 61,
+        "right": 153.015625,
+        "width": 92.015625,
+        "height": 30.390625
+      },
+      "settingsIcon": {
+        "left": 342,
+        "right": 362,
+        "width": 20,
+        "height": 20
+      }
+    },
+    {
+      "page": "团队任务",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 390,
+      "bodyWidth": 390,
+      "sidebar": null,
+      "paddingLeft": null,
+      "paddingRight": null,
+      "brand": {
+        "left": 61,
+        "right": 153.015625,
+        "width": 92.015625,
+        "height": 30.390625
+      },
+      "settingsIcon": {
+        "left": 342,
+        "right": 362,
+        "width": 20,
+        "height": 20
+      }
+    },
+    {
+      "page": "项目资料",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 390,
+      "bodyWidth": 390,
+      "sidebar": null,
+      "paddingLeft": null,
+      "paddingRight": null,
+      "brand": {
+        "left": 61,
+        "right": 153.015625,
+        "width": 92.015625,
+        "height": 30.390625
+      },
+      "settingsIcon": {
+        "left": 342,
+        "right": 362,
+        "width": 20,
+        "height": 20
+      }
+    },
+    {
+      "page": "成员与权限",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 390,
+      "bodyWidth": 390,
+      "sidebar": null,
+      "paddingLeft": null,
+      "paddingRight": null,
+      "brand": {
+        "left": 61,
+        "right": 153.015625,
+        "width": 92.015625,
+        "height": 30.390625
+      },
+      "settingsIcon": {
+        "left": 342,
+        "right": 362,
+        "width": 20,
+        "height": 20
+      }
+    }
+  ],
+  "screenshots": [
+    "22-最终桌面总览.png",
+    "23-最终手机总览.png",
+    "24-最终登录设计.png"
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "blockedWrites": [],
+  "limits": [
+    "No business writes, invitations, comments, or setup submissions.",
+    "No real screen-reader speech in this pass; full mutation and role regressions are covered by the separate isolated QA."
+  ],
+  "projectCount": 6,
+  "background": {
+    "width": 1586,
+    "height": 992,
+    "decoded": true
+  },
+  "login": {
+    "visual": 1120,
+    "form": 480,
+    "width": 1600,
+    "background": "url(\"http://127.0.0.1:4174/assets/login-cockpit.png\")"
+  },
+  "formalBootstrap": {
+    "status": 200,
+    "initialized": false,
+    "designPreview": false
+  }
+}

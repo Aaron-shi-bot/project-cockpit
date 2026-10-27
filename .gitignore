@@ -1,0 +1,19 @@
+# Runtime data and credentials
+**/node_modules/
+**/dist/
+**/.next/
+**/.vinext/
+**/.wrangler/
+**/.sites-runtime/
+**/data/
+**/backups/
+**/.dev.vars*
+**/.env
+**/.env.*
+!**/.env.example
+**/*.sqlite
+**/*.sqlite-*
+**/*.db
+**/*.log
+**/*.pem
+**/.DS_Store

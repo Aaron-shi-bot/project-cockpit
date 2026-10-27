@@ -1,0 +1,101 @@
+{
+  "results": [
+    {
+      "width": 768,
+      "sidebarRight": 110,
+      "contentLeft": 9,
+      "contentRight": 101,
+      "textLeft": 19.5,
+      "textRight": 89.5,
+      "iconLeft": 36.5,
+      "iconRight": 72.5,
+      "brandText": "项目驾驶舱",
+      "font": "14px",
+      "passed": true
+    },
+    {
+      "width": 1024,
+      "sidebarRight": 110,
+      "contentLeft": 9,
+      "contentRight": 101,
+      "textLeft": 19.5,
+      "textRight": 89.5,
+      "iconLeft": 36.5,
+      "iconRight": 72.5,
+      "brandText": "项目驾驶舱",
+      "font": "14px",
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "sidebarRight": 110,
+      "contentLeft": 9,
+      "contentRight": 101,
+      "textLeft": 19.5,
+      "textRight": 89.5,
+      "iconLeft": 36.5,
+      "iconRight": 72.5,
+      "brandText": "项目驾驶舱",
+      "font": "14px",
+      "passed": true
+    },
+    {
+      "width": 1360,
+      "sidebarRight": 160,
+      "contentLeft": 12,
+      "contentRight": 148,
+      "textLeft": 56,
+      "textRight": 136,
+      "iconLeft": 12,
+      "iconRight": 48,
+      "brandText": "项目驾驶舱",
+      "font": "16px",
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "sidebarRight": 160,
+      "contentLeft": 12,
+      "contentRight": 148,
+      "textLeft": 56,
+      "textRight": 136,
+      "iconLeft": 12,
+      "iconRight": 48,
+      "brandText": "项目驾驶舱",
+      "font": "16px",
+      "passed": true
+    },
+    {
+      "width": 1600,
+      "sidebarRight": 160,
+      "contentLeft": 12,
+      "contentRight": 148,
+      "textLeft": 56,
+      "textRight": 136,
+      "iconLeft": 12,
+      "iconRight": 48,
+      "brandText": "项目驾驶舱",
+      "font": "16px",
+      "passed": true
+    },
+    {
+      "width": 1920,
+      "sidebarRight": 160,
+      "contentLeft": 12,
+      "contentRight": 148,
+      "textLeft": 56,
+      "textRight": 136,
+      "iconLeft": 12,
+      "iconRight": 48,
+      "brandText": "项目驾驶舱",
+      "font": "16px",
+      "passed": true
+    }
+  ],
+  "mobile": {
+    "width": 390,
+    "overflow": false,
+    "brandText": "项目驾驶舱"
+  },
+  "passed": true
+}

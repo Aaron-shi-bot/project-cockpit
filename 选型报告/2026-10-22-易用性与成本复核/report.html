@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>项目共享看板复核：易用性、Windows与云端成本</title>
+<style>
+  :root {
+    --bg:#f5f6f8; --card:#fff; --ink:#1c2333; --muted:#6b7280; --line:#e5e7eb;
+    --green:#16a34a; --amber:#d97706; --blue:#2563eb; --red:#dc2626; --violet:#7c3aed;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.6; padding:32px 16px; }
+  .wrap { max-width:960px; margin:0 auto; }
+  .header { background:linear-gradient(135deg,#1e3a8a,#3b82f6); color:#fff;
+    border-radius:14px; padding:28px 32px; box-shadow:0 8px 24px rgba(30,58,138,.18); }
+  .header .meta { font-size:13px; opacity:.85; margin-bottom:8px; }
+  .header h1 { font-size:26px; font-weight:700; }
+  .header .query { font-size:14px; opacity:.9; margin-top:10px; }
+  .chips { margin-top:16px; display:flex; flex-wrap:wrap; gap:8px; }
+  .chip { font-size:12px; padding:4px 12px; border-radius:999px;
+    background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.35); }
+  .section { margin-top:24px; }
+  .section h2 { font-size:17px; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .section h2::before { content:""; width:4px; height:18px; background:#3b82f6; border-radius:2px; }
+  .card { background:var(--card); border-radius:14px; padding:24px 28px;
+    border:1px solid var(--line); box-shadow:0 2px 8px rgba(17,24,39,.05); }
+  .badge { display:inline-block; font-size:12px; font-weight:600; padding:3px 12px;
+    border-radius:999px; margin-left:6px; vertical-align:middle; }
+  .badge.use { background:#f0fdf4; color:var(--green); border:1px solid #bbf7d0; }
+  .badge.mod { background:#fffbeb; color:var(--amber); border:1px solid #fde68a; }
+  .badge.idea { background:#eff6ff; color:var(--blue); border:1px solid #bfdbfe; }
+  .badge.dead { background:#fef2f2; color:var(--red); border:1px solid #fecaca; }
+  .badge.verify { background:#f5f3ff; color:var(--violet); border:1px solid #ddd6fe; }
+  .rec-head { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:6px; }
+  .rec-head h3 { font-size:22px; }
+  .one-liner { color:var(--muted); font-size:15px; margin-bottom:18px; }
+  .links { margin-bottom:20px; }
+  .links a { display:inline-block; margin:0 8px 8px 0; padding:7px 16px; border-radius:8px;
+    text-decoration:none; font-size:13px; font-weight:600; background:#eff6ff; color:var(--blue);
+    border:1px solid #bfdbfe; transition:.15s; }
+  .links a:hover { background:#dbeafe; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width:720px) { .grid { grid-template-columns:1fr; } }
+  .kv { background:#fafafa; border:1px solid var(--line); border-radius:10px; padding:14px 16px; }
+  .kv .label { font-size:12px; color:var(--muted); margin-bottom:4px; }
+  .kv .value { font-size:14px; font-weight:600; }
+  .maturity { margin-top:20px; }
+  .maturity .lbl { font-size:12px; color:var(--muted); margin-bottom:6px; }
+  .bar { display:flex; gap:6px; }
+  .seg { flex:1; height:10px; border-radius:5px; background:#e5e7eb; }
+  .seg.filled { background:linear-gradient(90deg,#22c55e,#16a34a); }
+  .match { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:18px; }
+  .match-item { text-align:center; border:1px solid var(--line); border-radius:10px; padding:12px 8px; }
+  .match-item .m { font-size:20px; }
+  .match-item .t { font-size:12px; color:var(--muted); margin-top:4px; }
+  .ok { color:var(--green); } .warn { color:var(--amber); } .no { color:var(--red); }
+  .note { background:#fffbeb; border:1px solid #fde68a; border-radius:10px;
+    padding:14px 16px; font-size:14px; margin-top:16px; }
+  .note-line { font-size:13px; color:var(--muted); margin-top:10px; }
+  table { width:100%; border-collapse:collapse; font-size:13.5px; }
+  th, td { padding:10px 12px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { background:#f9fafb; font-size:12px; color:var(--muted); }
+  tr:last-child td { border-bottom:none; }
+  .status-dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:6px; }
+  .dot-green, .status-dot.use { background:var(--green); }
+  .dot-amber, .status-dot.mod { background:var(--amber); }
+  .dot-blue, .status-dot.idea { background:var(--blue); }
+  .dot-red, .status-dot.dead { background:var(--red); }
+  .status-dot.verify { background:var(--violet); }
+  .next { background:#f0fdf4; border:1px solid #bbf7d0; border-radius:10px; padding:16px 18px; }
+  .next h4 { font-size:14px; color:var(--green); margin-bottom:6px; }
+  .next ol { margin-left:18px; font-size:14px; }
+  .src { font-size:13px; color:var(--muted); }
+  .src li { margin:4px 0; }
+  .src a { color:var(--blue); text-decoration:none; }
+  .src a:hover { text-decoration:underline; }
+  .footer { margin-top:28px; text-align:center; font-size:12px; color:#9ca3af; }
+  .footer a { color:var(--blue); text-decoration:none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <div class="meta">2026-10-22 · 普通模式 · 检索时长 18 分钟</div>
+    <h1>项目共享看板复核：易用性、Windows与云端成本</h1>
+    <div class="query">需求：同事通过网页看到彼此负责的工作、项目和进度，并共享资料与讨论。用户明确：先比较易用性和成本，云服务与本地部署均保留；没有要求服务器必须Windows。客户对外隔离与转售不是本轮已确认需求。</div>
+    <div class="chips"><span class="chip">现成产品</span><span class="chip">Exa连接器</span><span class="chip">内置网络搜索</span><span class="chip">官网功能与当前价格页</span><span class="chip">官网原始HTML勾叉核对</span><span class="chip">GitHub许可证/安全公告</span><span class="chip">当前工作区历史报告</span><span class="chip">候选 5 个</span><span class="chip">历史回灌 2 条</span></div>
+  </div>
+  <div class="section"><h2>Pro 决策摘要</h2><div class="card"><p><b>Verdict 行</b>：Verdict: 待验证 — 飞书多维表格＋云文档优先试用；Worktile旗舰为成品系统备选；禅道为Windows本地备选 — 2026-10-22核对官网功能、Windows部署与版本费用；未完成多账号业务试跑</p><p><b>置信度</b>：MEDIUM · <b>门类型</b>：two-way</p><p><b>再评估触发器</b>：付款、导入真实项目资料或向团队正式推广前；试用一周后；需要复杂依赖/资源排期、客户间数据隔离、本地交付、源码改造或数据导出时重新评估。</p><p><b>谱系</b>：前一轮因跨项目负责人汇总、计划及Wiki覆盖而保留OpenProject。此次用户提出Windows环境和易用性顾虑；核实表明这主要影响服务器安装与维护，不限制Windows浏览器使用。按现阶段共享工作和资料的需求，优先级调整为轻量云表格试点、成品付费项目系统、Windows集成部署，并保留OpenProject作复杂计划对照；用户尚未选定新产品。</p><p><b>业务价值五维</b>：可靠：各候选有官方持续维护或服务证据，但未完成安全审计；战略：先验证共享习惯，无需立即自建；可适：飞书配置灵活，Worktile流程成品化，禅道面向研发；TCO：同时比较席位、版本、实施与维护，免费软件不等于总成本为零；速度：云端少部署工作，自部署要承担升级、备份和恢复。</p></div></div>
+  <div class="section"><h2>推荐方案</h2><div class="card">
+  <div class="rec-head">
+    <h3>飞书多维表格＋云文档</h3>
+    <span class="badge verify">🟣 待验证</span>
+    <span class="badge">成熟度 L4</span>
+  </div>
+  <p class="one-liner">当前优先试：将项目、任务、人员与资料关联，按成员或项目共享同一批数据。</p>
+  <div class="links"><a href="https://www.feishu.cn/" target="_blank">官网</a><a href="https://www.feishu.cn/hc/zh-CN/articles/184008024837-多维表格实战模板-项目管理系统" target="_blank">官方项目模板</a><a href="https://www.feishu.cn/service" target="_blank">现行版本</a></div>
+  <div class="grid">
+    <div class="kv"><div class="label">类型</div><div class="value">现成产品</div></div>
+    <div class="kv"><div class="label">许可证 / 成本</div><div class="value">商业云服务，官网免费版支持100用户；所需高级能力与容量需核对。标准/专业/旗舰50/80/120元每人每月，按年付费，套件升级范围另核。</div></div>
+    <div class="kv"><div class="label">最近更新</div><div class="value">2026-10-22核实当前产品/定价；模板页面最后更新2024-06-21，其人员任务分组能力现文档仍可读取。</div></div>
+    <div class="kv"><div class="label">上手难度</div><div class="value">低到中：无需维护服务器，但要配置字段、关联、视图及谁能看谁能改。</div></div>
+  </div>
+  <div class="maturity">
+    <div class="lbl">成熟度（离直接用有多远：L0–L5）</div>
+    <div class="bar"><div class="seg filled"></div><div class="seg filled"></div><div class="seg filled"></div><div class="seg filled"></div><div class="seg"></div></div>
+  </div>
+  <div class="match"><div class="match-item"><div class="m ok">✅</div><div class="t">输入匹配</div></div><div class="match-item"><div class="m ok">✅</div><div class="t">输出匹配</div></div><div class="match-item"><div class="m ok">✅</div><div class="t">场景匹配</div></div><div class="match-item"><div class="m warn">⚠️</div><div class="t">约束匹配</div></div></div>
+  <div class="note">🎯 决策行：Verdict: 待验证 — 飞书多维表格＋云文档 — 2026-10-22官网模板明确人员任务分组、看板和仪表盘；免费100用户；未完成业务试跑</div><div class="note">⚠️ 已知坑：不是完整项目软件的一键安装包。免费100人不代表高级权限/自动化/容量无限；不是独立收费的飞书项目。无真实租户试跑。</div><div class="note">⚖️ 许可硬检查：闭源商业服务，不获得可任意修改或转售源码的权利；使用、导出、付费及数据处理遵守服务协议。</div><div class="note">🧭 置信度：MEDIUM · 门类型：two-way</div><div class="note">🔁 再评估触发器：需要高级权限、容量/自动化扩展、正式推广或跨客户隔离时。</div><div class="note">📜 谱系：保留前一轮云服务首选。它从表格录入扩展为关联数据与多视图，避免先引入复杂项目方法。</div><div class="note">结论理由：与当前信息共享目的最接近，且可先用免费版本验证团队是否愿意更新；这是优先试用判断，未声称最易用。</div>
+</div></div>
+  <div class="section"><h2>候选对比</h2><div class="card"><table>
+    <thead><tr><th>方案</th><th>类型</th><th>成熟度</th><th>成本</th><th>一句话定位</th><th>结论</th></tr></thead>
+    <tbody><tr><td>飞书多维表格＋云文档</td><td>现成产品</td><td>L4</td><td>商业云服务，官网免费版支持100用户；所需高级能力与容量需核对。标准/专业/旗舰50/80/120元每人每月，按年付费，套件升级范围另核。</td><td>当前优先试：将项目、任务、人员与资料关联，按成员或项目共享同一批数据。</td><td><span class="status-dot verify"></span>待验证</td></tr><tr><td>Worktile（重点试旗舰版）</td><td>现成产品</td><td>L4</td><td>专业499元/人/年、旗舰799元/人/年，均5人起购。最低席位费分别2495/3995元/年；本需求集中跨项目任务及仪表盘以旗舰预算起步；私有部署询价。</td><td>要完整成品项目系统时优先比较：任务流程、跨项目统计、资源与资料共享。</td><td><span class="status-dot verify"></span>待验证</td></tr><tr><td>禅道开源版22.6</td><td>现成产品</td><td>L4</td><td>开源版不限人数和时间，软件许可费0；服务器、备份升级维护需计入成本。执行甘特等商业版另费。</td><td>Windows本地部署备选：官方集成环境，适合研发团队看板和资料管理。</td><td><span class="status-dot verify"></span>待验证</td></tr><tr><td>OpenProject Community</td><td>现成产品</td><td>L4</td><td>Community无软件席位费；数据库/服务/备份升级及企业附加功能成本另计。</td><td>保留为复杂计划和开源自部署对照，不因Linux服务器就否定Windows终端。</td><td><span class="status-dot verify"></span>待验证</td></tr><tr><td>Teambition</td><td>现成产品</td><td>L4</td><td>当前价格页免费10席；企业/旗舰10席起购，公开单价需询价；私有部署200席起。</td><td>团队已用钉钉时保留：基础任务看板和资料共享，少于等于10席可比较免费档。</td><td><span class="status-dot verify"></span>待验证</td></tr></tbody>
+  </table></div></div>
+  <div class="section"><h2>下一步（最小试跑）</h2>
+    <div class="next"><h4>验证计划</h4><ol><li>先用飞书官方项目模板配置2个项目、3个成员、10条任务与少量非敏感资料；分别建立按成员、按项目和项目进度视图。</li><li>请三位同事分别完成查看他人任务、更新自己状态、找到资料、留言四个动作，记录是否需要帮助。此步骤尚未执行。</li><li>如果需要更多正式计划和工作流，使用同一批样例试Worktile旗舰，核对跨项目任务按人员筛选、仪表盘、导出，以及最低5席和可选实施费用。</li><li>本地路线以禅道Windows集成环境对照；核对研发概念是否多余、免费能力是否够用、备份恢复是否可完成。不要在本轮研究中干扰已有OpenProject安装。</li><li>正式选择前导出样例，并核查项目、任务、负责人、状态、资料和讨论是否能满足退出需求；无需同时推广多套工具。</li></ol></div></div>
+  <div class="section"><h2>来源与搜索记录</h2><div class="card src">
+    <ul><li>https://www.feishu.cn/service</li><li>https://www.feishu.cn/hc/zh-CN/articles/184008024837-多维表格实战模板-项目管理系统</li><li>https://www.feishu.cn/hc/zh-CN/articles/360049067931</li><li>https://www.feishu.cn/hc/zh-CN/articles/539823920318</li><li>https://worktile.com/pricing</li><li>https://worktile.com/tools/project</li><li>https://worktile.com/product/project</li><li>https://worktile.com/product/drive</li><li>https://www.zentao.net/download/pms22.6-86691.html</li><li>https://www.zentao.net/compare-features.html</li><li>https://github.com/easysoft/zentaopms/blob/main/LICENSE.CN</li><li>https://www.zentao.net/extension-viewrelease-1690-front.html</li><li>https://www.openproject.org/docs/installation-and-operations/installation-faq/</li><li>https://www.openproject.org/docs/release-notes/</li><li>https://github.com/opf/openproject</li><li>https://www.openproject.org/docs/user-guide/work-packages/work-package-table-configuration/</li><li>https://www.teambition.com/pricing?region=cn</li><li>https://www.teambition.com/manageproject?region=cn</li></ul><p class="note-line">未搜索渠道：Tavily独立引擎未配置。、没有可编辑的首选产品租户，未完成真实业务、通知、中文附件、多账号权限或导出还原试跑；易用性结论为条件性判断。、未完成全量CVE/依赖扫描；SaaS不公开全部后端版本，不能证明无漏洞。、未查到能支持大部分客户偏好Linux或Windows部署的可靠份额数据，不作多数客户结论。、没有向供应商询价，不将官网最低席位费当完整采购报价。</p><p class="note-line">历史回灌：历史库：选型报告/report.json，2026-10-22前一轮；飞书多维表格为云服务试点，OpenProject为自行部署试点。；已读C:/Users/59244/Documents/solution-scout-history/index.html及对应报告；本轮新增Windows支持与Worktile版本费用证据，旧报告原文保留。</p><p class="note-line">检索日志：历史库与原聊天：同事项目工作共享、两条部署路线、已授权安装OpenProject（工作区报告,Codex聊天读取,历史索引，命中 3，有用 3）；OpenProject official installation FAQ Windows supported browsers server Linux（Exa,内置搜索,官网直读，命中 6，有用 3）；Windows native self-hosted project management ZenTao ProjeQtOr Redmine（Exa,内置搜索,官方安装页，命中 8，有用 5）；Worktile当前499/799价格、项目集、按人员跨项目统计、原始HTML版本勾叉（Exa,内置搜索,官网直读及HTML，命中 7，有用 5）；飞书项目管理系统模板、免费100用户、视图、分享权限、行数扩容（Exa,内置搜索,官网帮助，命中 10，有用 7）；Teambition与PingCode现行免费人数、部署、产品定位（Exa,官方定价，命中 5，有用 3）；Worktile/Teambition/Feishu独立用户反馈反搜（Exa，命中 5，有用 0）</p><p class="note-line">假设：目前主要是同事内部共享，不将不同客户数据隔离擅自设为硬约束。；易用性判断依据产品定位、配置项与部署依赖，未实测不同同事的学习时间。；按中国大陆官方产品及公开人民币价格比较；实际合同、附加服务及续费以采购时核对为准。</p>
+  </div></div>
+  <div class="footer">由 检索世界 Pro 生成 · <a href="../index.html">返回检索历史</a></div>
+</div>
+</body>
+</html>

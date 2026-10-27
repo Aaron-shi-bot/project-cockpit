@@ -1,0 +1,57 @@
+{
+  "kind": "同协议优化前后本机单次样本对比，非生产性能承诺",
+  "beforeOptimization": {
+    "checkedAt": "2026-10-23T08:29:29.270Z",
+    "kind": "本机单次真实HTTP容量采样，非生产性能承诺",
+    "runtime": "v24.14.0",
+    "platform": "win32",
+    "dataPreparation": "全新临时SQLite库；100项目、5000任务、100条有效直接维护授权；初始化后直接夹具事务写入",
+    "projects": 100,
+    "tasks": 5000,
+    "grants": 100,
+    "completedTasks": 3000,
+    "endpoint": "GET /api/state",
+    "requestsMeasured": 1,
+    "status": 200,
+    "durationUntilBodyReceivedMs": 2944.16,
+    "jsonParseMs": 5.04,
+    "responseBytes": 2442973,
+    "responseMiB": 2.33,
+    "roleAndMetricsVerified": true,
+    "loopbackPort": 58513,
+    "formal4173AndPreview4174Untouched": true,
+    "limitations": [
+      "一次本机回环请求，不是并发或公网压测",
+      "完整state响应包含所有5000任务，没有据此证明分页或可承受的生产容量",
+      "没有文件字节、团队多源授权或复杂风险样本；业务权限未绕过"
+    ],
+    "tempDatabaseRemoved": true
+  },
+  "afterOptimization": {
+    "checkedAt": "2026-10-23T08:34:16.258Z",
+    "kind": "本机单次真实HTTP容量采样，非生产性能承诺",
+    "runtime": "v24.14.0",
+    "platform": "win32",
+    "dataPreparation": "全新临时SQLite库；100项目、5000任务、100条有效直接维护授权；初始化后直接夹具事务写入",
+    "projects": 100,
+    "tasks": 5000,
+    "grants": 100,
+    "completedTasks": 3000,
+    "endpoint": "GET /api/state",
+    "requestsMeasured": 1,
+    "status": 200,
+    "durationUntilBodyReceivedMs": 105.78,
+    "jsonParseMs": 5.74,
+    "responseBytes": 2442973,
+    "responseMiB": 2.33,
+    "roleAndMetricsVerified": true,
+    "loopbackPort": 62889,
+    "formal4173AndPreview4174Untouched": true,
+    "limitations": [
+      "一次本机回环请求，不是并发或公网压测",
+      "完整state响应包含所有5000任务，没有据此证明分页或可承受的生产容量",
+      "没有文件字节、团队多源授权或复杂风险样本；业务权限未绕过"
+    ],
+    "tempDatabaseRemoved": true
+  }
+}

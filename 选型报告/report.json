@@ -1,0 +1,641 @@
+{
+  "query": "同事工作与项目信息共享网页看板：现成方案选型",
+  "date": "2026-10-22",
+  "type": "混合",
+  "duration_minutes": 20,
+  "mode": "normal",
+  "rounds": 1,
+  "constraints": "通过网页查看每位同事负责的项目和工作、进展与阻塞，并共享资料和讨论；用户已确认同时保留云服务和自行部署两条路线，比较功能和成本。",
+  "channels": [
+    "Exa 连接器",
+    "内置网络搜索",
+    "官方文档与定价",
+    "GitHub 发布/源码/安全公告",
+    "官方社区"
+  ],
+  "history_reused": [],
+  "verdict_line": "Verdict: 待验证 — 飞书多维表格＋云文档（云服务先试）；OpenProject Community（自行部署先试） — 2026-10-22 已核对官方功能、费用和许可；未完成多账号业务试跑",
+  "confidence": "MEDIUM",
+  "door": "two-way",
+  "re_evaluation_trigger": "开始导入真实业务数据或付款前；成员数超过免费额度；需要内网、细分数据权限、人员排期或修改源码时；最晚在试用一周后复评。",
+  "lineage": "现成方案分为三条路线：多维表格把项目、任务与成员关联起来；完整项目管理平台把负责人、进度与Wiki连接起来；轻量看板围绕任务卡片协作。本轮没有查到本项目已有实现，不继承旧个人项目看板的产品推荐。用户本次尚未选定产品。",
+  "business_value": "可靠性：优先维护中的产品，并核对安全修复线；战略价值：两条路线都能先验证共享习惯，暂不需要从零开发；适配性：飞书便于按同事和项目配置视图，OpenProject的免费基础任务表有跨项目按负责人查看的明确文档；总成本：云服务重点看人数、权限和容量，自部署要加服务器、备份、更新和维护；启动速度：云服务少部署工作，自部署保留更多数据与代码控制。",
+  "recommendation": {
+    "cloud": "飞书多维表格＋云文档：先套项目管理模板，配置按成员和按项目的两个视图。",
+    "self_hosted": "OpenProject Community：全局任务表按负责人分组，保留项目、状态、进度、截止日期，并连接Wiki。",
+    "alternatives": "Leantime重视非专业项目管理体验，但免费My Work不是任意同事工作总览；Vikunja适合任务卡片为主；Plane适合接受研发工作流的团队；已有钉钉可先试Teambition。",
+    "build_vs_buy": "本轮建议先用现成工具试点。只有试点证明缺少关键展示或权限能力，再评估API补充网页或修改开源代码。"
+  },
+  "term_map": [
+    {
+      "concept": "谁在做什么",
+      "variants": [
+        "团队工作总览",
+        "按负责人查看任务",
+        "team workload overview",
+        "cross-project assignee view",
+        "who is working on what"
+      ]
+    },
+    {
+      "concept": "项目进展",
+      "variants": [
+        "项目看板",
+        "项目状态与里程碑",
+        "project portfolio dashboard",
+        "progress tracking",
+        "cross-project status"
+      ]
+    },
+    {
+      "concept": "共享信息",
+      "variants": [
+        "项目文档与讨论",
+        "团队知识库",
+        "project wiki and files",
+        "team knowledge sharing",
+        "task comments and attachments"
+      ]
+    },
+    {
+      "concept": "现成网页",
+      "variants": [
+        "开源项目管理系统",
+        "可自行部署看板",
+        "self-hosted project management",
+        "open source team collaboration",
+        "hosted project workspace"
+      ]
+    }
+  ],
+  "preflight": {
+    "reuse": "当前工作区起始为空，无已存在的看板应用或可复用依赖。",
+    "history": "已查 C:/Users/59244/Documents/solution-scout-history 的 index.html 和 report.json，没有本主题同范围报告；共享记忆中个人项目总览属于不同范围，仅用于避免误继承旧选型。",
+    "exa": "Exa连接器可用，已执行语义检索；技能独立脚本未配置API Key，因此使用现成连接器。",
+    "tavily": "无环境变量和配置文件，未调用；未因此阻塞研究。",
+    "builtin": "可用，负责定向核对功能、定价、发布和安全。",
+    "runtime": "本机命令发现未找到Docker或PHP；agent-browser/opencli也未找到。未为选型研究安装运行环境。",
+    "access": "未注册产品、未登录现有账号、未创建远程团队或项目。"
+  },
+  "selection_layers": [
+    {
+      "layer": "REUSE",
+      "result": "无现有团队看板实现可复用；历史个人看板建议范围不同。",
+      "evidence": "工作区检查；历史报告索引检查"
+    },
+    {
+      "layer": "USE",
+      "result": "OpenProject、Leantime、Vikunja、Plane Community 均为可部署成品，保留试点。",
+      "evidence": "https://github.com/opf/openproject ; https://github.com/Leantime/leantime ; https://github.com/go-vikunja/vikunja ; https://github.com/makeplane/plane"
+    },
+    {
+      "layer": "FORK",
+      "result": "暂不分叉。核心需求已有功能覆盖，先验证配置是否够用，避免提前承担合并和安全升级成本。",
+      "evidence": "https://www.openproject.org/docs/user-guide/work-packages/work-package-table-configuration/"
+    },
+    {
+      "layer": "BUY",
+      "result": "保留飞书、Teambition及开源产品的托管服务；免费版与高级功能分层分别核对。",
+      "evidence": "https://www.feishu.cn/service ; https://www.teambition.com/pricing ; https://leantime.io/pricing/"
+    },
+    {
+      "layer": "INTEGRATE",
+      "result": "API接入可在试点证明缺口后考虑；本轮没有必要先自建汇总层。",
+      "evidence": "https://www.openproject.org/community-edition/"
+    },
+    {
+      "layer": "BUILD",
+      "result": "不建议现在从零开发：人员任务、状态和资料共享已有多种可运行成品。",
+      "evidence": "本报告六个保留候选的官方功能证据"
+    }
+  ],
+  "candidates": [
+    {
+      "name": "飞书多维表格＋云文档",
+      "url": "https://www.feishu.cn/",
+      "links": {
+        "项目管理模板": "https://www.feishu.cn/hc/zh-CN/articles/184008024837-多维表格实战模板-项目管理系统",
+        "版本与价格": "https://www.feishu.cn/service",
+        "权限说明": "https://www.feishu.cn/hc/zh-CN/articles/360044508113-云文档权限常见问题"
+      },
+      "one_liner": "云服务优先试：用现成项目管理模板，将任务按负责人或项目分组，并关联共享资料。",
+      "type": "现成云服务；中文",
+      "maturity": "L4",
+      "license_cost": "商业云服务；免费版当前支持100用户。商业标准/专业/旗舰官网年付标价分别为50/80/120元每人每月；高级能力、容量和企业整体升级条件另核对。",
+      "last_update": "持续运营服务，2026-10-22核对现行模板与版本权益；无客户端版本可作为部署证据。",
+      "effort": "低到中：无需维护服务器，但要配置任务、项目、成员之间的关系、字段、视图和权限。",
+      "known_issues": "不是开箱即用的独立定制网站。多维表格高级权限、容量和自动化有版本限制；行数存在扩容权益，不写死免费行数。普通方案按SaaS理解，完全私有化需商务确认。未验证团队成员是否都愿意及时更新。",
+      "verdict_line": "Verdict: 待验证 — 飞书多维表格＋云文档 — 2026-10-22核对官方项目模板、人员分组、免费人数与版本权益；未完成真实业务与权限试跑",
+      "license_check": "产品使用和数据处理受商业服务协议约束；不是可以拿走源码修改的开源项目。保留导出与退出验证。",
+      "confidence": "MEDIUM",
+      "door": "two-way",
+      "re_evaluation_trigger": "需要细分行列权限、自动化增多、数据超过容量、准备企业整体付费或需要内网部署时。",
+      "lineage": "沿用电子表格的录入习惯，把项目、任务和人员关联，再用看板和仪表盘呈现。适合先验证同事之间共享工作的方式。",
+      "match": {
+        "input": "✅",
+        "output": "✅",
+        "scenario": "✅",
+        "constraint": "⚠️"
+      },
+      "verdict": "待验证",
+      "reason": "在同时保留两条路线的前提下，优先拿它验证轻量协作；是否满足全部权限与展示要求仍需试用。",
+      "recommended": true,
+      "six_dimensions": {
+        "function": "按成员/项目视图、资料链接与文档协作；需配置",
+        "maintenance": "运营中的服务",
+        "community": "官方模板和帮助材料较完整；团队真实使用未测试",
+        "documentation": "官方项目管理模板与权限文档",
+        "license": "商业云服务",
+        "dependencies": "云账号、网络、对应版本权益"
+      },
+      "business_value": {
+        "reliability": "运行维护由服务商负责，权限和导出仍需验证",
+        "strategy": "快速验证协作流程",
+        "adaptability": "字段视图灵活，源码控制有限",
+        "tco": "免费版可起步，企业升级需核价",
+        "speed": "少部署步骤，需完成模板配置"
+      },
+      "technical_stack": "供应商托管；不提供本轮可自行部署的开源代码。",
+      "chinese": "原生中文产品。",
+      "primary_sources": [
+        "https://www.feishu.cn/service",
+        "https://www.feishu.cn/hc/zh-CN/articles/868158430248-多维表格-重塑项目管理流程",
+        "https://www.feishu.cn/services/success-plans"
+      ]
+    },
+    {
+      "name": "OpenProject Community",
+      "url": "https://www.openproject.org/community-edition/",
+      "links": {
+        "源码": "https://github.com/opf/openproject",
+        "全局项目任务": "https://www.openproject.org/docs/user-guide/projects/projects-faq/",
+        "按负责人查看": "https://www.openproject.org/docs/user-guide/work-packages/work-package-table-configuration/",
+        "费用": "https://www.openproject.org/pricing/"
+      },
+      "one_liner": "自行部署优先试：跨项目任务表按负责人筛选或分组，配合进度、里程碑、Wiki、附件和评论；功能较多。",
+      "type": "开源可自行部署；另有商业托管；支持中文",
+      "maturity": "L4",
+      "license_cost": "Community软件免费，无最低用户数；服务器和维护另计。Team planner、Resource management等企业附加功能收费；不把默认定价计算器的价格当所有模式报价。",
+      "last_update": "稳定版17.9.2，2026-10-15；官方发布记录实时核对。",
+      "effort": "中到高：完整服务，Docker/Compose或打包安装与PostgreSQL；官方最低四核、4GB内存、20GB磁盘。需要更新、备份和恢复管理。",
+      "known_issues": "免费任务表按人汇总与付费人员时间线排期是不同能力。Team planner属于Basic企业附加功能，Resource management属于Premium。跨项目只汇总有权限查看的数据。工具较完整，小团队要验证配置与学习成本。",
+      "verdict_line": "Verdict: 待验证 — OpenProject Community 17.9.2 — 2026-10-15发布、GPLv3、官方明确跨项目负责人筛选与Wiki；未实际部署",
+      "license_check": "GPLv3：公司内部运行、仅让同事经浏览器使用一般不等同向其他主体分发；若分发修改版须保留许可并按GPL提供对应源码。不能把GPL修改版直接闭源分发。",
+      "confidence": "MEDIUM",
+      "door": "two-way",
+      "re_evaluation_trigger": "需要付费人员排期/资源管理、服务器运维负担过高或用户认为日常更新过于复杂时。",
+      "lineage": "完整项目管理平台路线，通过工作包连接负责人、计划、进度和项目Wiki。免费基础任务总览足以进入试点，企业附加功能应等需求明确后再买。",
+      "match": {
+        "input": "✅",
+        "output": "✅",
+        "scenario": "✅",
+        "constraint": "⚠️"
+      },
+      "verdict": "待验证",
+      "reason": "本轮自行部署首选。免费基础版按负责人跨项目查看有明确官方操作文档，同时覆盖资料与讨论。",
+      "recommended": false,
+      "six_dimensions": {
+        "function": "跨项目任务、负责人、进度、Wiki、附件和评论",
+        "maintenance": "近期稳定发布",
+        "community": "官方社区与公开问题追踪；不以星数代替适配",
+        "documentation": "完整用户/管理员/部署手册",
+        "license": "GPLv3",
+        "dependencies": "完整服务与PostgreSQL，资源需求高于轻量任务工具"
+      },
+      "business_value": {
+        "reliability": "有持续发布及安全公告",
+        "strategy": "可长期掌握数据与源码",
+        "adaptability": "基础字段和视图可配置",
+        "tco": "软件免费，运维和企业功能另计",
+        "speed": "需要部署和管理员配置"
+      },
+      "chinese": "官方明确支持Chinese；本轮未检查翻译完整性。",
+      "security_check": "抽查CVE-2026-52785已在17.3.3/17.4.1修复；旧自动登录会话问题已在17.8.1/17.9.0修复。17.9.2越过这些修复线，不代表全面无漏洞。",
+      "primary_sources": [
+        "https://www.openproject.org/docs/release-notes/",
+        "https://www.openproject.org/docs/user-guide/wiki/",
+        "https://www.openproject.org/docs/enterprise-guide/",
+        "https://www.openproject.org/docs/user-guide/account-settings/language-and-region/",
+        "https://www.openproject.org/docs/installation-and-operations/system-requirements/",
+        "https://github.com/opf/openproject/security/advisories/GHSA-98vw-2r87-fx2r"
+      ]
+    },
+    {
+      "name": "Leantime",
+      "url": "https://leantime.io/",
+      "links": {
+        "源码": "https://github.com/Leantime/leantime",
+        "费用与功能分层": "https://leantime.io/pricing/",
+        "跨项目插件": "https://marketplace.leantime.io/product/leantime-program-plans/",
+        "稳定发布": "https://github.com/Leantime/leantime/releases/tag/v3.12.0"
+      },
+      "one_liner": "面向非专业项目经理，项目进度与Docs/Wiki一体；免费My Work以本人为中心，查看所有同事的跨项目工作需重点验证。",
+      "type": "开源可自行部署；另有商业云服务；有中文包",
+      "maturity": "L4",
+      "license_cost": "免费核心AGPLv3；跨项目Program Plans等另售插件。云Pro官网月付10美元/人/月，年付标价8美元/人/月；不能把云试用当永久免费。",
+      "last_update": "v3.12.0，UTC 2026-10-15 23:11（北京时间2026-10-16）。",
+      "effort": "中：PHP8.2+、MySQL8+/MariaDB10.6+或Docker；需维护服务和数据库。",
+      "known_issues": "My Work不能当成任意同事跨项目工作总览；核心PR#3587提供Program插件基础，不证明免费UI已覆盖全部需要。Program Plan、白板、自定义字段等有付费边界。新版部分新增文案只有英文。",
+      "verdict_line": "Verdict: 待验证 — Leantime v3.12.0 — AGPLv3、官方列基础进度/Docs/Wiki；Program Plans另售，跨同事总览未实测",
+      "license_check": "AGPLv3，部分插件另许可。修改版经网络供同事交互时，应向相关网络用户提供对应源码获取方式；分发另有版权、许可和源码义务。义务针对软件代码，不要求公开项目业务资料。",
+      "confidence": "MEDIUM",
+      "door": "two-way",
+      "re_evaluation_trigger": "试点需要跨项目任意成员总览、需要购买插件或出现新安全公告时。",
+      "lineage": "任务卡片向项目目标、知识和计划扩展，基础项目功能开源，跨项目Program等通过插件提供。README、官网与插件市场必须合看。",
+      "match": {
+        "input": "✅",
+        "output": "⚠️",
+        "scenario": "✅",
+        "constraint": "⚠️"
+      },
+      "verdict": "待验证",
+      "reason": "如果更在意非专业同事的日常录入与项目资料，可优先体验；人员总览这个核心点不能只依据My Work宣传认定满足。",
+      "recommended": false,
+      "six_dimensions": {
+        "function": "项目看板、里程碑、进度、Wiki、评论和文件",
+        "maintenance": "近期稳定发布",
+        "community": "有公开issues、PR与社区反馈",
+        "documentation": "安装与用户文档可用，功能分层需交叉检查",
+        "license": "AGPLv3核心及另许可插件",
+        "dependencies": "PHP及数据库，插件需跟随升级"
+      },
+      "business_value": {
+        "reliability": "需选择修复过安全问题的稳定版",
+        "strategy": "开源核心可扩展",
+        "adaptability": "适合普通团队，跨项目总览需验证",
+        "tco": "基础免费，插件和维护另计",
+        "speed": "部署比SaaS多，核心功能成品化"
+      },
+      "chinese": "有zh-CN/zh-TW语言文件；新版部分文案英文，未实测完整性。",
+      "security_check": "GHSA-54mm-6729-r5wp的Patched版本字段与后续发布记录不同步，不能宣称全部修复；应部署前复核。CJK附件500与同秒附件冲突已在3.10.1修复，不能沿用旧索引的open状态。",
+      "primary_sources": [
+        "https://support.leantime.io/en/article/how-is-leantime-the-open-source-system-licensed-29l3j/",
+        "https://github.com/Leantime/leantime/pull/3587",
+        "https://github.com/Leantime/leantime/issues/3782",
+        "https://github.com/Leantime/leantime/security/advisories/GHSA-54mm-6729-r5wp"
+      ]
+    },
+    {
+      "name": "Vikunja",
+      "url": "https://vikunja.io/",
+      "links": {
+        "源码": "https://github.com/go-vikunja/vikunja",
+        "按人跨项目筛选": "https://vikunja.io/help/filters/",
+        "共享权限": "https://vikunja.io/help/sharing-and-teams/",
+        "Pro边界": "https://vikunja.io/docs/pro/"
+      },
+      "one_liner": "轻量任务协作备选：通过保存筛选器按同事跨项目查看任务，描述、附件和评论能共享；完整知识库需另配。",
+      "type": "开源可自行部署；有中文包",
+      "maturity": "L4",
+      "license_cost": "免费AGPLv3核心；Pro的实例管理、工时和审计等收费；服务器另计，具体Pro单价本轮未核定。",
+      "last_update": "2.7.1，2026-10-20。",
+      "effort": "中：Go+Vue成品，官方二进制/Docker，SQLite或其他数据库；架构相对简化，但仍要备份升级。",
+      "known_issues": "跨成员总览依靠assignees等筛选器配置，不能当成现成完整工作负载仪表盘；知识管理以任务描述/评论/附件为主。",
+      "verdict_line": "Verdict: 待验证 — Vikunja 2.7.1 — 2026-10-20发布、AGPLv3、官方支持assignees跨项目筛选与共享；未实际部署",
+      "license_check": "AGPLv3。修改版网络服务的用户包括同事，应向相关使用者提供对应源码获取方式；业务资料本身不因该许可被要求公开。Pro另适用商业条款。",
+      "confidence": "MEDIUM",
+      "door": "two-way",
+      "re_evaluation_trigger": "任务之外的长文档、知识导航或细分权限成为核心需求，或需购买Pro时。",
+      "lineage": "从任务清单发展到共享项目与多视图，按人工作总览通过保存筛选实现，适合愿意以任务卡片共享信息的团队。",
+      "match": {
+        "input": "✅",
+        "output": "✅",
+        "scenario": "⚠️",
+        "constraint": "⚠️"
+      },
+      "verdict": "待验证",
+      "reason": "比完整项目平台更轻，适合作为仅需任务透明的备选；资料沉淀能力需验证。",
+      "recommended": false,
+      "six_dimensions": {
+        "function": "任务、共享项目、筛选、多视图、附件和评论",
+        "maintenance": "近期安全版",
+        "community": "有官方社区反馈",
+        "documentation": "筛选/共享/部署文档明确",
+        "license": "AGPLv3及可选Pro",
+        "dependencies": "Go服务与持久化，SQLite可减少外部服务"
+      },
+      "business_value": {
+        "reliability": "应使用最新安全版",
+        "strategy": "降低起步复杂度",
+        "adaptability": "任务视图灵活，知识库较弱",
+        "tco": "核心免费，维护/Pro另计",
+        "speed": "部署面较少"
+      },
+      "chinese": "源码有简繁中文包，未实测完整性。",
+      "security_check": "2.7.1发布说明明确修复41项安全问题；不要照旧教程用旧镜像。本轮未逐项审计所有问题。",
+      "primary_sources": [
+        "https://vikunja.io/features/",
+        "https://vikunja.io/docs/installing/",
+        "https://vikunja.io/changelog/vikunja-2.7.1-was-released/",
+        "https://community.vikunja.io/t/my-tasks-sidebar-entry-with-cross-project-views/4497"
+      ]
+    },
+    {
+      "name": "Plane Community",
+      "url": "https://plane.so/",
+      "links": {
+        "源码": "https://github.com/makeplane/plane",
+        "共享视图": "https://docs.plane.so/core-concepts/views",
+        "版本区别": "https://developers.plane.so/self-hosting/editions-and-versions",
+        "文档分层": "https://plane.so/blog/plane-wiki-and-pages-a-guide-to-team-documentation"
+      },
+      "one_liner": "偏研发工作流的备选：跨项目视图、任务状态和Project Pages可用，公司级Wiki等功能另有付费分层。",
+      "type": "开源Community／商业Cloud与Commercial；需分清版本",
+      "maturity": "L4",
+      "license_cost": "Community免费AGPLv3且不限席位；Cloud/Commercial Free有12席界限，不能混写。更完整Wiki、模板等付费。",
+      "last_update": "稳定v1.4.2，2026-08-23；v1.4.3-rc1是预发布，不视为稳定版。",
+      "effort": "中到高：多服务部署；官方当前默认Compose文档安装Commercial，开源版需核对专用安装路径。",
+      "known_issues": "Project Pages与Workspace Wiki不同，后者/Collections等Pro，部分深度协作文档Business。不能把营销页全部功能算作开源免费版；部署版别也不能混淆。",
+      "verdict_line": "Verdict: 待验证 — Plane Community v1.4.2 — AGPLv3、官方跨项目Views与Free Project Pages；Commercial默认安装和Wiki付费边界需核对",
+      "license_check": "Community为AGPLv3：修改版供网络用户使用须提供对应源码获取方式，分发有许可及源码义务；Commercial闭源版适用商业条款。",
+      "confidence": "MEDIUM",
+      "door": "two-way",
+      "re_evaluation_trigger": "需要公司级Wiki、复杂文档协作、超过Commercial免费席位或准备购买商业版时。",
+      "lineage": "从Jira/Linear式工作项、迭代与模块延伸到Pages/Wiki，适合接受研发概念的团队。",
+      "match": {
+        "input": "✅",
+        "output": "✅",
+        "scenario": "⚠️",
+        "constraint": "⚠️"
+      },
+      "verdict": "待验证",
+      "reason": "可保留界面和研发工作流备选，但对普通团队未必比前两条路线省事。",
+      "recommended": false,
+      "six_dimensions": {
+        "function": "任务、跨项目Views、Pages；完整Wiki分层",
+        "maintenance": "有稳定与预发布",
+        "community": "官方论坛与公开问题追踪",
+        "documentation": "功能/部署文档齐全但版本需分清",
+        "license": "AGPLv3社区与商业版本并存",
+        "dependencies": "数据库、缓存/队列与存储等多个服务"
+      },
+      "business_value": {
+        "reliability": "有安全公告与修复线",
+        "strategy": "适合产品研发团队",
+        "adaptability": "普通团队需适应工作流术语",
+        "tco": "免费社区版与付费商业版区别大",
+        "speed": "多服务安装和选版增加成本"
+      },
+      "chinese": "简体中文PR已合入；未实测稳定包翻译完整性。",
+      "security_check": "抽查GHSA-hhj8-7hv6-m74r与跨项目Pages读取公告，<=1.3.1受影响，公告1.4.0修复；不代表全面审计。",
+      "primary_sources": [
+        "https://github.com/makeplane/plane/releases/tag/v1.4.2",
+        "https://developers.plane.so/self-hosting/methods/docker-compose",
+        "https://forum.plane.so/t/new-seat-minimums-on-self-hosted-commercial-and-air-gapped-starting-april-24/96",
+        "https://github.com/makeplane/plane/security/advisories/GHSA-hhj8-7hv6-m74r"
+      ]
+    },
+    {
+      "name": "Teambition",
+      "url": "https://www.teambition.com/",
+      "links": {
+        "费用与席位": "https://www.teambition.com/pricing",
+        "成员工作与工作台": "https://www.teambition.com/design?region=cn",
+        "项目功能": "https://www.teambition.com/manageproject?region=cn"
+      },
+      "one_liner": "已有钉钉可先试：现成任务看板、文件、评论和工作台；免费10席，高级跨项目管理与分析收费。",
+      "type": "商业云服务；中文；另有商业私有部署",
+      "maturity": "L4",
+      "license_cost": "免费版当前10席。官网企业版798元/人/年、旗舰1398元/人/年，10席起；具体权益与购买时价格需重核。私有部署版页面200席起，不是免费开源自部署。",
+      "last_update": "持续运营服务，2026-10-22核对现行功能和定价。",
+      "effort": "云端低；私有部署属采购项目。",
+      "known_issues": "任务进度汇报、表格视图、项目集、团队分析等有付费层级。文件共享不等于内置完整公司知识库。定价页个别抽取文字失真，不引用不可靠字段额度。",
+      "verdict_line": "Verdict: 待验证 — Teambition — 2026-10-22核对官方任务/文件/工作台、免费10席及私有部署起购规模；未业务试跑",
+      "license_check": "商业产品，按服务协议使用；私有部署需采购，不能拿源码任意修改。",
+      "confidence": "MEDIUM",
+      "door": "two-way",
+      "re_evaluation_trigger": "超过10人、需要高级跨项目汇报、准备商业私有部署或知识库能力不足时。",
+      "lineage": "传统项目任务协作工具与钉钉集成，适合团队已经把沟通集中在钉钉的情况。",
+      "match": {
+        "input": "✅",
+        "output": "✅",
+        "scenario": "✅",
+        "constraint": "⚠️"
+      },
+      "verdict": "待验证",
+      "reason": "已有钉钉团队的云服务备选，免费规模与跨项目深度需验。",
+      "recommended": false,
+      "six_dimensions": {
+        "function": "任务看板、工作台、文件、评论；高级分析分层",
+        "maintenance": "运营中的服务",
+        "community": "官方场景材料；未做用户访谈",
+        "documentation": "功能与定价明确",
+        "license": "商业条款",
+        "dependencies": "云账号与网络；私有部署需商务"
+      },
+      "business_value": {
+        "reliability": "服务商维护",
+        "strategy": "可沿用既有钉钉组织",
+        "adaptability": "原生任务工具，配置少于从零搭表",
+        "tco": "小团队免费，超过权益按席收费",
+        "speed": "无需自管服务器"
+      },
+      "chinese": "原生中文产品。",
+      "primary_sources": [
+        "https://www.teambition.com/pricing",
+        "https://www.teambition.com/design?region=cn"
+      ]
+    },
+    {
+      "name": "Focalboard 独立版",
+      "url": "https://github.com/mattermost-community/focalboard",
+      "links": {},
+      "one_liner": "旧教程常见候选，但独立版官方README已注明当前无人维护，不作为新团队长期平台。",
+      "type": "历史开源项目",
+      "maturity": "L3",
+      "license_cost": "本轮因维护状态排除，不展开许可选型。",
+      "last_update": "2026-10-22核对README维护状态。",
+      "effort": "不建议为新团队投入部署。",
+      "known_issues": "独立多用户服务与Mattermost插件属于不同仓库，不能把插件维护情况当独立版仍维护。",
+      "verdict_line": "Verdict: 淘汰 — Focalboard独立版 — 2026-10-22官方README标注currently not maintained",
+      "license_check": "本轮排除，没有进行再分发或二次开发许可审查。",
+      "confidence": "HIGH",
+      "door": "two-way",
+      "re_evaluation_trigger": "官方明确恢复独立版维护并持续发布安全更新时。",
+      "lineage": "独立看板与Mattermost插件路线分开，旧评测不能代替当前仓库维护状态。",
+      "match": {
+        "input": "✅",
+        "output": "⚠️",
+        "scenario": "⚠️",
+        "constraint": "❌"
+      },
+      "verdict": "淘汰",
+      "reason": "维护停滞，不选为新的长期团队协作底座。",
+      "recommended": false
+    }
+  ],
+  "discovered_not_shortlisted": [
+    {
+      "name": "PLANKA",
+      "reason": "现行Community License/Fair Use有使用范围限制；更偏卡片看板，跨项目人员总览与知识库不作为本轮优先。不能沿用旧AGPL描述。",
+      "source": "https://github.com/plankanban/planka/blob/master/LICENSE.md"
+    },
+    {
+      "name": "禅道",
+      "reason": "围绕研发交付全流程；此轮仅发现，未精评许可、安全及版本，不列轻量共享首选。",
+      "source": "https://www.zentao.net/zentao-os.html"
+    }
+  ],
+  "trial": {
+    "status": "未完成；所有保留候选均降级为待验证",
+    "documentation": "完成核心功能、费用、许可与维护文档核对。",
+    "runtime": "未部署、未登录产品、未完成两个账号的任务/文档/权限业务流程。云首选需创建或使用租户；本轮未创建。自部署环境未发现Docker/PHP，未为研究安装。",
+    "reviews": "已查看公开社区与issues并核对官方证据；用户评价作为试点风险线索，不作为普遍结论。",
+    "scope": "仅完成方案侦察与优先试用排序，不表示可直接上线。"
+  },
+  "next_steps": [
+    "选两个候选做同一套小规模试点：飞书模板与OpenProject Community，先用虚构数据。",
+    "建立2个项目、3名同事和10条任务；每条任务记录负责人、项目、状态、最近进展、下一步、阻塞、截止日期、更新时间、资料链接。",
+    "验收人员视图：打开网页后能从一个入口找到某位同事在各项目的工作；项目视图：查看阶段、完成情况和下一步；两种视图读取同一批数据。",
+    "验收共享与权限：3个账号看同一条任务、发表讨论、查看关联资料；只有被授权的项目可见，修改后其他账号能看到。",
+    "上传中文文件名及同批多个附件；导出任务与资料；验证备份恢复或退出迁移。",
+    "连续试用一周，记录每日更新是否方便、过期信息能否发现；确认免费范围够用后再导入真实数据或采购。",
+    "只有现成配置缺少已证实的关键功能，再评估API接入或修改开源源码，届时先检查许可与后续升级成本。"
+  ],
+  "retrieval_log": [
+    {
+      "variant": "actively maintained open source web team project management; cross-project assignee and documents",
+      "engines": [
+        "Exa连接器"
+      ],
+      "hits": 6,
+      "useful": 5
+    },
+    {
+      "variant": "open source project management team workload knowledge sharing Leantime OpenProject Plane Vikunja official",
+      "engines": [
+        "内置搜索"
+      ],
+      "hits": "多页",
+      "useful": "进入定向核对"
+    },
+    {
+      "variant": "Leantime demo / pricing self hosted plugins portfolio / Chinese / Docker",
+      "engines": [
+        "内置搜索",
+        "官方定价",
+        "GitHub"
+      ],
+      "hits": "见research/opensource-evidence.md",
+      "useful": "确认免费核心、插件边界和语言包"
+    },
+    {
+      "variant": "OpenProject global work packages assignee group projects / enterprise team planner",
+      "engines": [
+        "内置搜索",
+        "官方文档",
+        "官方社区"
+      ],
+      "hits": "多页",
+      "useful": "确认跨项目基础总览及付费人员排期区别"
+    },
+    {
+      "variant": "Plane Community Commercial editions wiki pages license security release",
+      "engines": [
+        "内置搜索",
+        "GitHub",
+        "官方文档"
+      ],
+      "hits": "见research/integrated-evidence.md",
+      "useful": "确认版别、Wiki分层、稳定版和安全修复线"
+    },
+    {
+      "variant": "Vikunja assignees saved filters sharing pro changelog / PLANKA current license",
+      "engines": [
+        "内置搜索",
+        "官方帮助",
+        "GitHub API"
+      ],
+      "hits": "见research/opensource-evidence.md",
+      "useful": "确认筛选能力、Pro边界、近期安全版及许可变化"
+    },
+    {
+      "variant": "飞书 项目管理模板 按负责人 看板 免费版 人数 / Teambition pricing",
+      "engines": [
+        "内置搜索",
+        "官方帮助与定价"
+      ],
+      "hits": "见research/china-evidence.md",
+      "useful": "确认现成模板、免费人数和付费功能界限"
+    },
+    {
+      "variant": "GPL AGPL network users internal use source obligations",
+      "engines": [
+        "GNU FAQ",
+        "候选仓库许可原文"
+      ],
+      "hits": "多页",
+      "useful": "区分GPL分发与AGPL修改版网络使用"
+    }
+  ],
+  "unsearched": [
+    "Tavily（未配置）",
+    "Product Hunt/AlternativeTo（未作为结论依据）",
+    "付费Gartner等分析",
+    "未穷尽全部CVE和依赖漏洞"
+  ],
+  "assumptions": [
+    "需求按普通团队协作理解；人数、预算、信息保密级别、是否必须内网和是否已有飞书/钉钉尚未确认。",
+    "用户已确认两种使用方式都保留，先比功能和成本；没有确认任何产品、没有要求部署。",
+    "价格为2026-10-22公开页面核对，受计费周期、席位和合同影响；未换算汇率、未虚构服务器费用。",
+    "检索时长为约数；原始结果和证据在research目录，HTML仅由技能脚本生成。",
+    "功能存在不等于业务流程已验证，所有保留候选均待实际试跑。",
+    "安全检查仅抽查官方公告和修复版本；没有声称任何产品无漏洞。",
+    "多家厂商官方资料、源码、发布与用户issues交叉核对；不存在基于单篇排行榜决定推荐。",
+    "社区维护状态与许可证按本轮证据核实；旧搜索索引中的Leantime附件问题已关闭，不当作未修复。"
+  ],
+  "sources": [
+    "https://www.feishu.cn/",
+    "https://www.feishu.cn/hc/zh-CN/articles/184008024837-多维表格实战模板-项目管理系统",
+    "https://www.feishu.cn/service",
+    "https://www.feishu.cn/hc/zh-CN/articles/360044508113-云文档权限常见问题",
+    "https://www.feishu.cn/hc/zh-CN/articles/868158430248-多维表格-重塑项目管理流程",
+    "https://www.feishu.cn/services/success-plans",
+    "https://www.openproject.org/community-edition/",
+    "https://github.com/opf/openproject",
+    "https://www.openproject.org/docs/user-guide/projects/projects-faq/",
+    "https://www.openproject.org/docs/user-guide/work-packages/work-package-table-configuration/",
+    "https://www.openproject.org/pricing/",
+    "https://www.openproject.org/docs/release-notes/",
+    "https://www.openproject.org/docs/user-guide/wiki/",
+    "https://www.openproject.org/docs/enterprise-guide/",
+    "https://www.openproject.org/docs/user-guide/account-settings/language-and-region/",
+    "https://www.openproject.org/docs/installation-and-operations/system-requirements/",
+    "https://github.com/opf/openproject/security/advisories/GHSA-98vw-2r87-fx2r",
+    "https://leantime.io/",
+    "https://github.com/Leantime/leantime",
+    "https://leantime.io/pricing/",
+    "https://marketplace.leantime.io/product/leantime-program-plans/",
+    "https://github.com/Leantime/leantime/releases/tag/v3.12.0",
+    "https://support.leantime.io/en/article/how-is-leantime-the-open-source-system-licensed-29l3j/",
+    "https://github.com/Leantime/leantime/pull/3587",
+    "https://github.com/Leantime/leantime/issues/3782",
+    "https://github.com/Leantime/leantime/security/advisories/GHSA-54mm-6729-r5wp",
+    "https://vikunja.io/",
+    "https://github.com/go-vikunja/vikunja",
+    "https://vikunja.io/help/filters/",
+    "https://vikunja.io/help/sharing-and-teams/",
+    "https://vikunja.io/docs/pro/",
+    "https://vikunja.io/features/",
+    "https://vikunja.io/docs/installing/",
+    "https://vikunja.io/changelog/vikunja-2.7.1-was-released/",
+    "https://community.vikunja.io/t/my-tasks-sidebar-entry-with-cross-project-views/4497",
+    "https://plane.so/",
+    "https://github.com/makeplane/plane",
+    "https://docs.plane.so/core-concepts/views",
+    "https://developers.plane.so/self-hosting/editions-and-versions",
+    "https://plane.so/blog/plane-wiki-and-pages-a-guide-to-team-documentation",
+    "https://github.com/makeplane/plane/releases/tag/v1.4.2",
+    "https://developers.plane.so/self-hosting/methods/docker-compose",
+    "https://forum.plane.so/t/new-seat-minimums-on-self-hosted-commercial-and-air-gapped-starting-april-24/96",
+    "https://github.com/makeplane/plane/security/advisories/GHSA-hhj8-7hv6-m74r",
+    "https://www.teambition.com/",
+    "https://www.teambition.com/pricing",
+    "https://www.teambition.com/design?region=cn",
+    "https://www.teambition.com/manageproject?region=cn",
+    "https://github.com/mattermost-community/focalboard",
+    "https://github.com/plankanban/planka/blob/master/LICENSE.md",
+    "https://www.zentao.net/zentao-os.html",
+    "https://www.gnu.org/licenses/gpl-faq.en.html"
+  ]
+}

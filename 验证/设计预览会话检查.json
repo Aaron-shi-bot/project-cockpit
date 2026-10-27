@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-10-23T07:23:37.274Z",
+  "origin": "http://127.0.0.1:4174",
+  "checks": {
+    "freshCookieLessDocumentCreatesRealDemoSession": true,
+    "bootstrapMarksOnlyLocalDesignPreview": true,
+    "expiredSessionDocumentRefreshCreatesNewRealSession": true,
+    "explicitLoginPreviewDoesNotAutoLoginOrLogout": true,
+    "apiStillRejectsAnonymousRequests": true,
+    "formal4173HasNoDesignPreviewFlag": true,
+    "designAndFormalCookiesResolveSeparateUsersInEitherOrder": true,
+    "designWrapperIgnoresFormalCookieAndNeverOverwritesIt": true,
+    "previewLoginAndLogoutOnlySetIndependentDesignCookie": true
+  },
+  "passed": true,
+  "note": "使用无Cookie及无效Cookie真实HTTP请求；不保存会话凭据或密码。浏览器布局另由前端验收。"
+}

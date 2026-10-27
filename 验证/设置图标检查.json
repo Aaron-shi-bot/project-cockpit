@@ -1,0 +1,55 @@
+{
+  "results": [
+    {
+      "viewport": 1600,
+      "frame": {
+        "width": 25,
+        "height": 25
+      },
+      "outline": {
+        "width": 18.720001220703125,
+        "height": 18.720001220703125
+      },
+      "hole": {
+        "width": 6.25,
+        "height": 6.25
+      },
+      "passed": true
+    },
+    {
+      "viewport": 1024,
+      "frame": {
+        "width": 22,
+        "height": 22
+      },
+      "outline": {
+        "width": 18.720001220703125,
+        "height": 18.720001220703125
+      },
+      "hole": {
+        "width": 5.5,
+        "height": 5.5
+      },
+      "passed": true
+    },
+    {
+      "viewport": 390,
+      "frame": {
+        "width": 20,
+        "height": 20
+      },
+      "outline": {
+        "width": 18.720001220703125,
+        "height": 18.720001220703125
+      },
+      "hole": {
+        "width": 5,
+        "height": 5
+      },
+      "passed": true
+    }
+  ],
+  "settingsNavigation": true,
+  "errors": [],
+  "passed": true
+}

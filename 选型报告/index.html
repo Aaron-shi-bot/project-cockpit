@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的检索历史 · 检索世界</title>
+<style>
+  :root {
+    --bg:#f5f6f8; --card:#fff; --ink:#1c2333; --muted:#6b7280; --line:#e5e7eb;
+    --green:#16a34a; --amber:#d97706; --blue:#2563eb; --red:#dc2626; --violet:#7c3aed;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.6; padding:32px 16px; }
+  .wrap { max-width:1080px; margin:0 auto; }
+  .header { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center;
+    gap:16px; margin-bottom:24px; }
+  .header h1 { font-size:26px; }
+  .header .sub { color:var(--muted); font-size:14px; }
+  .stats { display:flex; gap:24px; margin-bottom:20px; }
+  .stat b { font-size:22px; display:block; }
+  .stat span { font-size:12px; color:var(--muted); }
+  .filters { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+  .f-btn { border:1px solid var(--line); background:var(--card); color:var(--muted);
+    padding:6px 14px; border-radius:999px; font-size:13px; cursor:pointer; transition:.15s; }
+  .f-btn.active { background:var(--ink); color:#fff; border-color:var(--ink); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; }
+  .rc { background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:18px 20px; text-decoration:none; color:inherit;
+    box-shadow:0 2px 8px rgba(17,24,39,.05); transition:.15s; }
+  .rc:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(17,24,39,.1); }
+  .rc .date { font-size:12px; color:var(--muted); margin-bottom:6px; }
+  .rc h3 { font-size:17px; margin-bottom:6px; }
+  .rc .desc { font-size:13px; color:var(--muted); margin-bottom:12px; min-height:40px; }
+  .rc .tags { display:flex; flex-wrap:wrap; gap:6px; }
+  .tag { font-size:11px; padding:3px 10px; border-radius:999px; font-weight:600; }
+  .tag.use { background:#f0fdf4; color:var(--green); border:1px solid #bbf7d0; }
+  .tag.mod { background:#fffbeb; color:var(--amber); border:1px solid #fde68a; }
+  .tag.idea { background:#eff6ff; color:var(--blue); border:1px solid #bfdbfe; }
+  .tag.dead { background:#fef2f2; color:var(--red); border:1px solid #fecaca; }
+  .tag.verify { background:#f5f3ff; color:var(--violet); border:1px solid #ddd6fe; }
+  .tag.gray { background:#f9fafb; color:var(--muted); border:1px solid var(--line); }
+  .empty { grid-column:1/-1; background:var(--card); border:2px dashed var(--line);
+    border-radius:14px; padding:48px 24px; text-align:center; color:var(--muted); }
+  .empty h4 { font-size:16px; margin-bottom:8px; color:var(--ink); }
+  .footer { margin-top:28px; text-align:center; font-size:12px; color:#9ca3af; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <div>
+      <h1>我的检索历史</h1>
+      <div class="sub">检索世界 · 每次检索自动归档到这里</div>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>2</b><span>总检索次数</span></div>
+    <div class="stat"><b>0</b><span>可直接用</span></div>
+  </div>
+  <div class="filters">
+    <button class="f-btn active" data-filter="all">全部</button>
+    <button class="f-btn" data-filter="use">🟢 直接用</button>
+    <button class="f-btn" data-filter="mod">🟡 改改用</button>
+    <button class="f-btn" data-filter="idea">🔵 只借鉴</button>
+    <button class="f-btn" data-filter="dead">🔴 淘汰</button>
+    <button class="f-btn" data-filter="verify">🟣 待验证</button>
+  </div>
+  <div class="grid"><a class="rc" data-v="verify" href="2026-10-23-相似项目复查/report.html"><div class="date">2026-10-23 · — 分钟</div><h3>项目驾驶舱：高度相似的开源项目与现成产品</h3><div class="desc">业务形态最接近：多项目健康、风险、阶段、下一步、时间线和快照；权限是角色/创建者规则，资料文件版本未证实。</div><div class="tags"><span class="tag verify">🟣 待验证</span><span class="tag gray">混合</span></div></a><a class="rc" data-v="verify" href="2026-10-22-易用性与成本复核/report.html"><div class="date">2026-10-22 · 18 分钟</div><h3>项目共享看板复核：易用性、Windows与云端成本</h3><div class="desc">当前优先试：将项目、任务、人员与资料关联，按成员或项目共享同一批数据。</div><div class="tags"><span class="tag verify">🟣 待验证</span><span class="tag gray">现成产品</span></div></a></div>
+  <div class="footer">历史库价值：下次想查同类问题，先看这里，可能 5 分钟就得到答案。</div>
+</div>
+<script>
+  document.querySelectorAll(".f-btn").forEach(function (b) {
+    b.addEventListener("click", function () {
+      document.querySelectorAll(".f-btn").forEach(function (x) { x.classList.remove("active"); });
+      b.classList.add("active");
+      var f = b.dataset.filter;
+      document.querySelectorAll(".rc").forEach(function (c) {
+        c.style.display = (f === "all" || c.dataset.v === f) ? "" : "none";
+      });
+    });
+  });
+</script>
+</body>
+</html>

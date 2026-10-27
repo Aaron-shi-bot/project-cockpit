@@ -1,0 +1,12 @@
+node_modules
+.npm-cache
+data
+.env
+.git
+.agents
+.specify
+specs
+tests
+dist
+*.log
+*.md

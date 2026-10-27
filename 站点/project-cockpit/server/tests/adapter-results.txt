@@ -1,0 +1,54 @@
+(node:48828) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ 初始空库、唯一初始化、真实登录会话、CSRF/同源和限流 (100.1087ms)
+✔ 工作区管理不隐式授权项目、任务字段越权与权限先于统计 (144.3769ms)
+✔ 任务阻塞原子风险、并发冲突、单独风险不被任务恢复关闭、取消进度 (38.9035ms)
+✔ 多来源最高授权、最后维护者保护、停用立即撤销和应急接管 (132.6052ms)
+✔ 文件真实版本、恢复产生新版本、撤权与回收站下载拒绝 (73.0763ms)
+✔ 邀请绑定身份、一次性、撤销、重新鉴权和最后所有者保护 (62.9354ms)
+✔ 已完成项目归档再恢复仍完成，显式重开才可新增业务 (34.5221ms)
+✔ 协作者创建且未分配的受阻任务可关闭自动阻塞，但不可关闭独立风险 (62.4882ms)
+✔ 邀请撤销/过期或邀请人失权后拒绝、管理员不能提权 (67.9283ms)
+✔ 删除团队撤回访问，不能通过团队变更绕开负责人维护权限保护 (63.8504ms)
+✔ 所有权转移需再认证，只有一名所有者，重置密码撤销旧会话 (207.7514ms)
+✔ 幂等恢复项目重放重新鉴权，撤权后不能读到缓存名称与目标 (62.2372ms)
+✔ 幂等缓存重放检查当前工作区与项目写权限，降级后拒绝旧成功响应 (60.16ms)
+✔ 被任务引用的里程碑拒绝删除，解除关联后可删除，包含回收站引用 (36.6899ms)
+✔ 未分配任务更新说明和状态始终保留null，创建省略负责人仍默认创建人 (63.4797ms)
+✔ 协作者新建任务与编辑权限一致，不能写入计划日期优先级或里程碑 (66.8283ms)
+✔ 资料链接创建和更新均拒绝非字符串、超长与非HTTPS地址 (34.4251ms)
+✔ 共享反代IP的成功认证不累积失败限流，邮箱失败保护仍有效 (1466.5223ms)
+✔ 重要变更审计保留业务字段前后值及成员前状态，不写入密码 (126.7482ms)
+✔ 审计先过滤授权再截取500条，其他项目高频事件不挤掉自己的记录 (1301.1686ms)
+✔ 进度按有效任务计算：空分母、1/3、取消删除恢复和199/200向下取整 (627.2162ms)
+✔ 完成项目逐项校验闭环与摘要，完成和归档禁止资源评论写入但允许撤权 (88.7759ms)
+✔ 个人改密、管理重置、所有权转移和应急接管的密码失败明确要求再次认证 (189.4231ms)
+✔ 真实签名识别PDF图片文本Office ZIP，声明不符拒绝且未知二进制标明边界 (63.2754ms)
+✔ AC15真实SQLite trigger注入关联阻塞写入失败，任务版本风险审计与幂等同事务回滚 (38.6186ms)
+✔ 里程碑重开保留完成事实并记录reopenedAt，完整历史仍限维护者 (67.0984ms)
+✔ 对象历史供有效读取角色查看全部自身变更，超过500条仍完整且撤权不泄露 (136.5688ms)
+✔ 评论本人或维护者可编辑软删除，保留作者和审计，拒绝越权冲突与只读写入 (105.7066ms)
+✔ 云端首次初始化缺失或错误密钥关闭，HTTPS与安全8小时会话，不导入演示 (32.6685ms)
+✔ 云端时区持久化及任务日历日期保持，非法时区拒绝 (81.9358ms)
+✔ D1真实原子CAS拒绝旧快照且整批回滚，不丢其他请求更新 (1.6944ms)
+✔ 并发首次所有者、邀请接受与同操作重放只产生一份提交 (151.0376ms)
+✔ 并发任务写入重读版本，数据库任务风险审计幂等同批提交 (35.0283ms)
+✔ R2写失败与D1元数据失败不发布资料，失败清理可持久重试 (33.2593ms)
+✔ D1提交结果未知时保留R2，延迟清理先核对引用避免误删有效版本 (31.3525ms)
+✔ 恰好10MiB云端私有文件原样下载，超限和非法编码不留R2半成品 (242.588ms)
+(node:23304) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ independent: public empty workspace fails closed and competing setup creates exactly one owner/session/audit (94.6483ms)
+✔ independent: revision CAS rejects stale writes and rolls back all rows when a later statement fails (2.4885ms)
+✔ independent: concurrent API writes preserve both different objects and give one winner for the same version (43.9176ms)
+✔ independent: failed private upload retains a retry job, then cleanup removes only unreferenced objects (1.6956ms)
+✔ independent: unknown commit outcome does not delete committed bytes and retry returns the single original version (37.2412ms)
+✔ independent: definite rollback cleans uploaded bytes without publishing a broken file version (35.0561ms)
+ℹ tests 42
+ℹ suites 0
+ℹ pass 42
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6270.4677

@@ -1,0 +1,165 @@
+{
+  "date": "2026-10-23T09:58:05.639Z",
+  "mode": "resource-readonly",
+  "baseURL": "http://127.0.0.1:4180",
+  "browser": "Playwright Chromium; Browser plugin not available",
+  "checks": [
+    {
+      "name": "Public bootstrap contains no secret or design-preview flag",
+      "passed": true
+    },
+    {
+      "name": "Cloud copy renders existing VI without page overflow",
+      "passed": true
+    },
+    {
+      "name": "Cloud copy retains the new vector navigation mark",
+      "passed": true
+    },
+    {
+      "name": "No framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "Initialized production visitor sees login rather than public registration",
+      "passed": true
+    },
+    {
+      "name": "Cloud copy renders existing VI without page overflow",
+      "passed": true
+    },
+    {
+      "name": "Cloud copy retains the new vector navigation mark",
+      "passed": true
+    },
+    {
+      "name": "No framework error overlay",
+      "passed": true
+    },
+    {
+      "name": "Read-only mode attempted no write API requests",
+      "passed": true
+    },
+    {
+      "name": "Login production background decodes successfully",
+      "passed": true
+    },
+    {
+      "name": "Static asset responds successfully: /assets/brand.svg",
+      "passed": true
+    },
+    {
+      "name": "Static asset responds successfully: /assets/login-cockpit.png",
+      "passed": true
+    },
+    {
+      "name": "All observed JS, CSS, font and image responses succeed",
+      "passed": true
+    },
+    {
+      "name": "No uncaught browser exceptions",
+      "passed": true
+    },
+    {
+      "name": "No unexpected framework or asset console errors",
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    "Sites-本地资源只读复核.png"
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+  ],
+  "setupHeaderChecks": [],
+  "blockedWrites": [],
+  "networkFailures": [
+    {
+      "method": "GET",
+      "path": "/api/state",
+      "status": 401,
+      "resourceType": "fetch"
+    }
+  ],
+  "consoleEvents": [
+    {
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "path": "/api/state"
+    }
+  ],
+  "assetResponses": [
+    {
+      "method": "GET",
+      "path": "/_next/static/css/index.DYSVhOPU.css",
+      "status": 200,
+      "resourceType": "stylesheet"
+    },
+    {
+      "method": "GET",
+      "path": "/_next/static/chunks/rolldown-runtime-C60lm6uB.js",
+      "status": 200,
+      "resourceType": "script"
+    },
+    {
+      "method": "GET",
+      "path": "/_next/static/chunks/layout-segment-context-CzN6SMKJ.js",
+      "status": 200,
+      "resourceType": "script"
+    },
+    {
+      "method": "GET",
+      "path": "/_next/static/chunks/index-DMuUWmRV.js",
+      "status": 200,
+      "resourceType": "script"
+    },
+    {
+      "method": "GET",
+      "path": "/_next/static/chunks/framework-D_rUT4EX.js",
+      "status": 200,
+      "resourceType": "script"
+    },
+    {
+      "method": "GET",
+      "path": "/_next/static/chunks/page-8qBPARTc.js",
+      "status": 200,
+      "resourceType": "script"
+    },
+    {
+      "method": "GET",
+      "path": "/assets/login-cockpit.png",
+      "status": 200,
+      "resourceType": "image"
+    },
+    {
+      "method": "GET",
+      "path": "/assets/brand.svg",
+      "status": 200,
+      "resourceType": "fetch"
+    },
+    {
+      "method": "GET",
+      "path": "/assets/login-cockpit.png",
+      "status": 200,
+      "resourceType": "fetch"
+    }
+  ],
+  "limits": [
+    "This script uses isolated local Worker fixtures only in local-worker mode. Production mode is strictly read-only.",
+    "Native Sites deployment and runtime binding status are verified by the publishing workflow separately."
+  ],
+  "consoleClassification": {
+    "staticFailures": [],
+    "unexpectedAPI": [],
+    "unexpectedConsole": [],
+    "expectedNegativeResponses": [
+      {
+        "method": "GET",
+        "path": "/api/state",
+        "status": 401,
+        "resourceType": "fetch"
+      }
+    ]
+  },
+  "status": "passed"
+}

@@ -1,0 +1,44 @@
+{
+  "saved": {
+    "id": "appgprj_6adb256152188191b3d1663962e7c14a~appgver_ed00df0d31fc8191bff14f5e2e262e25",
+    "project_id": "appgprj_6adb256152188191b3d1663962e7c14a",
+    "version_number": 1,
+    "source": {
+      "commit_sha": "22f91fc0ecd14146e6c0e4b750c2970d95762a83"
+    },
+    "archive_storage": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_00000000083081f8bf03b53f940c574b",
+      "content_hash": "sha256:9e5bbc1baa799901ea35a3c62a73114305510806e1fa93b953576a80e31f570e",
+      "size_bytes": 2990080,
+      "file_count": 67
+    },
+    "screenshot_url": null,
+    "deployment_id": null
+  },
+  "deployment": {
+    "id": "appgdep_6adb316ba33481919db1b9979daece9a",
+    "project_id": "appgprj_6adb256152188191b3d1663962e7c14a",
+    "title": "项目驾驶舱",
+    "version_id": "appgprj_6adb256152188191b3d1663962e7c14a~appgver_ed00df0d31fc8191bff14f5e2e262e25",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://project-cockpit-hub.yonti9474.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6adb256152188191b3d1663962e7c14a",
+    "failure_message": null,
+    "env_set_revision": 1,
+    "updated_at": "2026-10-23T10:05:45.430950+00:00"
+  },
+  "access_mode": "public",
+  "source": {
+    "project_id": "appgprj_6adb256152188191b3d1663962e7c14a",
+    "checkout_path": "D:\\Work_File\\Agent_workfiles\\Agent_Project\\codex\\项目管理和信息共享看板\\站点\\project-cockpit",
+    "commit_sha": "22f91fc0ecd14146e6c0e4b750c2970d95762a83",
+    "archive": "D:\\Work_File\\Agent_workfiles\\Agent_Project\\codex\\项目管理和信息共享看板\\验证\\部署\\project-cockpit.tar.gz"
+  },
+  "productionBootstrapLogHeader": "REDACTED",
+  "productionDatabaseTables": 11,
+  "productionOwnerCreated": false
+}

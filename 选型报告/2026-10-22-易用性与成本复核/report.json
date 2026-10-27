@@ -1,0 +1,503 @@
+{
+  "query": "项目共享看板复核：易用性、Windows与云端成本",
+  "date": "2026-10-22",
+  "type": "现成产品",
+  "duration_minutes": 18,
+  "mode": "normal",
+  "rounds": 1,
+  "constraints": "同事通过网页看到彼此负责的工作、项目和进度，并共享资料与讨论。用户明确：先比较易用性和成本，云服务与本地部署均保留；没有要求服务器必须Windows。客户对外隔离与转售不是本轮已确认需求。",
+  "channels": [
+    "Exa连接器",
+    "内置网络搜索",
+    "官网功能与当前价格页",
+    "官网原始HTML勾叉核对",
+    "GitHub许可证/安全公告",
+    "当前工作区历史报告"
+  ],
+  "history_reused": [
+    "历史库：选型报告/report.json，2026-10-22前一轮；飞书多维表格为云服务试点，OpenProject为自行部署试点。",
+    "已读C:/Users/59244/Documents/solution-scout-history/index.html及对应报告；本轮新增Windows支持与Worktile版本费用证据，旧报告原文保留。"
+  ],
+  "verdict_line": "Verdict: 待验证 — 飞书多维表格＋云文档优先试用；Worktile旗舰为成品系统备选；禅道为Windows本地备选 — 2026-10-22核对官网功能、Windows部署与版本费用；未完成多账号业务试跑",
+  "confidence": "MEDIUM",
+  "door": "two-way",
+  "re_evaluation_trigger": "付款、导入真实项目资料或向团队正式推广前；试用一周后；需要复杂依赖/资源排期、客户间数据隔离、本地交付、源码改造或数据导出时重新评估。",
+  "lineage": "前一轮因跨项目负责人汇总、计划及Wiki覆盖而保留OpenProject。此次用户提出Windows环境和易用性顾虑；核实表明这主要影响服务器安装与维护，不限制Windows浏览器使用。按现阶段共享工作和资料的需求，优先级调整为轻量云表格试点、成品付费项目系统、Windows集成部署，并保留OpenProject作复杂计划对照；用户尚未选定新产品。",
+  "business_value": "可靠：各候选有官方持续维护或服务证据，但未完成安全审计；战略：先验证共享习惯，无需立即自建；可适：飞书配置灵活，Worktile流程成品化，禅道面向研发；TCO：同时比较席位、版本、实施与维护，免费软件不等于总成本为零；速度：云端少部署工作，自部署要承担升级、备份和恢复。",
+  "assumptions": [
+    "目前主要是同事内部共享，不将不同客户数据隔离擅自设为硬约束。",
+    "易用性判断依据产品定位、配置项与部署依赖，未实测不同同事的学习时间。",
+    "按中国大陆官方产品及公开人民币价格比较；实际合同、附加服务及续费以采购时核对为准。"
+  ],
+  "preflight": {
+    "exa": "连接器可用；使用现有Exa连接器而非需要独立Key的脚本。",
+    "shared_memory": "项目列表读取成功，handoff读取发生HTTP ReadTimeout。本轮以当前工作区报告和原聊天恢复需求，未声称记忆保存或同步成功。",
+    "tavily": "检查环境变量及两个兼容配置路径，未配置；按技能降级规则使用Exa和内置搜索交叉核对。",
+    "builtin": "可用。",
+    "history": "同日同范围报告可复用，但安装正在另一聊天推进，旧报告的空工作区/未安装环境仅代表当时情况。",
+    "runtime": "未为本轮研究安装产品、注册账号或改变另一个聊天中的OpenProject安装。",
+    "trial": "首选飞书项目模板可读取官方完整操作说明，含人员任务分配与看板；未取得可编辑的示例租户，未进行任务创建/多账号权限操作。所有保留候选均降级为待验证。禅道在线演示入口仅确认登录页可达。"
+  },
+  "term_map": [
+    {
+      "concept": "Windows",
+      "variants": [
+        "Windows浏览器使用",
+        "Windows服务器安装",
+        "Windows一键安装包",
+        "Windows self-hosted project management",
+        "server OS versus client browser"
+      ]
+    },
+    {
+      "concept": "谁在做什么",
+      "variants": [
+        "按负责人分组",
+        "跨项目人员任务",
+        "team workload overview",
+        "cross-project assignee view"
+      ]
+    },
+    {
+      "concept": "共享进展与资料",
+      "variants": [
+        "项目共享看板",
+        "项目进度仪表盘",
+        "project wiki and comments",
+        "team knowledge sharing"
+      ]
+    }
+  ],
+  "retrieval_log": [
+    {
+      "variant": "历史库与原聊天：同事项目工作共享、两条部署路线、已授权安装OpenProject",
+      "engines": [
+        "工作区报告",
+        "Codex聊天读取",
+        "历史索引"
+      ],
+      "hits": 3,
+      "useful": 3
+    },
+    {
+      "variant": "OpenProject official installation FAQ Windows supported browsers server Linux",
+      "engines": [
+        "Exa",
+        "内置搜索",
+        "官网直读"
+      ],
+      "hits": 6,
+      "useful": 3
+    },
+    {
+      "variant": "Windows native self-hosted project management ZenTao ProjeQtOr Redmine",
+      "engines": [
+        "Exa",
+        "内置搜索",
+        "官方安装页"
+      ],
+      "hits": 8,
+      "useful": 5
+    },
+    {
+      "variant": "Worktile当前499/799价格、项目集、按人员跨项目统计、原始HTML版本勾叉",
+      "engines": [
+        "Exa",
+        "内置搜索",
+        "官网直读及HTML"
+      ],
+      "hits": 7,
+      "useful": 5
+    },
+    {
+      "variant": "飞书项目管理系统模板、免费100用户、视图、分享权限、行数扩容",
+      "engines": [
+        "Exa",
+        "内置搜索",
+        "官网帮助"
+      ],
+      "hits": 10,
+      "useful": 7
+    },
+    {
+      "variant": "Teambition与PingCode现行免费人数、部署、产品定位",
+      "engines": [
+        "Exa",
+        "官方定价"
+      ],
+      "hits": 5,
+      "useful": 3
+    },
+    {
+      "variant": "Worktile/Teambition/Feishu独立用户反馈反搜",
+      "engines": [
+        "Exa"
+      ],
+      "hits": 5,
+      "useful": 0,
+      "note": "发现旧知乎/App Store评论及推广文章，多数年代较旧或具有营销偏向；不用于宣称当前易用性或市场占有率。"
+    }
+  ],
+  "selection_layers": [
+    {
+      "layer": "REUSE",
+      "result": "复用现有报告和证据，不将正在另一聊天安装的OpenProject当已试用通过；没有已完成团队看板可直接继承。",
+      "evidence": "选型报告/report.json；installation/使用说明.md；原聊天用户需求"
+    },
+    {
+      "layer": "USE",
+      "result": "禅道Windows集成环境、OpenProject和ProjeQtOr均有成品；保留部署候选，但都需业务试跑。",
+      "evidence": "https://www.zentao.net/download/pms22.6-86691.html ; https://www.openproject.org/docs/installation-and-operations/installation-faq/ ; https://www.projeqtor.com/en/help/"
+    },
+    {
+      "layer": "FORK",
+      "result": "当前无需分叉；配置模板和视图能否满足需求，应在改源码前验证。",
+      "evidence": "https://www.feishu.cn/hc/zh-CN/articles/184008024837-多维表格实战模板-项目管理系统"
+    },
+    {
+      "layer": "BUY",
+      "result": "飞书多维表格低门槛试点；Worktile以旗舰而非专业版估计集中跨项目任务、仪表盘和导出预算。",
+      "evidence": "https://www.feishu.cn/service ; https://worktile.com/pricing"
+    },
+    {
+      "layer": "INTEGRATE",
+      "result": "只有真实试点发现关键总览缺口时才考虑API补充，不提前叠加第二套系统。",
+      "evidence": "https://worktile.com/pricing"
+    },
+    {
+      "layer": "BUILD",
+      "result": "已有成品可覆盖当前核心需求，暂不建议自建；未来若需交付自有品牌产品，另作许可、租户隔离和维护评估。",
+      "evidence": "本报告候选的官方功能和部署资料"
+    }
+  ],
+  "candidates": [
+    {
+      "maturity": "L4",
+      "type": "现成产品",
+      "verdict": "待验证",
+      "confidence": "MEDIUM",
+      "door": "two-way",
+      "recommended": true,
+      "match": {
+        "input": "✅",
+        "output": "✅",
+        "scenario": "✅",
+        "constraint": "⚠️"
+      },
+      "name": "飞书多维表格＋云文档",
+      "url": "https://www.feishu.cn/",
+      "one_liner": "当前优先试：将项目、任务、人员与资料关联，按成员或项目共享同一批数据。",
+      "links": {
+        "官方项目模板": "https://www.feishu.cn/hc/zh-CN/articles/184008024837-多维表格实战模板-项目管理系统",
+        "现行版本": "https://www.feishu.cn/service"
+      },
+      "license_cost": "商业云服务，官网免费版支持100用户；所需高级能力与容量需核对。标准/专业/旗舰50/80/120元每人每月，按年付费，套件升级范围另核。",
+      "license_check": "闭源商业服务，不获得可任意修改或转售源码的权利；使用、导出、付费及数据处理遵守服务协议。",
+      "last_update": "2026-10-22核实当前产品/定价；模板页面最后更新2024-06-21，其人员任务分组能力现文档仍可读取。",
+      "effort": "低到中：无需维护服务器，但要配置字段、关联、视图及谁能看谁能改。",
+      "known_issues": "不是完整项目软件的一键安装包。免费100人不代表高级权限/自动化/容量无限；不是独立收费的飞书项目。无真实租户试跑。",
+      "verdict_line": "Verdict: 待验证 — 飞书多维表格＋云文档 — 2026-10-22官网模板明确人员任务分组、看板和仪表盘；免费100用户；未完成业务试跑",
+      "reason": "与当前信息共享目的最接近，且可先用免费版本验证团队是否愿意更新；这是优先试用判断，未声称最易用。",
+      "lineage": "保留前一轮云服务首选。它从表格录入扩展为关联数据与多视图，避免先引入复杂项目方法。",
+      "re_evaluation_trigger": "需要高级权限、容量/自动化扩展、正式推广或跨客户隔离时。",
+      "six_dimensions": {
+        "function": "人员/项目分组、进度看板、仪表盘、关联文档和讨论",
+        "maintenance": "持续运营服务",
+        "community": "公开模板与帮助，未将旧用户评论当当前体验",
+        "documentation": "官方8分钟项目系统指引",
+        "license": "商业云协议",
+        "dependencies": "账号、网络、版本权益及配置管理员"
+      },
+      "business_value": {
+        "reliability": "运维由供应商负责，分享权限和导出仍需实测",
+        "strategy": "先验证信息共享习惯",
+        "adaptability": "字段和视图灵活",
+        "tco": "免费版本可试点，升级企业套件可能明显加费",
+        "speed": "无需部署，需配置模板"
+      },
+      "primary_sources": [
+        "https://www.feishu.cn/service",
+        "https://www.feishu.cn/hc/zh-CN/articles/184008024837-多维表格实战模板-项目管理系统",
+        "https://www.feishu.cn/hc/zh-CN/articles/360049067931",
+        "https://www.feishu.cn/hc/zh-CN/articles/539823920318"
+      ]
+    },
+    {
+      "maturity": "L4",
+      "type": "现成产品",
+      "verdict": "待验证",
+      "confidence": "MEDIUM",
+      "door": "two-way",
+      "recommended": false,
+      "match": {
+        "input": "✅",
+        "output": "✅",
+        "scenario": "✅",
+        "constraint": "⚠️"
+      },
+      "name": "Worktile（重点试旗舰版）",
+      "url": "https://worktile.com/",
+      "one_liner": "要完整成品项目系统时优先比较：任务流程、跨项目统计、资源与资料共享。",
+      "links": {
+        "当前定价": "https://worktile.com/pricing",
+        "项目集": "https://worktile.com/tools/project",
+        "项目功能": "https://worktile.com/product/project"
+      },
+      "license_cost": "专业499元/人/年、旗舰799元/人/年，均5人起购。最低席位费分别2495/3995元/年；本需求集中跨项目任务及仪表盘以旗舰预算起步；私有部署询价。",
+      "license_check": "商业闭源，SaaS与本地部署合同不同；不推定有源码修改、去品牌或转售权。",
+      "last_update": "2026-10-22直读当前定价/功能；官网更新列表有9.67.0，未把SaaS宣传当实测。",
+      "effort": "云版低到中：组织、项目模板与权限配置；本地版仍是Docker，供应商实施及维护需另核。",
+      "known_issues": "原始HTML勾叉确认专业版不含项目集应用（任务/甘特/资源）、自定义报表、仪表盘、数据导出；文件在线编辑各版写咨询。旗舰按人跨项目任务视图仍须实测。当前官网未列免费档，旧10人免费说法不采用。",
+      "verdict_line": "Verdict: 待验证 — Worktile旗舰版 — 2026-10-22官网799元/人/年5人起；跨项目集应用、仪表盘、导出在旗舰；未试跑",
+      "reason": "通用项目流程比表格模板更成品化；如果愿意付费和配置，它有比OpenProject少服务器维护的一条云路线。未宣称更易用已实测。",
+      "lineage": "从任务协作扩展到项目集、资源和仪表盘；其专业与旗舰的差异会直接改变本需求预算。",
+      "re_evaluation_trigger": "试用无法按人总览跨项目任务、导出不完整、实际报价/实施费用变化时。",
+      "six_dimensions": {
+        "function": "项目/任务、成员跨项目完成统计、文件与讨论；视图按版本",
+        "maintenance": "运营服务和公开更新",
+        "community": "旧营销对比不作当前证明",
+        "documentation": "官网功能/定价及帮助",
+        "license": "商业采购",
+        "dependencies": "云账号或本地Docker与服务商"
+      },
+      "business_value": {
+        "reliability": "商业支持，但需实测权限与导出",
+        "strategy": "适合正式任务流程",
+        "adaptability": "模板/角色/工作流可配置",
+        "tco": "旗舰最低3995元/年；20人15980元/年，不含可选服务",
+        "speed": "云版少部署，落地流程仍需培训"
+      },
+      "primary_sources": [
+        "https://worktile.com/pricing",
+        "https://worktile.com/tools/project",
+        "https://worktile.com/product/project",
+        "https://worktile.com/product/drive"
+      ]
+    },
+    {
+      "maturity": "L4",
+      "type": "现成产品",
+      "verdict": "待验证",
+      "confidence": "MEDIUM",
+      "door": "two-way",
+      "recommended": false,
+      "match": {
+        "input": "✅",
+        "output": "✅",
+        "scenario": "✅",
+        "constraint": "⚠️"
+      },
+      "name": "禅道开源版22.6",
+      "url": "https://www.zentao.net/zentao-os.html",
+      "one_liner": "Windows本地部署备选：官方集成环境，适合研发团队看板和资料管理。",
+      "links": {
+        "Windows官方包": "https://www.zentao.net/download/pms22.6-86691.html",
+        "版本功能": "https://www.zentao.net/compare-features.html",
+        "许可": "https://github.com/easysoft/zentaopms/blob/main/LICENSE.CN",
+        "演示": "https://www.zentao.net/demo.html"
+      },
+      "license_cost": "开源版不限人数和时间，软件许可费0；服务器、备份升级维护需计入成本。执行甘特等商业版另费。",
+      "license_check": "ZPL1.2或AGPL二选一。选ZPL要保留标志并满足在线来源说明，发布衍生作品时本体修改源码有公开条款；独立API应用另核。选AGPL，修改版网络交互及分发须按许可向相应用户提供对应源码。可免费内部使用，不等于任意去品牌闭源转售；业务项目数据不因源码义务必须公开。",
+      "last_update": "22.6，官方发布2026-09-17。",
+      "effort": "低到中（安装）＋持续维护：Windows集成Apache/MySQL/PHP，安装版/免安装版；同事浏览器访问。",
+      "known_issues": "定位研发，产品/执行/需求/Bug等可能增加普通团队学习负担。开源无执行甘特、任务依赖、工作日志；项目甘特/项目报告更高商业档。演示只到登录页未试业务。",
+      "verdict_line": "Verdict: 待验证 — 禅道开源版22.6 — 2026-09-17官方Windows集成包；看板/文档；ZPL1.2或AGPL；未实装",
+      "reason": "解决Windows原生集成部署顾虑，但不能仅因有安装包就判断业务更好用。",
+      "lineage": "面向研发生命周期的一体平台，安装门槛低于手工配Linux，并不意味着流程更轻。",
+      "re_evaluation_trigger": "不需要研发概念、要求免费完整甘特、对外交付或改造品牌时。",
+      "six_dimensions": {
+        "function": "项目/执行/任务、看板、文档和组织权限",
+        "maintenance": "近期发布与官方安全补丁",
+        "community": "国内官方社区；未实测学习成本",
+        "documentation": "中文安装/用户手册",
+        "license": "ZPL1.2或AGPL，非MIT",
+        "dependencies": "集成Web/PHP/数据库，仍要升级备份"
+      },
+      "business_value": {
+        "reliability": "可本地控制数据，但管理员负责维护",
+        "strategy": "研发流程匹配时有价值",
+        "adaptability": "普通信息共享可能流程过多",
+        "tco": "无软件席位费，甘特商业档与维护另计",
+        "speed": "官方Windows集成包减少配置"
+      },
+      "security_check": "官方22.4.1补丁记录修复CNVD-C-2026-367139/367142；不证明22.6或其PHP/MySQL依赖无漏洞。",
+      "primary_sources": [
+        "https://www.zentao.net/download/pms22.6-86691.html",
+        "https://www.zentao.net/compare-features.html",
+        "https://github.com/easysoft/zentaopms/blob/main/LICENSE.CN",
+        "https://www.zentao.net/extension-viewrelease-1690-front.html"
+      ]
+    },
+    {
+      "maturity": "L4",
+      "type": "现成产品",
+      "verdict": "待验证",
+      "confidence": "MEDIUM",
+      "door": "two-way",
+      "recommended": false,
+      "match": {
+        "input": "✅",
+        "output": "✅",
+        "scenario": "✅",
+        "constraint": "⚠️"
+      },
+      "name": "OpenProject Community",
+      "url": "https://www.openproject.org/community-edition/",
+      "one_liner": "保留为复杂计划和开源自部署对照，不因Linux服务器就否定Windows终端。",
+      "links": {
+        "Windows官方说明": "https://www.openproject.org/docs/installation-and-operations/installation-faq/",
+        "发布": "https://www.openproject.org/docs/release-notes/"
+      },
+      "license_cost": "Community无软件席位费；数据库/服务/备份升级及企业附加功能成本另计。",
+      "license_check": "GPLv3。浏览器网络使用与向客户分发软件不同；分发修改版时需保留许可、版权并按GPL提供对应源码，不能按闭源专有软件分发。",
+      "last_update": "2026-10-22核实官方发布目录列17.9.2。",
+      "effort": "中到高：官方面向Linux服务，推荐Docker/Compose等；Windows桌面运行不在正式支持范围。客户Windows浏览器访问不要求其安装Linux。",
+      "known_issues": "前一轮按完整功能选为本地首选，对轻量需求的配置/运维成本强调不足。另一个聊天正在安装，本轮未修改其环境或认定安装完成；付费人员资源功能不等于免费按人任务表。",
+      "verdict_line": "Verdict: 待验证 — OpenProject Community — 2026-10-22官方FAQ确认服务器定位与Windows桌面非正式支持；可经浏览器访问；未完成团队业务试跑",
+      "reason": "需要完整计划、开源控制且有人维护时仍合理；当前轻量共享目标下不作为唯一优先。",
+      "lineage": "保留前轮跨项目负责人+Wiki证据，但调整试用优先级，而非因Windows终端误判淘汰。",
+      "re_evaluation_trigger": "自部署维护可承受且依赖计划/工时/资源能力成为硬需求时。",
+      "six_dimensions": {
+        "function": "跨项目任务、进度、计划和Wiki",
+        "maintenance": "官方发布持续",
+        "community": "公开源码与社区",
+        "documentation": "完整部署/用户文档",
+        "license": "GPLv3",
+        "dependencies": "Linux容器/数据库及维护人员"
+      },
+      "business_value": {
+        "reliability": "版本与备份由自部署方管理",
+        "strategy": "源码和数据控制",
+        "adaptability": "功能完整但需配置",
+        "tco": "无席位费不等于无维护成本",
+        "speed": "安装和团队配置较多"
+      },
+      "security_check": "本轮未重复全量CVE核查；不沿用旧报告漏洞条目的完成状态作为当前安全证明。上线前需查所装版本公告。",
+      "primary_sources": [
+        "https://www.openproject.org/docs/installation-and-operations/installation-faq/",
+        "https://www.openproject.org/docs/release-notes/",
+        "https://github.com/opf/openproject",
+        "https://www.openproject.org/docs/user-guide/work-packages/work-package-table-configuration/"
+      ]
+    },
+    {
+      "maturity": "L4",
+      "type": "现成产品",
+      "verdict": "待验证",
+      "confidence": "MEDIUM",
+      "door": "two-way",
+      "recommended": false,
+      "match": {
+        "input": "✅",
+        "output": "✅",
+        "scenario": "✅",
+        "constraint": "⚠️"
+      },
+      "name": "Teambition",
+      "url": "https://www.teambition.com/",
+      "one_liner": "团队已用钉钉时保留：基础任务看板和资料共享，少于等于10席可比较免费档。",
+      "license_cost": "当前价格页免费10席；企业/旗舰10席起购，公开单价需询价；私有部署200席起。",
+      "license_check": "商业闭源服务；本地部署与转售源码权不等同，按合同核对。",
+      "last_update": "2026-10-22现行价格和产品页核对。",
+      "effort": "云端低到中，账号/模板/权限需配置。",
+      "known_issues": "免费档不等于含完整甘特、里程碑、项目集和高级汇总；当前表显示甘特/里程碑旗舰起。私有化规模门槛较高。",
+      "verdict_line": "Verdict: 待验证 — Teambition — 2026-10-22官网免费10席、私有部署200席起；未试跑",
+      "reason": "已有钉钉且团队较小时值得比较，不为当前用户另增加优先候选。",
+      "lineage": "轻量任务协作逐步接入钉钉生态，使用已有账号可减少切换，但需验证版本限制。",
+      "re_evaluation_trigger": "已全员钉钉、人数超10、需要高级甘特或跨项目汇总时。",
+      "six_dimensions": {
+        "function": "任务看板、文件、评论和统计",
+        "maintenance": "运营中服务",
+        "community": "旧App评论不作为现在缺陷证据",
+        "documentation": "价格及协作功能页",
+        "license": "商业服务",
+        "dependencies": "云账号/网络或商用私有化合同"
+      },
+      "business_value": {
+        "reliability": "服务商维护",
+        "strategy": "已有钉钉时切换成本较低",
+        "adaptability": "模板和权限需核对",
+        "tco": "10席免费基础档，高级能力询价",
+        "speed": "云端少部署"
+      },
+      "primary_sources": [
+        "https://www.teambition.com/pricing?region=cn",
+        "https://www.teambition.com/manageproject?region=cn"
+      ]
+    }
+  ],
+  "cost_comparison": {
+    "basis": "软件席位费年付；不等于最终合同总价。",
+    "rows": [
+      {
+        "product": "飞书多维表格＋云文档",
+        "five": "免费版本权益内0元",
+        "ten": "免费版本权益内0元",
+        "twenty": "免费版本权益内0元",
+        "note": "当前官网免费支持100用户；高级能力、容量、企业升级另核对。付费标准/专业/旗舰为50/80/120元每人每月按年付费，不能当作只买看板单项。"
+      },
+      {
+        "product": "Worktile专业版",
+        "five": 2495,
+        "ten": 4990,
+        "twenty": 9980,
+        "note": "499元/人/年，5人起购；不含项目集应用、自定义报表、仪表盘、数据导出。"
+      },
+      {
+        "product": "Worktile旗舰版",
+        "five": 3995,
+        "ten": 7990,
+        "twenty": 15980,
+        "note": "799元/人/年，5人起购；若要跨项目任务视图和导出，以此作为软件席位预算起点。"
+      },
+      {
+        "product": "禅道开源版",
+        "five": "0元许可费+维护",
+        "ten": "0元许可费+维护",
+        "twenty": "0元许可费+维护",
+        "note": "Windows集成环境并不消除备份、升级和在线主机成本；高级甘特等另购商业版。"
+      },
+      {
+        "product": "OpenProject Community",
+        "five": "0元许可费+维护",
+        "ten": "0元许可费+维护",
+        "twenty": "0元许可费+维护",
+        "note": "Windows桌面运行不在正式支持范围；Linux/容器服务及数据库需管理员维护。"
+      }
+    ]
+  },
+  "next_steps": [
+    "先用飞书官方项目模板配置2个项目、3个成员、10条任务与少量非敏感资料；分别建立按成员、按项目和项目进度视图。",
+    "请三位同事分别完成查看他人任务、更新自己状态、找到资料、留言四个动作，记录是否需要帮助。此步骤尚未执行。",
+    "如果需要更多正式计划和工作流，使用同一批样例试Worktile旗舰，核对跨项目任务按人员筛选、仪表盘、导出，以及最低5席和可选实施费用。",
+    "本地路线以禅道Windows集成环境对照；核对研发概念是否多余、免费能力是否够用、备份恢复是否可完成。不要在本轮研究中干扰已有OpenProject安装。",
+    "正式选择前导出样例，并核查项目、任务、负责人、状态、资料和讨论是否能满足退出需求；无需同时推广多套工具。"
+  ],
+  "sources": [
+    "https://www.feishu.cn/service",
+    "https://www.feishu.cn/hc/zh-CN/articles/184008024837-多维表格实战模板-项目管理系统",
+    "https://www.feishu.cn/hc/zh-CN/articles/360049067931",
+    "https://www.feishu.cn/hc/zh-CN/articles/539823920318",
+    "https://worktile.com/pricing",
+    "https://worktile.com/tools/project",
+    "https://worktile.com/product/project",
+    "https://worktile.com/product/drive",
+    "https://www.zentao.net/download/pms22.6-86691.html",
+    "https://www.zentao.net/compare-features.html",
+    "https://github.com/easysoft/zentaopms/blob/main/LICENSE.CN",
+    "https://www.zentao.net/extension-viewrelease-1690-front.html",
+    "https://www.openproject.org/docs/installation-and-operations/installation-faq/",
+    "https://www.openproject.org/docs/release-notes/",
+    "https://github.com/opf/openproject",
+    "https://www.openproject.org/docs/user-guide/work-packages/work-package-table-configuration/",
+    "https://www.teambition.com/pricing?region=cn",
+    "https://www.teambition.com/manageproject?region=cn"
+  ],
+  "unsearched": [
+    "Tavily独立引擎未配置。",
+    "没有可编辑的首选产品租户，未完成真实业务、通知、中文附件、多账号权限或导出还原试跑；易用性结论为条件性判断。",
+    "未完成全量CVE/依赖扫描；SaaS不公开全部后端版本，不能证明无漏洞。",
+    "未查到能支持大部分客户偏好Linux或Windows部署的可靠份额数据，不作多数客户结论。",
+    "没有向供应商询价，不将官网最低席位费当完整采购报价。"
+  ]
+}

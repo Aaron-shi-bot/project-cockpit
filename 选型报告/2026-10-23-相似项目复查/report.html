@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>项目驾驶舱：高度相似的开源项目与现成产品</title>
+<style>
+  :root {
+    --bg:#f5f6f8; --card:#fff; --ink:#1c2333; --muted:#6b7280; --line:#e5e7eb;
+    --green:#16a34a; --amber:#d97706; --blue:#2563eb; --red:#dc2626; --violet:#7c3aed;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.6; padding:32px 16px; }
+  .wrap { max-width:960px; margin:0 auto; }
+  .header { background:linear-gradient(135deg,#1e3a8a,#3b82f6); color:#fff;
+    border-radius:14px; padding:28px 32px; box-shadow:0 8px 24px rgba(30,58,138,.18); }
+  .header .meta { font-size:13px; opacity:.85; margin-bottom:8px; }
+  .header h1 { font-size:26px; font-weight:700; }
+  .header .query { font-size:14px; opacity:.9; margin-top:10px; }
+  .chips { margin-top:16px; display:flex; flex-wrap:wrap; gap:8px; }
+  .chip { font-size:12px; padding:4px 12px; border-radius:999px;
+    background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.35); }
+  .section { margin-top:24px; }
+  .section h2 { font-size:17px; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .section h2::before { content:""; width:4px; height:18px; background:#3b82f6; border-radius:2px; }
+  .card { background:var(--card); border-radius:14px; padding:24px 28px;
+    border:1px solid var(--line); box-shadow:0 2px 8px rgba(17,24,39,.05); }
+  .badge { display:inline-block; font-size:12px; font-weight:600; padding:3px 12px;
+    border-radius:999px; margin-left:6px; vertical-align:middle; }
+  .badge.use { background:#f0fdf4; color:var(--green); border:1px solid #bbf7d0; }
+  .badge.mod { background:#fffbeb; color:var(--amber); border:1px solid #fde68a; }
+  .badge.idea { background:#eff6ff; color:var(--blue); border:1px solid #bfdbfe; }
+  .badge.dead { background:#fef2f2; color:var(--red); border:1px solid #fecaca; }
+  .badge.verify { background:#f5f3ff; color:var(--violet); border:1px solid #ddd6fe; }
+  .rec-head { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:6px; }
+  .rec-head h3 { font-size:22px; }
+  .one-liner { color:var(--muted); font-size:15px; margin-bottom:18px; }
+  .links { margin-bottom:20px; }
+  .links a { display:inline-block; margin:0 8px 8px 0; padding:7px 16px; border-radius:8px;
+    text-decoration:none; font-size:13px; font-weight:600; background:#eff6ff; color:var(--blue);
+    border:1px solid #bfdbfe; transition:.15s; }
+  .links a:hover { background:#dbeafe; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width:720px) { .grid { grid-template-columns:1fr; } }
+  .kv { background:#fafafa; border:1px solid var(--line); border-radius:10px; padding:14px 16px; }
+  .kv .label { font-size:12px; color:var(--muted); margin-bottom:4px; }
+  .kv .value { font-size:14px; font-weight:600; }
+  .maturity { margin-top:20px; }
+  .maturity .lbl { font-size:12px; color:var(--muted); margin-bottom:6px; }
+  .bar { display:flex; gap:6px; }
+  .seg { flex:1; height:10px; border-radius:5px; background:#e5e7eb; }
+  .seg.filled { background:linear-gradient(90deg,#22c55e,#16a34a); }
+  .match { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:18px; }
+  .match-item { text-align:center; border:1px solid var(--line); border-radius:10px; padding:12px 8px; }
+  .match-item .m { font-size:20px; }
+  .match-item .t { font-size:12px; color:var(--muted); margin-top:4px; }
+  .ok { color:var(--green); } .warn { color:var(--amber); } .no { color:var(--red); }
+  .note { background:#fffbeb; border:1px solid #fde68a; border-radius:10px;
+    padding:14px 16px; font-size:14px; margin-top:16px; }
+  .note-line { font-size:13px; color:var(--muted); margin-top:10px; }
+  table { width:100%; border-collapse:collapse; font-size:13.5px; }
+  th, td { padding:10px 12px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { background:#f9fafb; font-size:12px; color:var(--muted); }
+  tr:last-child td { border-bottom:none; }
+  .status-dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:6px; }
+  .dot-green, .status-dot.use { background:var(--green); }
+  .dot-amber, .status-dot.mod { background:var(--amber); }
+  .dot-blue, .status-dot.idea { background:var(--blue); }
+  .dot-red, .status-dot.dead { background:var(--red); }
+  .status-dot.verify { background:var(--violet); }
+  .next { background:#f0fdf4; border:1px solid #bbf7d0; border-radius:10px; padding:16px 18px; }
+  .next h4 { font-size:14px; color:var(--green); margin-bottom:6px; }
+  .next ol { margin-left:18px; font-size:14px; }
+  .src { font-size:13px; color:var(--muted); }
+  .src li { margin:4px 0; }
+  .src a { color:var(--blue); text-decoration:none; }
+  .src a:hover { text-decoration:underline; }
+  .footer { margin-top:28px; text-align:center; font-size:12px; color:#9ca3af; }
+  .footer a { color:var(--blue); text-decoration:none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <div class="meta">2026-10-23 · 普通模式 · 检索时长 — 分钟</div>
+    <h1>项目驾驶舱：高度相似的开源项目与现成产品</h1>
+    <div class="query">需求：按现行PRD比较：明亮简洁的多项目进度/阶段/下一里程碑/风险总览，项目任务和资料版本、跨项目任务、多人分层权限、移动端。此次只查相似方案与复用可能，不执行替换、购买或部署。</div>
+    <div class="chips"><span class="chip">混合</span><span class="chip">Exa连接器</span><span class="chip">内置网页搜索</span><span class="chip">GitHub源码/发布/安全公告</span><span class="chip">官方文档/版本/截图</span><span class="chip">当前项目与历史报告</span><span class="chip">候选 7 个</span><span class="chip">历史回灌 4 条</span></div>
+  </div>
+  <div class="section"><h2>Pro 决策摘要</h2><div class="card"><p><b>Verdict 行</b>：Verdict: 待验证 — ProjectStatusApp（优先核对的相似项目）／Tududi（协作改造候选） — 2026-10-23核对官方源码、AGPL-3.0/MIT和发布信息；未完成真实运行及多人业务试跑</p><p><b>置信度</b>：MEDIUM · <b>门类型</b>：two-way</p><p><b>再评估触发器</b>：复制/合并外部代码、购买商业版本、迁移数据或正式部署前；完成两账号隔离试跑后；ProjectStatusApp安全依赖修复、Tududi版本变动或所需权限/资料规则改变时。</p><p><b>谱系</b>：现成生态可分为跨项目交付健康（ProjectStatusApp）、任务协作发展出的总览（Tududi/Leantime/Plane）、个人经理工作台（ManagerOS/VibeFocus/Logbook）和商业Portfolios（Asana/monday）。当前驾驶舱把轻量总览、执行任务、资料版本和严格团队权限组合在一起，属于已有产品类型，但现成项目覆盖的边界不同。历史调查偏信息共享，本轮从现行PRD和实现重新定位，未沿用旧空工作区结论。</p><p><b>业务价值五维</b>：可靠性：成熟平台有版本与商业支持，但小型相似仓库需要更多运行证据；战略：继续拥有当前领域规则与权限，比因界面相似整体换底座更有价值；适配：ProjectStatusApp适合业务结构参考、Tududi适合协作底座、ManagerOS适合局部代码参考；总成本：需计许可证/商业插件、服务器、升级、迁移与权限补建；速度：先对照现成页面与源码选取少量改进，整体替代须先用虚构数据试跑。</p></div></div>
+  <div class="section"><h2>推荐方案</h2><div class="card">
+  <div class="rec-head">
+    <h3>ProjectStatusApp</h3>
+    <span class="badge verify">🟣 待验证</span>
+    <span class="badge">成熟度 L2</span>
+  </div>
+  <p class="one-liner">业务形态最接近：多项目健康、风险、阶段、下一步、时间线和快照；权限是角色/创建者规则，资料文件版本未证实。</p>
+  <div class="links"><a href="https://github.com/fvisic/ProjectStatusApp" target="_blank">官网</a><a href="https://raw.githubusercontent.com/fvisic/ProjectStatusApp/main/docs/screenshots/dashboard.png" target="_blank">官方总览截图</a><a href="https://github.com/fvisic/ProjectStatusApp/blob/main/app/Policies/ProjectPolicy.php" target="_blank">权限源码</a><a href="https://github.com/fvisic/ProjectStatusApp/releases" target="_blank">发布</a><a href="https://github.com/fvisic/ProjectStatusApp/pull/13" target="_blank">依赖安全修复PR</a></div>
+  <div class="grid">
+    <div class="kv"><div class="label">类型</div><div class="value">自部署开源应用</div></div>
+    <div class="kv"><div class="label">许可证 / 成本</div><div class="value">AGPL-3.0；自部署需PHP/Laravel/MySQL与运维</div></div>
+    <div class="kv"><div class="label">最近更新</div><div class="value">默认分支2026-07-28（UTC）；稳定v1.1.0发布2026-05-21</div></div>
+    <div class="kv"><div class="label">上手难度</div><div class="value">与现有React/Node栈不同；当前本机无Docker/PHP，未安装</div></div>
+  </div>
+  <div class="maturity">
+    <div class="lbl">成熟度（离直接用有多远：L0–L5）</div>
+    <div class="bar"><div class="seg filled"></div><div class="seg filled"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+  <div class="match"><div class="match-item"><div class="m ok">✅</div><div class="t">输入匹配</div></div><div class="match-item"><div class="m ok">✅</div><div class="t">输出匹配</div></div><div class="match-item"><div class="m warn">⚠️</div><div class="t">场景匹配</div></div><div class="match-item"><div class="m warn">⚠️</div><div class="t">约束匹配</div></div></div>
+  <div class="note">🎯 决策行：Verdict: 待验证 — ProjectStatusApp — 2026-10-23核对官方资料与许可；未完成多人业务试跑</div><div class="note">⚠️ 已知坑：admin/manager/user不能等同项目成员共享；快照版本不等于资料版本；lockfile中postcss-selector-parser 6.1.2命中CVE-2026-9358范围，安全更新PR未合并，未验证应用实际可利用性。</div><div class="note">⚖️ 许可硬检查：若修改后供用户通过网络交互，应向这些用户提供对应源码获取机会；分发也须保留AGPL条件。商业使用本身并非禁止。</div><div class="note">🧭 置信度：MEDIUM · 门类型：two-way</div><div class="note">🔁 再评估触发器：复制代码、购买服务或迁移前；首轮隔离业务试跑后；许可、付费版本、项目权限或安全依赖改变时。</div><div class="note">📜 谱系：围绕跨项目交付健康，补足Jira等任务系统之外的管理者全局视图；因此风险、期限接近，执行任务和资料协作不完全相同。</div><div class="note">结论理由：优先查看和验证的相似项目，不代表建议迁移。已核对官方文档、部分源码与许可证，未进行本机或多人试跑。</div>
+</div></div>
+  <div class="section"><h2>候选对比</h2><div class="card"><table>
+    <thead><tr><th>方案</th><th>类型</th><th>成熟度</th><th>成本</th><th>一句话定位</th><th>结论</th></tr></thead>
+    <tbody><tr><td>ProjectStatusApp</td><td>自部署开源应用</td><td>L2</td><td>AGPL-3.0；自部署需PHP/Laravel/MySQL与运维</td><td>业务形态最接近：多项目健康、风险、阶段、下一步、时间线和快照；权限是角色/创建者规则，资料文件版本未证实。</td><td><span class="status-dot verify"></span>待验证</td></tr><tr><td>Tududi</td><td>自部署开源应用/托管服务</td><td>L3</td><td>MIT；自部署许可免费，托管服务另计，不把个人价当团队总价</td><td>协作改造候选：项目进度、任务/笔记、只读/可写分享、群组与PWA；要补风险、里程碑和资料版本等驾驶舱业务。</td><td><span class="status-dot verify"></span>待验证</td></tr><tr><td>ManagerOS（elmadah/manager-os）</td><td>个人/工程经理开源工具</td><td>L2</td><td>MIT；补认证、项目权限和可靠存储仍需开发</td><td>功能与技术栈接近：项目健康、风险阻塞、时间线、团队、笔记、周报；明确没有认证和权限，只宜参考或选取MIT代码。</td><td><span class="status-dot idea"></span>只借鉴</td></tr><tr><td>Leantime</td><td>开源核心与商业插件</td><td>L4</td><td>AGPLv3核心；Program Plans另售；插件目录可用独立许可</td><td>项目任务、状态、里程碑、风险、Wiki/文件与协作接近；集中跨项目进度/目标/里程碑/风险总览是另售Program Plans插件。</td><td><span class="status-dot verify"></span>待验证</td></tr><tr><td>Plane</td><td>开源CE与商业版本</td><td>L4</td><td>CE AGPL-3.0；相关跨项目功能需核对商业计划</td><td>团队项目、任务、文档和跨项目结构接近；Initiatives、Milestones、Dashboards标为Pro，不能当作CE默认免费能力。</td><td><span class="status-dot verify"></span>待验证</td></tr><tr><td>Asana Portfolios</td><td>商业SaaS</td><td>L4</td><td>商业服务；Portfolios属于Advanced/Enterprise/Enterprise+，价格需采购时核对</td><td>成熟成品业务同类：同屏项目状态、任务/里程碑进度、负责人、日期和更新；需Advanced及以上，资料版本规则未证实等价。</td><td><span class="status-dot verify"></span>待验证</td></tr><tr><td>monday.com Portfolio</td><td>商业SaaS</td><td>L4</td><td>商业服务；Portfolio连接Enterprise项目板，具体采购包装待报价</td><td>卡片式健康总览很相似：健康、完成任务、计划/实际和经理；另有跨项目里程碑仪表盘。仅Enterprise项目板可接入，组合访问者会看到相连项目名。</td><td><span class="status-dot verify"></span>待验证</td></tr></tbody>
+  </table></div></div>
+  <div class="section"><h2>下一步（最小试跑）</h2>
+    <div class="next"><h4>验证计划</h4><ol><li>先看ProjectStatusApp官方总览、项目详情、风险与阶段截图，确认哪些信息组织值得吸收；截图是作者示例，不是本次运行结果。</li><li>如果目标是采用外部成品，优先隔离试跑ProjectStatusApp与Tududi。至少建立3个虚构项目、2个权限不同账号，核对阶段/下个里程碑/进度分母、风险汇总、撤权、历史文件下载；不能只检查首页。</li><li>ProjectStatusApp试跑前处理锁文件安全依赖，明确AGPL与PHP运行成本；当前本机未发现Docker/PHP，本轮没有新装环境，采用结论保持待验证。</li><li>若继续现有项目，优先借鉴ProjectStatusApp的健康/风险总览、Asana/monday的组合详情和ManagerOS的相关模块；选用任何源码前按具体文件及依赖核对许可。</li><li>完整细项、原始查询与淘汰理由见research/similar-projects-2026-10-23内三份子报告；当前开发代码、数据库及部署状态未因本轮检索改变。</li></ol></div></div>
+  <div class="section"><h2>来源与搜索记录</h2><div class="card src">
+    <ul><li>https://github.com/fvisic/ProjectStatusApp</li><li>https://raw.githubusercontent.com/fvisic/ProjectStatusApp/main/docs/screenshots/dashboard.png</li><li>https://github.com/fvisic/ProjectStatusApp/blob/main/app/Policies/ProjectPolicy.php</li><li>https://github.com/fvisic/ProjectStatusApp/releases</li><li>https://github.com/fvisic/ProjectStatusApp/pull/13</li><li>https://github.com/chrisvel/tududi</li><li>https://github.com/chrisvel/tududi/blob/main/docs/06-projects.md</li><li>https://github.com/chrisvel/tududi/blob/main/backend/services/permissionsService.js</li><li>https://tududi.com/</li><li>https://github.com/chrisvel/tududi/releases</li><li>https://github.com/elmadah/manager-os</li><li>https://github.com/elmadah/manager-os/blob/main/SECURITY.md</li><li>https://github.com/elmadah/manager-os/blob/main/server/index.js</li><li>https://github.com/elmadah/manager-os/blob/main/server/db/init.js</li><li>https://github.com/Leantime/leantime</li><li>https://marketplace.leantime.io/product/leantime-program-plans/</li><li>https://support.leantime.io/en/article/how-is-leantime-the-open-source-system-licensed-29l3j/</li><li>https://github.com/Leantime/leantime/releases/tag/v3.12.0</li><li>https://github.com/makeplane/plane</li><li>https://docs.plane.so/core-concepts/projects/initiatives</li><li>https://docs.plane.so/projects/milestones</li><li>https://docs.plane.so/dashboards</li><li>https://help.asana.com/s/article/portfolio-management</li><li>https://help.asana.com/s/article/portfolios-faq</li><li>https://help.asana.com/s/article/portfolio-progress-and-reporting?language=en_US</li><li>https://support.monday.com/hc/en-us/articles/13337066797202-The-portfolio-solution</li><li>https://support.monday.com/hc/en-us/articles/23921675672466-Portfolio-management-All-Projects-Dashboard</li><li>https://support.monday.com/hc/en-us/articles/360021698980-File-versioning</li><li>https://www.gnu.org/licenses/gpl-faq.en.html</li><li>https://choosealicense.com/no-permission/</li><li>https://github.com/advisories/GHSA-w9m9-85wc-3x92</li><li>https://www.openproject.org/docs/user-guide/portfolios/</li><li>https://project.feishu.cn/b/helpcenter/1ykiuvvj/2itxzzn2</li><li>https://worktile.com/product/drive</li><li>https://github.com/aceymagallanes/atlas-pmo-command-center</li></ul><p class="note-line">未搜索渠道：Tavily（环境变量及两个兼容配置路径均未配置）、登录后SaaS租户业务操作、产品实装、生产并发、完整依赖漏洞扫描、中国大陆实际网络可用性与付费报价</p><p class="note-line">历史回灌：历史库：选型报告/report.json（2026-10-22）；原始范围偏同事工作共享，本次按已实现驾驶舱重新评估。；历史库：选型报告/2026-10-22-易用性与成本复核/report.json；保留易用性、Windows客户端与服务器分开核对的教训。；历史库：research/dashboard-2026-10-23/shortlist.json；VibeFocus/Tududi/Logbook重新查当前源码。；清理记录.md：OpenProject安装已按用户要求取消；本轮只读比较，不恢复安装。</p><p class="note-line">检索日志：Open source project portfolio status dashboard with project health risk register milestones team roles ProjectStatusApp alternatives（Exa，命中 8，有用 4）；GitHub exact repository/readme: ProjectStatusApp, Atlas PMO, Solvro（内置网页,GitHub API，命中 2，有用 2）；GNU AGPL network modified source; Choose a License no permission（内置搜索，命中 3，有用 2）；research/opensource-evidence.md（历史库，命中 —，有用 —）；site.github.com Leantime leantime portfolio dashboard license; OpenProject portfolio; makeplane plane roadmap; Huly project management（内置web，命中 —，有用 —）；site.openproject.org docs project portfolio life cycle status dashboard community enterprise; site.plane.so docs portfolio initiatives dashboard self hosted community license; site.docs.huly.io roles permissions（内置web，命中 —，有用 —）；Open source project portfolio management dashboard project status milestones risks files permissions self hosted alternatives Leantime OpenProject Plane Huly（Exa connector，命中 —，有用 —）；7 repos metadata and releases/latest（GitHub connector GET，命中 —，有用 —）；hcengineering/huly-selfhost README.md and compose.yml; makeplane/plane LICENSE.txt; hcengineering/platform LICENSE（GitHub connector GET，命中 —，有用 —）；Plane Initiatives / Milestones / Dashboards / Editions / Docker Compose（官方文档，命中 —，有用 —）；OpenProject Portfolios / project-lists / system-requirements / progress-tracking / file-management（官方文档，命中 —，有用 —）；Huly roles / milestones / creating-projects / Drive（官方文档，命中 —，有用 —）；Leantime GHSA-54mm-6729-r5wp; OpenProject GHSA-998q-c58p-qf78; Plane GHSA-r5p8-cj3q-38cc; Huly advisories（官方安全公告，命中 —，有用 —）；ProjectStatusApp recent commits and open dependency PRs（GitHub issue/PR核对，命中 —，有用 —）；Leantime/OpenProject/Huly/Plane demo without registration（公开Demo查找，命中 —，有用 —）；research/dashboard-2026-10-23/shortlist.json（历史库，命中 —，有用 —）；Open source project portfolio dashboard lightweight all projects progress health milestones next action GitHub self hosted（Exa，命中 —，有用 —）；open source project portfolio dashboard self hosted risks milestones team permissions lightweight github（Exa，命中 —，有用 —）；VibeFocus Tududi Logbook security vulnerability CVE github; fvisic ProjectStatusApp; avikahana project-dashboard（web，命中 —，有用 —）；site:tududi.com demo; ManagerOS demo; ProjectStatusApp demo（web，命中 —，有用 —）；Tududi live demo try without account demo.tududi.com（Exa，命中 —，有用 —）；metadata, default-branch commits, README/LICENSE/source/releases/issues/lockfiles（GitHub connector，命中 —，有用 —）；GHSA-v5mv-p594-2x33 and GHSA-w9m9-85wc-3x92（web advisory，命中 —，有用 —）；（Tavily，命中 —，有用 —）；research/saas-options-2026-10-22.md（历史库，命中 —，有用 —）；Official documentation for project portfolio management dashboards showing multiple projects status progress milestones risks and dependencies in Asana and monday work management（Exa connector，命中 —，有用 —）；飞书项目 项目集 跨空间全景 项目进度 里程碑 风险 官方 功能 页面（Exa connector，命中 —，有用 —）；Worktile 项目集 仪表盘 多项目 总览 风险 文件版本 官方（Exa connector，命中 —，有用 —）；site.asana.com/pricing portfolios Advanced; site.support.monday.com portfolio management Enterprise plan risks files; site.project.feishu.cn 全景 项目 里程碑 风险（内置web，命中 —，有用 —）；Official documentation Smartsheet project portfolio dashboard project status summary rollup milestones risks portfolio WorkApps（Exa connector，命中 —，有用 —）；Asana portfolio mobile; monday portfolio solution; Worktile product/drive; task attachments; file versioning（内置web/Exa fetch，命中 —，有用 —）；2026 飞书项目版本说明 企业版 全景视图（Exa connector，命中 —，有用 —）；https://worktile.com/pricing HTML图标勾叉（shell静态HTTP，命中 —，有用 —）；未由本子任务调用（Tavily，命中 —，有用 —）</p><p class="note-line">假设：相似度按现行需求与可定位源码分析，没有使用伪精确百分比分数。；保留现有多人协作范围；个人工具仅作参考，不把用户需求降为单用户。；未来Sites是当前项目计划，不据此硬性排除其他技术栈的相似参考；未验证任何外部项目能原样部署到Sites。；没有新增功能获批或替换产品决定；REQ-014—019继续为候选。；L2表示本轮保守按可审阅代码候选处理，不断言作者项目不能运行。L3/L4只表达公开产品成熟度，不代表本轮已安装验收。；match中的✅仅表示基于文档/源码的静态功能匹配，不表示运行验收通过。</p>
+  </div></div>
+  <div class="footer">由 检索世界 Pro 生成 · <a href="../index.html">返回检索历史</a></div>
+</div>
+</body>
+</html>

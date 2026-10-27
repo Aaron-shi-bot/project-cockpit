@@ -1,0 +1,21 @@
+{
+  "runtime": "real-local-workerd-stop-start",
+  "checks": 31,
+  "elapsedMs": 19292,
+  "samePersistenceDirectory": true,
+  "accountPasswordAndTimeZone": true,
+  "originalSessionSurvived": true,
+  "exactProjectTaskGrantVersions": true,
+  "workspaceOwnerCannotReadHiddenProject": true,
+  "directAndTeamHighestRole": true,
+  "fileV1": {
+    "size": 40,
+    "sha256": "1ea6b6f781f7c8c9ede2bcaba3426e724121e37e36b91ac0754a5a698016b3bf"
+  },
+  "fileV2": {
+    "size": 53,
+    "sha256": "09bc62409147671dd08638f789297c6e6a998f7775725ae1ba9d47b750aa571b"
+  },
+  "final4181Stopped": true,
+  "note": "仅本机独立夹具；密码始终只在runner内存；验证停启持久化，不是D1+R2备份恢复"
+}

@@ -1,0 +1,51 @@
+{
+  "Date": "2026-10-23T10:06:52.9278466Z",
+  "URL": "https://project-cockpit-hub.yonti9474.chatgpt.site",
+  "Checks": [
+    {
+      "Path": "/",
+      "Status": 200,
+      "Body": "HTML",
+      "CacheControl": null
+    },
+    {
+      "Path": "/api/bootstrap",
+      "Status": 200,
+      "Body": "{\"initialized\":false,\"limits\":{\"maxFileBytes\":10485760},\"setupProtected\":true}",
+      "CacheControl": [
+        "no-store"
+      ]
+    },
+    {
+      "Path": "/api/state",
+      "Status": 401,
+      "Body": "{\"error\":\"请先登录\",\"code\":\"UNAUTHENTICATED\"}",
+      "CacheControl": [
+        "no-store"
+      ]
+    },
+    {
+      "Path": "/api/members",
+      "Status": 401,
+      "Body": "{\"error\":\"请先登录\",\"code\":\"UNAUTHENTICATED\"}",
+      "CacheControl": [
+        "no-store"
+      ]
+    },
+    {
+      "Path": "/api/files/unknown/download",
+      "Status": 401,
+      "Body": "{\"error\":\"请先登录\",\"code\":\"UNAUTHENTICATED\"}",
+      "CacheControl": [
+        "no-store"
+      ]
+    },
+    {
+      "Path": "/api/setup",
+      "Status": 403,
+      "Body": "{\"error\":\"仅持有一次性初始化凭据的管理员可建立平台\",\"code\":\"SETUP_FORBIDDEN\"}"
+    }
+  ],
+  "InitializedAfterInvalidSetup": false,
+  "ProductionOwnerCreated": false
+}

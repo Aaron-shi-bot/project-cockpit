@@ -1,0 +1,42 @@
+{
+  "mode": "仅本机虚构设计验收；未部署",
+  "url": "http://127.0.0.1:4174",
+  "host": "127.0.0.1",
+  "port": 4174,
+  "pid": 44924,
+  "dataDir": "D:\\Work_File\\Agent_workfiles\\Agent_Project\\codex\\项目管理和信息共享看板\\验证\\设计验收数据",
+  "formalPort4173Unchanged": true,
+  "startedAt": "2026-10-23T08:51:55.430Z",
+  "projects": 6,
+  "tasks": 93,
+  "completedTasks": 54,
+  "members": [
+    {
+      "name": "周远",
+      "email": "design-zhouyuan@example.test",
+      "workspaceRole": "member"
+    },
+    {
+      "name": "林舟",
+      "email": "design-review@example.test",
+      "workspaceRole": "owner"
+    },
+    {
+      "name": "许宁",
+      "email": "design-xuning@example.test",
+      "workspaceRole": "member"
+    },
+    {
+      "name": "陈琳",
+      "email": "design-chenlin@example.test",
+      "workspaceRole": "admin"
+    }
+  ],
+  "teams": 1,
+  "resources": 3,
+  "fileVersions": 3,
+  "automaticLocalPreviewSession": true,
+  "browserCookieName": "cockpit_design_session",
+  "loginPreviewUrl": "http://127.0.0.1:4174/auth-preview",
+  "note": "账号和资料均为虚构；新浏览器直接进入演示，登录设计另有专用入口。报告不含密码或邀请令牌。"
+}

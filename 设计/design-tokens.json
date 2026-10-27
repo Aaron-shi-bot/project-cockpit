@@ -1,0 +1,131 @@
+{
+  "$schemaDescription": "项目驾驶舱 V0.3 名称更新版；沿用2026-10-23用户已确认的V0.2明亮彩色样式值，颜色和尺寸不变。",
+  "color": {
+    "canvas": "#F7F8FC",
+    "sidebar": "#FFFFFF",
+    "surface": "#FFFFFF",
+    "surfaceHover": "#F0EDFF",
+    "divider": "#DFE4F0",
+    "controlBorder": "#808AA5",
+    "text": "#181C36",
+    "textSecondary": "#5E6680",
+    "accent": "#5B3FE6",
+    "onAccent": "#FFFFFF",
+    "warning": "#8A5607",
+    "danger": "#B4233C",
+    "success": "#08795E",
+    "neutral": "#59627A",
+    "focus": "#5B3FE6",
+    "lilac": "#EEEAFE",
+    "blush": "#FFECE6",
+    "mint": "#E6F4EC",
+    "sky": "#E7EFFF",
+    "butter": "#FFF4D3",
+    "violet": "#7157EE",
+    "coral": "#F17460",
+    "jade": "#18B88D",
+    "blue": "#2474E8",
+    "amber": "#E29D23"
+  },
+  "gradient": {
+    "summary": "linear-gradient(115deg, #4968F2 0%, #6952E8 65%, #AD83F0 100%)",
+    "primary": "linear-gradient(180deg, #765DF2 0%, #5B3FE6 100%)",
+    "usage": "限定用于主摘要与主按钮；正文和表格使用平色。"
+  },
+  "projectColors": [
+    {
+      "key": "device",
+      "surface": "lilac",
+      "accent": "accent"
+    },
+    {
+      "key": "portal",
+      "surface": "blush",
+      "accent": "danger"
+    },
+    {
+      "key": "analytics",
+      "surface": "mint",
+      "accent": "success"
+    },
+    {
+      "key": "mobile",
+      "surface": "sky",
+      "accent": "blue"
+    },
+    {
+      "key": "knowledge",
+      "surface": "butter",
+      "accent": "warning"
+    },
+    {
+      "key": "automation",
+      "surface": "surface",
+      "accent": "neutral"
+    }
+  ],
+  "typography": {
+    "family": "Microsoft YaHei, Noto Sans SC, PingFang SC, system-ui, sans-serif",
+    "numberFamily": "Bahnschrift, DIN Alternate, ui-sans-serif, sans-serif",
+    "size": {
+      "metric": 48,
+      "pageTitle": 36,
+      "sectionTitle": 22,
+      "body": 14,
+      "label": 13,
+      "caption": 12
+    },
+    "lineHeight": {
+      "heading": 1.25,
+      "body": 1.6
+    },
+    "weight": {
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600
+    }
+  },
+  "spacing": [
+    4,
+    8,
+    12,
+    16,
+    24,
+    32,
+    40,
+    48
+  ],
+  "radius": {
+    "control": 12,
+    "panel": 20,
+    "status": 8
+  },
+  "layout": {
+    "sidebar": 100,
+    "contentPadding": 24,
+    "columnGap": 16,
+    "projectCardMinWidth": 260,
+    "projectCardHeight": 204,
+    "desktopMin": 1280,
+    "tabletMin": 768,
+    "mobilePadding": 16
+  },
+  "control": {
+    "height": 44,
+    "touchTargetMin": 44,
+    "focusWidth": 2,
+    "focusOffset": 3,
+    "iconSize": 22,
+    "iconStroke": 1.75,
+    "progressHeight": 8
+  },
+  "motion": {
+    "hoverMs": 140,
+    "panelMs": 200,
+    "reducedMotion": "none"
+  },
+  "shadow": {
+    "panel": "0 8px 28px rgba(55,70,132,.055)",
+    "primary": "0 6px 16px rgba(91,63,230,.18)"
+  }
+}

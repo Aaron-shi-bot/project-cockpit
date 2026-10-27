@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>同事工作与项目信息共享网页看板：现成方案选型</title>
+<style>
+  :root {
+    --bg:#f5f6f8; --card:#fff; --ink:#1c2333; --muted:#6b7280; --line:#e5e7eb;
+    --green:#16a34a; --amber:#d97706; --blue:#2563eb; --red:#dc2626; --violet:#7c3aed;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.6; padding:32px 16px; }
+  .wrap { max-width:960px; margin:0 auto; }
+  .header { background:linear-gradient(135deg,#1e3a8a,#3b82f6); color:#fff;
+    border-radius:14px; padding:28px 32px; box-shadow:0 8px 24px rgba(30,58,138,.18); }
+  .header .meta { font-size:13px; opacity:.85; margin-bottom:8px; }
+  .header h1 { font-size:26px; font-weight:700; }
+  .header .query { font-size:14px; opacity:.9; margin-top:10px; }
+  .chips { margin-top:16px; display:flex; flex-wrap:wrap; gap:8px; }
+  .chip { font-size:12px; padding:4px 12px; border-radius:999px;
+    background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.35); }
+  .section { margin-top:24px; }
+  .section h2 { font-size:17px; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .section h2::before { content:""; width:4px; height:18px; background:#3b82f6; border-radius:2px; }
+  .card { background:var(--card); border-radius:14px; padding:24px 28px;
+    border:1px solid var(--line); box-shadow:0 2px 8px rgba(17,24,39,.05); }
+  .badge { display:inline-block; font-size:12px; font-weight:600; padding:3px 12px;
+    border-radius:999px; margin-left:6px; vertical-align:middle; }
+  .badge.use { background:#f0fdf4; color:var(--green); border:1px solid #bbf7d0; }
+  .badge.mod { background:#fffbeb; color:var(--amber); border:1px solid #fde68a; }
+  .badge.idea { background:#eff6ff; color:var(--blue); border:1px solid #bfdbfe; }
+  .badge.dead { background:#fef2f2; color:var(--red); border:1px solid #fecaca; }
+  .badge.verify { background:#f5f3ff; color:var(--violet); border:1px solid #ddd6fe; }
+  .rec-head { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:6px; }
+  .rec-head h3 { font-size:22px; }
+  .one-liner { color:var(--muted); font-size:15px; margin-bottom:18px; }
+  .links { margin-bottom:20px; }
+  .links a { display:inline-block; margin:0 8px 8px 0; padding:7px 16px; border-radius:8px;
+    text-decoration:none; font-size:13px; font-weight:600; background:#eff6ff; color:var(--blue);
+    border:1px solid #bfdbfe; transition:.15s; }
+  .links a:hover { background:#dbeafe; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width:720px) { .grid { grid-template-columns:1fr; } }
+  .kv { background:#fafafa; border:1px solid var(--line); border-radius:10px; padding:14px 16px; }
+  .kv .label { font-size:12px; color:var(--muted); margin-bottom:4px; }
+  .kv .value { font-size:14px; font-weight:600; }
+  .maturity { margin-top:20px; }
+  .maturity .lbl { font-size:12px; color:var(--muted); margin-bottom:6px; }
+  .bar { display:flex; gap:6px; }
+  .seg { flex:1; height:10px; border-radius:5px; background:#e5e7eb; }
+  .seg.filled { background:linear-gradient(90deg,#22c55e,#16a34a); }
+  .match { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:18px; }
+  .match-item { text-align:center; border:1px solid var(--line); border-radius:10px; padding:12px 8px; }
+  .match-item .m { font-size:20px; }
+  .match-item .t { font-size:12px; color:var(--muted); margin-top:4px; }
+  .ok { color:var(--green); } .warn { color:var(--amber); } .no { color:var(--red); }
+  .note { background:#fffbeb; border:1px solid #fde68a; border-radius:10px;
+    padding:14px 16px; font-size:14px; margin-top:16px; }
+  .note-line { font-size:13px; color:var(--muted); margin-top:10px; }
+  table { width:100%; border-collapse:collapse; font-size:13.5px; }
+  th, td { padding:10px 12px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { background:#f9fafb; font-size:12px; color:var(--muted); }
+  tr:last-child td { border-bottom:none; }
+  .status-dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:6px; }
+  .dot-green, .status-dot.use { background:var(--green); }
+  .dot-amber, .status-dot.mod { background:var(--amber); }
+  .dot-blue, .status-dot.idea { background:var(--blue); }
+  .dot-red, .status-dot.dead { background:var(--red); }
+  .status-dot.verify { background:var(--violet); }
+  .next { background:#f0fdf4; border:1px solid #bbf7d0; border-radius:10px; padding:16px 18px; }
+  .next h4 { font-size:14px; color:var(--green); margin-bottom:6px; }
+  .next ol { margin-left:18px; font-size:14px; }
+  .src { font-size:13px; color:var(--muted); }
+  .src li { margin:4px 0; }
+  .src a { color:var(--blue); text-decoration:none; }
+  .src a:hover { text-decoration:underline; }
+  .footer { margin-top:28px; text-align:center; font-size:12px; color:#9ca3af; }
+  .footer a { color:var(--blue); text-decoration:none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <div class="meta">2026-10-22 · 普通模式 · 检索时长 20 分钟</div>
+    <h1>同事工作与项目信息共享网页看板：现成方案选型</h1>
+    <div class="query">需求：通过网页查看每位同事负责的项目和工作、进展与阻塞，并共享资料和讨论；用户已确认同时保留云服务和自行部署两条路线，比较功能和成本。</div>
+    <div class="chips"><span class="chip">混合</span><span class="chip">Exa 连接器</span><span class="chip">内置网络搜索</span><span class="chip">官方文档与定价</span><span class="chip">GitHub 发布/源码/安全公告</span><span class="chip">官方社区</span><span class="chip">候选 7 个</span></div>
+  </div>
+  <div class="section"><h2>Pro 决策摘要</h2><div class="card"><p><b>Verdict 行</b>：Verdict: 待验证 — 飞书多维表格＋云文档（云服务先试）；OpenProject Community（自行部署先试） — 2026-10-22 已核对官方功能、费用和许可；未完成多账号业务试跑</p><p><b>置信度</b>：MEDIUM · <b>门类型</b>：two-way</p><p><b>再评估触发器</b>：开始导入真实业务数据或付款前；成员数超过免费额度；需要内网、细分数据权限、人员排期或修改源码时；最晚在试用一周后复评。</p><p><b>谱系</b>：现成方案分为三条路线：多维表格把项目、任务与成员关联起来；完整项目管理平台把负责人、进度与Wiki连接起来；轻量看板围绕任务卡片协作。本轮没有查到本项目已有实现，不继承旧个人项目看板的产品推荐。用户本次尚未选定产品。</p><p><b>业务价值五维</b>：可靠性：优先维护中的产品，并核对安全修复线；战略价值：两条路线都能先验证共享习惯，暂不需要从零开发；适配性：飞书便于按同事和项目配置视图，OpenProject的免费基础任务表有跨项目按负责人查看的明确文档；总成本：云服务重点看人数、权限和容量，自部署要加服务器、备份、更新和维护；启动速度：云服务少部署工作，自部署保留更多数据与代码控制。</p></div></div>
+  <div class="section"><h2>推荐方案</h2><div class="card">
+  <div class="rec-head">
+    <h3>飞书多维表格＋云文档</h3>
+    <span class="badge verify">🟣 待验证</span>
+    <span class="badge">成熟度 L4</span>
+  </div>
+  <p class="one-liner">云服务优先试：用现成项目管理模板，将任务按负责人或项目分组，并关联共享资料。</p>
+  <div class="links"><a href="https://www.feishu.cn/" target="_blank">官网</a><a href="https://www.feishu.cn/hc/zh-CN/articles/184008024837-多维表格实战模板-项目管理系统" target="_blank">项目管理模板</a><a href="https://www.feishu.cn/service" target="_blank">版本与价格</a><a href="https://www.feishu.cn/hc/zh-CN/articles/360044508113-云文档权限常见问题" target="_blank">权限说明</a></div>
+  <div class="grid">
+    <div class="kv"><div class="label">类型</div><div class="value">现成云服务；中文</div></div>
+    <div class="kv"><div class="label">许可证 / 成本</div><div class="value">商业云服务；免费版当前支持100用户。商业标准/专业/旗舰官网年付标价分别为50/80/120元每人每月；高级能力、容量和企业整体升级条件另核对。</div></div>
+    <div class="kv"><div class="label">最近更新</div><div class="value">持续运营服务，2026-10-22核对现行模板与版本权益；无客户端版本可作为部署证据。</div></div>
+    <div class="kv"><div class="label">上手难度</div><div class="value">低到中：无需维护服务器，但要配置任务、项目、成员之间的关系、字段、视图和权限。</div></div>
+  </div>
+  <div class="maturity">
+    <div class="lbl">成熟度（离直接用有多远：L0–L5）</div>
+    <div class="bar"><div class="seg filled"></div><div class="seg filled"></div><div class="seg filled"></div><div class="seg filled"></div><div class="seg"></div></div>
+  </div>
+  <div class="match"><div class="match-item"><div class="m ok">✅</div><div class="t">输入匹配</div></div><div class="match-item"><div class="m ok">✅</div><div class="t">输出匹配</div></div><div class="match-item"><div class="m ok">✅</div><div class="t">场景匹配</div></div><div class="match-item"><div class="m warn">⚠️</div><div class="t">约束匹配</div></div></div>
+  <div class="note">🎯 决策行：Verdict: 待验证 — 飞书多维表格＋云文档 — 2026-10-22核对官方项目模板、人员分组、免费人数与版本权益；未完成真实业务与权限试跑</div><div class="note">⚠️ 已知坑：不是开箱即用的独立定制网站。多维表格高级权限、容量和自动化有版本限制；行数存在扩容权益，不写死免费行数。普通方案按SaaS理解，完全私有化需商务确认。未验证团队成员是否都愿意及时更新。</div><div class="note">⚖️ 许可硬检查：产品使用和数据处理受商业服务协议约束；不是可以拿走源码修改的开源项目。保留导出与退出验证。</div><div class="note">🧭 置信度：MEDIUM · 门类型：two-way</div><div class="note">🔁 再评估触发器：需要细分行列权限、自动化增多、数据超过容量、准备企业整体付费或需要内网部署时。</div><div class="note">📜 谱系：沿用电子表格的录入习惯，把项目、任务和人员关联，再用看板和仪表盘呈现。适合先验证同事之间共享工作的方式。</div><div class="note">结论理由：在同时保留两条路线的前提下，优先拿它验证轻量协作；是否满足全部权限与展示要求仍需试用。</div>
+</div></div>
+  <div class="section"><h2>候选对比</h2><div class="card"><table>
+    <thead><tr><th>方案</th><th>类型</th><th>成熟度</th><th>成本</th><th>一句话定位</th><th>结论</th></tr></thead>
+    <tbody><tr><td>飞书多维表格＋云文档</td><td>现成云服务；中文</td><td>L4</td><td>商业云服务；免费版当前支持100用户。商业标准/专业/旗舰官网年付标价分别为50/80/120元每人每月；高级能力、容量和企业整体升级条件另核对。</td><td>云服务优先试：用现成项目管理模板，将任务按负责人或项目分组，并关联共享资料。</td><td><span class="status-dot verify"></span>待验证</td></tr><tr><td>OpenProject Community</td><td>开源可自行部署；另有商业托管；支持中文</td><td>L4</td><td>Community软件免费，无最低用户数；服务器和维护另计。Team planner、Resource management等企业附加功能收费；不把默认定价计算器的价格当所有模式报价。</td><td>自行部署优先试：跨项目任务表按负责人筛选或分组，配合进度、里程碑、Wiki、附件和评论；功能较多。</td><td><span class="status-dot verify"></span>待验证</td></tr><tr><td>Leantime</td><td>开源可自行部署；另有商业云服务；有中文包</td><td>L4</td><td>免费核心AGPLv3；跨项目Program Plans等另售插件。云Pro官网月付10美元/人/月，年付标价8美元/人/月；不能把云试用当永久免费。</td><td>面向非专业项目经理，项目进度与Docs/Wiki一体；免费My Work以本人为中心，查看所有同事的跨项目工作需重点验证。</td><td><span class="status-dot verify"></span>待验证</td></tr><tr><td>Vikunja</td><td>开源可自行部署；有中文包</td><td>L4</td><td>免费AGPLv3核心；Pro的实例管理、工时和审计等收费；服务器另计，具体Pro单价本轮未核定。</td><td>轻量任务协作备选：通过保存筛选器按同事跨项目查看任务，描述、附件和评论能共享；完整知识库需另配。</td><td><span class="status-dot verify"></span>待验证</td></tr><tr><td>Plane Community</td><td>开源Community／商业Cloud与Commercial；需分清版本</td><td>L4</td><td>Community免费AGPLv3且不限席位；Cloud/Commercial Free有12席界限，不能混写。更完整Wiki、模板等付费。</td><td>偏研发工作流的备选：跨项目视图、任务状态和Project Pages可用，公司级Wiki等功能另有付费分层。</td><td><span class="status-dot verify"></span>待验证</td></tr><tr><td>Teambition</td><td>商业云服务；中文；另有商业私有部署</td><td>L4</td><td>免费版当前10席。官网企业版798元/人/年、旗舰1398元/人/年，10席起；具体权益与购买时价格需重核。私有部署版页面200席起，不是免费开源自部署。</td><td>已有钉钉可先试：现成任务看板、文件、评论和工作台；免费10席，高级跨项目管理与分析收费。</td><td><span class="status-dot verify"></span>待验证</td></tr><tr><td>Focalboard 独立版</td><td>历史开源项目</td><td>L3</td><td>本轮因维护状态排除，不展开许可选型。</td><td>旧教程常见候选，但独立版官方README已注明当前无人维护，不作为新团队长期平台。</td><td><span class="status-dot dead"></span>淘汰</td></tr></tbody>
+  </table></div></div>
+  <div class="section"><h2>下一步（最小试跑）</h2>
+    <div class="next"><h4>验证计划</h4><ol><li>选两个候选做同一套小规模试点：飞书模板与OpenProject Community，先用虚构数据。</li><li>建立2个项目、3名同事和10条任务；每条任务记录负责人、项目、状态、最近进展、下一步、阻塞、截止日期、更新时间、资料链接。</li><li>验收人员视图：打开网页后能从一个入口找到某位同事在各项目的工作；项目视图：查看阶段、完成情况和下一步；两种视图读取同一批数据。</li><li>验收共享与权限：3个账号看同一条任务、发表讨论、查看关联资料；只有被授权的项目可见，修改后其他账号能看到。</li><li>上传中文文件名及同批多个附件；导出任务与资料；验证备份恢复或退出迁移。</li><li>连续试用一周，记录每日更新是否方便、过期信息能否发现；确认免费范围够用后再导入真实数据或采购。</li><li>只有现成配置缺少已证实的关键功能，再评估API接入或修改开源源码，届时先检查许可与后续升级成本。</li></ol></div></div>
+  <div class="section"><h2>来源与搜索记录</h2><div class="card src">
+    <ul><li>https://www.feishu.cn/</li><li>https://www.feishu.cn/hc/zh-CN/articles/184008024837-多维表格实战模板-项目管理系统</li><li>https://www.feishu.cn/service</li><li>https://www.feishu.cn/hc/zh-CN/articles/360044508113-云文档权限常见问题</li><li>https://www.feishu.cn/hc/zh-CN/articles/868158430248-多维表格-重塑项目管理流程</li><li>https://www.feishu.cn/services/success-plans</li><li>https://www.openproject.org/community-edition/</li><li>https://github.com/opf/openproject</li><li>https://www.openproject.org/docs/user-guide/projects/projects-faq/</li><li>https://www.openproject.org/docs/user-guide/work-packages/work-package-table-configuration/</li><li>https://www.openproject.org/pricing/</li><li>https://www.openproject.org/docs/release-notes/</li><li>https://www.openproject.org/docs/user-guide/wiki/</li><li>https://www.openproject.org/docs/enterprise-guide/</li><li>https://www.openproject.org/docs/user-guide/account-settings/language-and-region/</li><li>https://www.openproject.org/docs/installation-and-operations/system-requirements/</li><li>https://github.com/opf/openproject/security/advisories/GHSA-98vw-2r87-fx2r</li><li>https://leantime.io/</li><li>https://github.com/Leantime/leantime</li><li>https://leantime.io/pricing/</li><li>https://marketplace.leantime.io/product/leantime-program-plans/</li><li>https://github.com/Leantime/leantime/releases/tag/v3.12.0</li><li>https://support.leantime.io/en/article/how-is-leantime-the-open-source-system-licensed-29l3j/</li><li>https://github.com/Leantime/leantime/pull/3587</li><li>https://github.com/Leantime/leantime/issues/3782</li><li>https://github.com/Leantime/leantime/security/advisories/GHSA-54mm-6729-r5wp</li><li>https://vikunja.io/</li><li>https://github.com/go-vikunja/vikunja</li><li>https://vikunja.io/help/filters/</li><li>https://vikunja.io/help/sharing-and-teams/</li><li>https://vikunja.io/docs/pro/</li><li>https://vikunja.io/features/</li><li>https://vikunja.io/docs/installing/</li><li>https://vikunja.io/changelog/vikunja-2.7.1-was-released/</li><li>https://community.vikunja.io/t/my-tasks-sidebar-entry-with-cross-project-views/4497</li><li>https://plane.so/</li><li>https://github.com/makeplane/plane</li><li>https://docs.plane.so/core-concepts/views</li><li>https://developers.plane.so/self-hosting/editions-and-versions</li><li>https://plane.so/blog/plane-wiki-and-pages-a-guide-to-team-documentation</li><li>https://github.com/makeplane/plane/releases/tag/v1.4.2</li><li>https://developers.plane.so/self-hosting/methods/docker-compose</li><li>https://forum.plane.so/t/new-seat-minimums-on-self-hosted-commercial-and-air-gapped-starting-april-24/96</li><li>https://github.com/makeplane/plane/security/advisories/GHSA-hhj8-7hv6-m74r</li><li>https://www.teambition.com/</li><li>https://www.teambition.com/pricing</li><li>https://www.teambition.com/design?region=cn</li><li>https://www.teambition.com/manageproject?region=cn</li><li>https://github.com/mattermost-community/focalboard</li><li>https://github.com/plankanban/planka/blob/master/LICENSE.md</li><li>https://www.zentao.net/zentao-os.html</li><li>https://www.gnu.org/licenses/gpl-faq.en.html</li></ul><p class="note-line">未搜索渠道：Tavily（未配置）、Product Hunt/AlternativeTo（未作为结论依据）、付费Gartner等分析、未穷尽全部CVE和依赖漏洞</p><p class="note-line">检索日志：actively maintained open source web team project management; cross-project assignee and documents（Exa连接器，命中 6，有用 5）；open source project management team workload knowledge sharing Leantime OpenProject Plane Vikunja official（内置搜索，命中 多页，有用 进入定向核对）；Leantime demo / pricing self hosted plugins portfolio / Chinese / Docker（内置搜索,官方定价,GitHub，命中 见research/opensource-evidence.md，有用 确认免费核心、插件边界和语言包）；OpenProject global work packages assignee group projects / enterprise team planner（内置搜索,官方文档,官方社区，命中 多页，有用 确认跨项目基础总览及付费人员排期区别）；Plane Community Commercial editions wiki pages license security release（内置搜索,GitHub,官方文档，命中 见research/integrated-evidence.md，有用 确认版别、Wiki分层、稳定版和安全修复线）；Vikunja assignees saved filters sharing pro changelog / PLANKA current license（内置搜索,官方帮助,GitHub API，命中 见research/opensource-evidence.md，有用 确认筛选能力、Pro边界、近期安全版及许可变化）；飞书 项目管理模板 按负责人 看板 免费版 人数 / Teambition pricing（内置搜索,官方帮助与定价，命中 见research/china-evidence.md，有用 确认现成模板、免费人数和付费功能界限）；GPL AGPL network users internal use source obligations（GNU FAQ,候选仓库许可原文，命中 多页，有用 区分GPL分发与AGPL修改版网络使用）</p><p class="note-line">假设：需求按普通团队协作理解；人数、预算、信息保密级别、是否必须内网和是否已有飞书/钉钉尚未确认。；用户已确认两种使用方式都保留，先比功能和成本；没有确认任何产品、没有要求部署。；价格为2026-10-22公开页面核对，受计费周期、席位和合同影响；未换算汇率、未虚构服务器费用。；检索时长为约数；原始结果和证据在research目录，HTML仅由技能脚本生成。；功能存在不等于业务流程已验证，所有保留候选均待实际试跑。；安全检查仅抽查官方公告和修复版本；没有声称任何产品无漏洞。；多家厂商官方资料、源码、发布与用户issues交叉核对；不存在基于单篇排行榜决定推荐。；社区维护状态与许可证按本轮证据核实；旧搜索索引中的Leantime附件问题已关闭，不当作未修复。</p>
+  </div></div>
+  <div class="footer">由 检索世界 Pro 生成 · <a href="index.html">返回检索历史</a></div>
+</div>
+</body>
+</html>
